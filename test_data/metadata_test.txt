@@ -1,0 +1,2 @@
+CyberNexus forensic metadata test file.
+This file is used only for defensive testing.

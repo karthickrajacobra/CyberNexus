@@ -1,0 +1,14 @@
+﻿{
+  "url_result": {
+    "risk_score": 55,
+    "risk_level": "HIGH"
+  },
+  "file_result": {
+    "risk_score": 70,
+    "risk_level": "CRITICAL"
+  },
+  "email_result": {
+    "risk_score": 54,
+    "risk_level": "HIGH"
+  }
+}

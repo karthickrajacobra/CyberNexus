@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CyberNexus Ω</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     CYBERNEXUS INCIDENT CORRELATION ENGINE
+========================================================= -->
+
+<section style="
+    margin:30px;
+    padding:25px;
+    background:#07111f;
+    border:1px solid #00d4aa;
+    border-radius:15px;
+">
+
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:15px;
+    ">
+
+        <div>
+
+            <span style="
+                color:#00d4aa;
+                font-size:12px;
+                letter-spacing:2px;
+                font-weight:bold;
+            ">
+                CYBERNEXUS Ω
+            </span>
+
+            <h2 style="
+                color:white;
+                margin:8px 0;
+            ">
+                ⚡ Incident Correlation Engine
+            </h2>
+
+            <p style="
+                color:#8fa3bf;
+                margin:0;
+            ">
+                Correlate URL, file and email signals into one security incident.
+            </p>
+
+        </div>
+
+
+        <div style="
+            color:#00d4aa;
+            border:1px solid #00d4aa;
+            border-radius:20px;
+            padding:8px 14px;
+            font-size:12px;
+            font-weight:bold;
+        ">
+            ORCHESTRATOR ONLINE
+        </div>
+
+    </div>
+
+
+    <!-- EMAIL -->
+
+    <div style="
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:15px;
+        margin-top:25px;
+    ">
+
+        <div>
+
+            <label style="
+                color:#8fa3bf;
+                font-size:13px;
+            ">
+                Sender
+            </label>
+
+            <input
+                id="emailSender"
+                type="text"
+                placeholder="security@example.com"
+                style="
+                    width:100%;
+                    box-sizing:border-box;
+                    margin-top:7px;
+                    padding:13px;
+                    border-radius:8px;
+                    border:1px solid #334155;
+                    background:#111827;
+                    color:white;
+                "
+            >
+
+        </div>
+
+
+        <div>
+
+            <label style="
+                color:#8fa3bf;
+                font-size:13px;
+            ">
+                Email Threat Content
+            </label>
+
+            <input
+                id="emailText"
+                type="text"
+                placeholder="Urgent! Verify your account immediately..."
+                style="
+                    width:100%;
+                    box-sizing:border-box;
+                    margin-top:7px;
+                    padding:13px;
+                    border-radius:8px;
+                    border:1px solid #334155;
+                    background:#111827;
+                    color:white;
+                "
+            >
+
+        </div>
+
+    </div>
+
+
+    <button
+        onclick="correlateIncident()"
+        style="
+            margin-top:18px;
+            padding:14px 28px;
+            border:none;
+            border-radius:8px;
+            background:#00d4aa;
+            color:#001b17;
+            font-weight:bold;
+            cursor:pointer;
+        "
+    >
+        ⚡ CORRELATE INCIDENT
+    </button>
+
+
+    <div
+        id="incidentStatus"
+        style="
+            margin-top:18px;
+            color:#8fa3bf;
+        "
+    >
+        Ready for incident correlation.
+    </div>
+
+
+    <div
+        id="incidentResult"
+        style="
+            margin-top:15px;
+        "
+    >
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FILE THREAT ANALYZER
+========================================================= -->
+
+<section style="
+    margin:30px;
+    padding:25px;
+    background:#0b1220;
+    border:1px solid #243247;
+    border-radius:15px;
+">
+
+    <h2 style="color:white;">
+        🛡️ File Threat Analyzer
+    </h2>
+
+    <p style="color:#8fa3bf;">
+        Static file analysis using hash, entropy and suspicious-pattern detection.
+    </p>
+
+
+    <input
+        id="fileInput"
+        type="file"
+        style="
+            margin-top:10px;
+            padding:12px;
+            color:white;
+        "
+    >
+
+
+    <br><br>
+
+
+    <button
+        onclick="scanFile()"
+        style="
+            padding:13px 24px;
+            border:none;
+            border-radius:8px;
+            background:#00d4aa;
+            color:#001b17;
+            font-weight:bold;
+            cursor:pointer;
+        "
+    >
+        ANALYZE FILE
+    </button>
+
+
+    <div
+        id="fileStatus"
+        style="
+            margin-top:20px;
+            color:#8fa3bf;
+        "
+    >
+    </div>
+
+
+    <div
+        id="fileResult"
+        style="margin-top:20px;"
+    >
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     URL THREAT SCANNER
+========================================================= -->
+
+<section style="
+    margin:30px;
+    padding:25px;
+    background:#0b1220;
+    border:1px solid #243247;
+    border-radius:15px;
+">
+
+    <h2 style="color:#ffffff;">
+        🔎 URL Threat Scanner
+    </h2>
+
+
+    <p style="color:#8fa3bf;">
+        Analyze a URL using CYBERNEXUS Ω threat intelligence engine.
+    </p>
+
+
+    <div style="
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+    ">
+
+
+        <input
+            id="urlInput"
+            type="text"
+            placeholder="https://example.com"
+            style="
+                flex:1;
+                min-width:300px;
+                padding:14px;
+                border-radius:8px;
+                border:1px solid #334155;
+                background:#111827;
+                color:white;
+            "
+        >
+
+
+        <button
+            onclick="scanURL()"
+            style="
+                padding:14px 24px;
+                border:none;
+                border-radius:8px;
+                background:#00d4aa;
+                color:#001b17;
+                font-weight:bold;
+                cursor:pointer;
+            "
+        >
+            ANALYZE URL
+        </button>
+
+    </div>
+
+
+    <div
+        id="scanStatus"
+        style="
+            margin-top:20px;
+            color:#8fa3bf;
+        "
+    >
+    </div>
+
+
+    <div
+        id="scanResult"
+        style="
+            margin-top:20px;
+        "
+    >
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MAIN CYBERNEXUS DASHBOARD
+========================================================= -->
+
+<div class="app">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+            <div class="logo">
+                Ω
+            </div>
+
+            <div>
+
+                <h2>
+                    CYBERNEXUS
+                </h2>
+
+                <span>
+                    SECURITY OS
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a class="active">
+                ◈ Dashboard
+            </a>
+
+            <a>
+                ⚠ Threats
+            </a>
+
+            <a>
+                ⌕ Investigation
+            </a>
+
+            <a>
+                ◉ Forensics
+            </a>
+
+            <a>
+                ◇ Attack Graph
+            </a>
+
+            <a>
+                ⟳ Simulation
+            </a>
+
+            <a>
+                ⬢ AI SOC
+            </a>
+
+            <a>
+                ▣ Cyber Range
+            </a>
+
+            <a>
+                ▤ Reports
+            </a>
+
+        </nav>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+
+                <small>
+                    SYSTEM STATUS
+                </small>
+
+                <strong>
+                    OPERATIONAL
+                </strong>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    SECURITY OPERATIONS CENTER
+                </p>
+
+                <h1>
+                    Cyber Defense Command
+                </h1>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <span class="live">
+                    ● LIVE
+                </span>
+
+                <button class="profile">
+                    KR
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             METRICS
+        ================================================== -->
+
+        <section class="metrics">
+
+
+            <div class="metric-card">
+
+                <span>
+                    THREAT LEVEL
+                </span>
+
+                <strong
+                    id="metricThreat"
+                    class="danger"
+                >
+                    HIGH
+                </strong>
+
+                <small id="metricThreatSub">
+                    Waiting for telemetry
+                </small>
+
+            </div>
+
+
+
+            <div class="metric-card">
+
+                <span>
+                    ACTIVE INCIDENTS
+                </span>
+
+                <strong id="metricIncidents">
+                    08
+                </strong>
+
+                <small>
+                    Correlated security events
+                </small>
+
+            </div>
+
+
+
+            <div class="metric-card">
+
+                <span>
+                    RISK SCORE
+                </span>
+
+                <strong id="metricRisk">
+                    76
+                </strong>
+
+                <small>
+                    / 100
+                </small>
+
+            </div>
+
+
+
+            <div class="metric-card">
+
+                <span>
+                    EVIDENCE
+                </span>
+
+                <strong id="metricEvidence">
+                    17
+                </strong>
+
+                <small id="metricEvidenceSub">
+                    Integrity verified
+                </small>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTENT GRID
+        ================================================== -->
+
+        <section class="content-grid">
+
+
+            <!-- ATTACK GRAPH -->
+
+            <div class="panel attack-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            RELATIONSHIP ENGINE
+                        </span>
+
+                        <h2>
+                            Live Attack Graph
+                        </h2>
+
+                    </div>
+
+
+                    <span class="badge">
+                        REAL-TIME
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="attackGraph"
+                    class="graph"
+                    style="
+                        min-height:430px;
+                        position:relative;
+                        overflow:hidden;
+                    "
+                >
+
+                    <div style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        height:430px;
+                        color:#8fa3bf;
+                        font-size:14px;
+                    ">
+
+                        Loading CyberNexus
+                        attack graph...
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="graphNodeDetails"
+                    style="
+                        margin-top:15px;
+                        padding:12px;
+                        min-height:25px;
+                        border:1px solid #243247;
+                        border-radius:8px;
+                        background:#08101d;
+                        color:#8fa3bf;
+                        font-size:13px;
+                    "
+                >
+
+                    Click a graph node
+                    to inspect details.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RISK ANALYSIS -->
+
+            <div class="panel risk-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            INTELLIGENCE
+                        </span>
+
+                        <h2>
+                            Risk Analysis
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="risk-score">
+
+                    <strong id="riskScoreDisplay">
+                        76
+                    </strong>
+
+                    <span>
+                        /100
+                    </span>
+
+                </div>
+
+
+                <div class="risk-bar">
+
+                    <div
+                        id="riskBarFill"
+                        style="width:76%;"
+                    >
+                    </div>
+
+                </div>
+
+
+                <p id="riskExplanation">
+
+                    Multiple correlated
+                    indicators detected.
+                    Investigation recommended.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RECENT EVENTS
+        ================================================== -->
+
+        <section class="panel events">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        SECURITY TELEMETRY
+                    </span>
+
+                    <h2>
+                        Recent Events
+                    </h2>
+
+                </div>
+
+
+                <button class="view-btn">
+                    VIEW ALL
+                </button>
+
+            </div>
+
+
+
+            <div class="event">
+
+                <span class="event-time">
+                    LIVE
+                </span>
+
+                <span class="event-dot danger-dot"></span>
+
+                <div>
+
+                    <strong>
+                        Behaviour anomaly detected
+                    </strong>
+
+                    <small>
+                        CyberNexus Detection Engine
+                    </small>
+
+                </div>
+
+                <span class="event-risk high">
+                    HIGH
+                </span>
+
+            </div>
+
+
+
+            <div class="event">
+
+                <span class="event-time">
+                    LIVE
+                </span>
+
+                <span class="event-dot warning-dot"></span>
+
+                <div>
+
+                    <strong>
+                        Suspicious URL identified
+                    </strong>
+
+                    <small>
+                        URL Detection Engine
+                    </small>
+
+                </div>
+
+                <span class="event-risk medium">
+                    MEDIUM
+                </span>
+
+            </div>
+
+
+
+            <div class="event">
+
+                <span class="event-time">
+                    LIVE
+                </span>
+
+                <span class="event-dot safe-dot"></span>
+
+                <div>
+
+                    <strong>
+                        Evidence integrity verified
+                    </strong>
+
+                    <small>
+                        Evidence Ledger
+                    </small>
+
+                </div>
+
+                <span class="event-risk safe">
+                    VERIFIED
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     URL SCANNER
+========================================================= -->
+
+<script>
+
+async function scanURL() {
+
+
+    const input =
+        document.getElementById("urlInput");
+
+
+    const status =
+        document.getElementById("scanStatus");
+
+
+    const result =
+        document.getElementById("scanResult");
+
+
+    const url =
+        input.value.trim();
+
+
+    if (!url) {
+
+        status.innerHTML =
+            "⚠️ Enter a URL first.";
+
+        return;
+
+    }
+
+
+    status.innerHTML =
+        "⏳ Analyzing URL...";
+
+
+    result.innerHTML = "";
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                "/api/analyze-url",
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            url:url
+                        })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.success) {
+
+            throw new Error(
+                data.error ||
+                "URL analysis failed"
+            );
+
+        }
+
+
+        const r =
+            data.result;
+
+
+        window.latestURLResult =
+            r;
+
+
+        let level =
+            String(
+                r.risk_level ||
+                "UNKNOWN"
+            ).toUpperCase();
+
+
+        let icon =
+            "🟢";
+
+
+        if (level === "MEDIUM") {
+
+            icon =
+                "🟠";
+
+        }
+
+
+        if (level === "HIGH") {
+
+            icon =
+                "🔴";
+
+        }
+
+
+        if (level === "CRITICAL") {
+
+            icon =
+                "🚨";
+
+        }
+
+
+        function safeHTML(value) {
+
+            const element =
+                document.createElement("div");
+
+            element.textContent =
+                String(value ?? "");
+
+            return element.innerHTML;
+
+        }
+
+
+        let findings =
+            "No suspicious findings";
+
+
+        if (
+            r.findings &&
+            r.findings.length
+        ) {
+
+            findings =
+                r.findings
+                .map(
+                    function(item) {
+
+                        return safeHTML(item);
+
+                    }
+                )
+                .join("<br>");
+
+        }
+
+
+        status.innerHTML =
+            "✅ Analysis completed";
+
+
+        result.innerHTML = `
+
+            <div style="
+                padding:20px;
+                border:1px solid #334155;
+                border-radius:12px;
+                background:#111827;
+            ">
+
+
+                <h3 style="
+                    color:white;
+                    margin-top:0;
+                ">
+
+                    ${icon}
+
+                    Threat Level:
+
+                    ${safeHTML(level)}
+
+                </h3>
+
+
+                <p style="
+                    color:#cbd5e1;
+                    word-break:break-all;
+                ">
+
+                    <strong>
+                        URL:
+                    </strong>
+
+                    ${safeHTML(
+                        r.url || url
+                    )}
+
+                </p>
+
+
+                <p style="
+                    color:#cbd5e1;
+                ">
+
+                    <strong>
+                        Risk Score:
+                    </strong>
+
+                    ${safeHTML(
+                        r.risk_score ?? 0
+                    )}/100
+
+                </p>
+
+
+                <p style="
+                    color:#cbd5e1;
+                ">
+
+                    <strong>
+                        Findings:
+                    </strong>
+
+                    <br><br>
+
+                    ${findings}
+
+                </p>
+
+
+            </div>
+
+        `;
+
+
+    }
+
+
+    catch(error) {
+
+
+        status.innerHTML =
+            "❌ Error: " +
+            String(error.message);
+
+
+        console.error(
+            "CyberNexus URL error:",
+            error
+        );
+
+    }
+
+}
+
+</script>
+
+
+
+<!-- =========================================================
+     FILE SCANNER
+========================================================= -->
+
+<script>
+
+async function scanFile() {
+
+
+    const input =
+        document.getElementById(
+            "fileInput"
+        );
+
+
+    const status =
+        document.getElementById(
+            "fileStatus"
+        );
+
+
+    const result =
+        document.getElementById(
+            "fileResult"
+        );
+
+
+    if (!input.files.length) {
+
+        status.innerHTML =
+            "⚠️ Please select a file.";
+
+        return;
+
+    }
+
+
+    const file =
+        input.files[0];
+
+
+    const formData =
+        new FormData();
+
+
+    formData.append(
+        "file",
+        file
+    );
+
+
+    status.innerHTML =
+        "⏳ Analyzing file...";
+
+
+    result.innerHTML =
+        "";
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                "/api/analyze-file",
+                {
+
+                    method:"POST",
+
+                    body:
+                        formData
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.success) {
+
+            throw new Error(
+                data.error ||
+                "File analysis failed"
+            );
+
+        }
+
+
+        const r =
+            data.result;
+
+
+        window.latestFileResult =
+            r;
+
+
+        let level =
+            String(
+                r.risk_level ||
+                "UNKNOWN"
+            ).toUpperCase();
+
+
+        let icon =
+            "🟢";
+
+
+        if (level === "MEDIUM") {
+
+            icon =
+                "🟠";
+
+        }
+
+
+        if (level === "HIGH") {
+
+            icon =
+                "🔴";
+
+        }
+
+
+        if (level === "CRITICAL") {
+
+            icon =
+                "🚨";
+
+        }
+
+
+        function safeHTML(value) {
+
+            const element =
+                document.createElement("div");
+
+            element.textContent =
+                String(value ?? "");
+
+            return element.innerHTML;
+
+        }
+
+
+        let findings =
+            "No suspicious findings";
+
+
+        if (
+            r.findings &&
+            r.findings.length
+        ) {
+
+            findings =
+                r.findings
+                .map(
+                    function(item) {
+
+                        return safeHTML(item);
+
+                    }
+                )
+                .join("<br>");
+
+        }
+
+
+        status.innerHTML =
+            "✅ File analysis completed";
+
+
+        result.innerHTML = `
+
+            <div style="
+                padding:20px;
+                background:#111827;
+                border:1px solid #334155;
+                border-radius:12px;
+            ">
+
+
+                <h3 style="color:white;">
+
+                    ${icon}
+
+                    ${safeHTML(level)}
+
+                </h3>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        File:
+                    </strong>
+
+                    ${safeHTML(
+                        r.file_name
+                    )}
+
+                </p>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Risk Score:
+                    </strong>
+
+                    ${safeHTML(
+                        r.risk_score
+                    )}/100
+
+                </p>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Entropy:
+                    </strong>
+
+                    ${safeHTML(
+                        r.entropy
+                    )}
+
+                </p>
+
+
+                <p style="
+                    color:#cbd5e1;
+                    word-break:break-all;
+                ">
+
+                    <strong>
+                        SHA-256:
+                    </strong>
+
+                    ${safeHTML(
+                        r.sha256
+                    )}
+
+                </p>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Extension:
+                    </strong>
+
+                    ${safeHTML(
+                        r.extension
+                    )}
+
+                </p>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Findings:
+                    </strong>
+
+                    <br>
+
+                    ${findings}
+
+                </p>
+
+
+            </div>
+
+        `;
+
+
+    }
+
+
+    catch(error) {
+
+
+        status.innerHTML =
+            "❌ " +
+            String(error.message);
+
+
+        console.error(
+            "CyberNexus File error:",
+            error
+        );
+
+    }
+
+}
+
+</script>
+
+
+
+<!-- =========================================================
+     INCIDENT ORCHESTRATOR
+========================================================= -->
+
+<script>
+
+async function correlateIncident() {
+
+
+    const status =
+        document.getElementById(
+            "incidentStatus"
+        );
+
+
+    const result =
+        document.getElementById(
+            "incidentResult"
+        );
+
+
+    const emailText =
+        document.getElementById(
+            "emailText"
+        ).value.trim();
+
+
+    const emailSender =
+        document.getElementById(
+            "emailSender"
+        ).value.trim();
+
+
+    status.innerHTML =
+        "⏳ Running incident orchestration...";
+
+
+    result.innerHTML =
+        "";
+
+
+    try {
+
+
+        let emailResult =
+            window.latestEmailResult ||
+            null;
+
+
+        /* EMAIL ANALYSIS */
+
+        if (emailText) {
+
+
+            const response =
+                await fetch(
+                    "/api/analyze-email",
+                    {
+
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                email:
+                                    emailText,
+
+                                sender:
+                                    emailSender
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (!data.success) {
+
+                throw new Error(
+                    data.error ||
+                    "Email analysis failed"
+                );
+
+            }
+
+
+            emailResult =
+                data.result;
+
+
+            window.latestEmailResult =
+                emailResult;
+
+        }
+
+
+        /* CHECK SIGNALS */
+
+        const urlResult =
+            window.latestURLResult ||
+            null;
+
+
+        const fileResult =
+            window.latestFileResult ||
+            null;
+
+
+        if (
+            !urlResult &&
+            !fileResult &&
+            !emailResult
+        ) {
+
+            throw new Error(
+                "Analyze a URL, analyze a file, or enter email data first."
+            );
+
+        }
+
+
+        /* INCIDENT API */
+
+        const incidentResponse =
+            await fetch(
+                "/api/incident",
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            url_result:
+                                urlResult,
+
+                            file_result:
+                                fileResult,
+
+                            email_result:
+                                emailResult
+
+                        })
+
+                }
+            );
+
+
+        const incidentData =
+            await incidentResponse.json();
+
+
+        if (!incidentData.success) {
+
+            throw new Error(
+                incidentData.error ||
+                "Incident orchestration failed"
+            );
+
+        }
+
+
+        window.latestIncidentResult =
+            incidentData;
+
+
+        /* DATA */
+
+        const incident =
+            incidentData.incident;
+
+
+        const unified =
+            incidentData.unified_risk;
+
+
+        const riskScore =
+            Number(
+                unified.overall_score || 0
+            );
+
+
+        const riskLevel =
+            String(
+                unified.overall_level ||
+                "LOW"
+            ).toUpperCase();
+
+
+        /* UPDATE METRICS */
+
+        document.getElementById(
+            "metricThreat"
+        ).innerText =
+            riskLevel;
+
+
+        document.getElementById(
+            "metricRisk"
+        ).innerText =
+            riskScore;
+
+
+        document.getElementById(
+            "riskScoreDisplay"
+        ).innerText =
+            riskScore;
+
+
+        document.getElementById(
+            "riskBarFill"
+        ).style.width =
+            riskScore + "%";
+
+
+        document.getElementById(
+            "metricIncidents"
+        ).innerText =
+            "01";
+
+
+        document.getElementById(
+            "metricEvidence"
+        ).innerText =
+            incidentData
+            .evidence
+            .records_created;
+
+
+        document.getElementById(
+            "metricThreatSub"
+        ).innerText =
+            incident.signal_count +
+            " correlated signal(s)";
+
+
+        document.getElementById(
+            "metricEvidenceSub"
+        ).innerText =
+            "Integrity ledger updated";
+
+
+        document.getElementById(
+            "riskExplanation"
+        ).innerText =
+            unified.explanation.join(" ");
+
+
+        /* RESULT CARD */
+
+        result.innerHTML = `
+
+            <div style="
+                padding:20px;
+                background:#0f172a;
+                border:1px solid #334155;
+                border-radius:12px;
+            ">
+
+
+                <h3 style="
+                    color:white;
+                    margin-top:0;
+                ">
+
+                    ⚡ Incident Correlated
+
+                </h3>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Incident ID:
+                    </strong>
+
+                    ${incident.incident_id}
+
+                </p>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Incident Level:
+                    </strong>
+
+                    ${incident.incident_level}
+
+                </p>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Unified Risk:
+                    </strong>
+
+                    ${riskScore}/100
+
+                </p>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Correlation Score:
+                    </strong>
+
+                    ${incident.correlation_score}/100
+
+                </p>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Security Signals:
+                    </strong>
+
+                    ${incident.signal_count}
+
+                </p>
+
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        High-Risk Signals:
+                    </strong>
+
+                    ${incident.high_risk_signal_count}
+
+                </p>
+
+
+                <p style="color:#00d4aa;">
+
+                    ✓ Evidence chain updated<br>
+
+                    ✓ Correlation completed<br>
+
+                    ✓ Attack graph generated
+
+                </p>
+
+
+            </div>
+
+        `;
+
+
+        /* RENDER GRAPH */
+
+        renderIncidentGraph(
+            incidentData.graph
+        );
+
+
+        status.innerHTML =
+            "✅ Incident correlation completed successfully.";
+
+
+    }
+
+
+    catch(error) {
+
+
+        status.innerHTML =
+            "❌ Error: " +
+            String(error.message);
+
+
+        console.error(
+            "CyberNexus Incident error:",
+            error
+        );
+
+    }
+
+}
+
+</script>
+
+
+
+<!-- =========================================================
+     ATTACK GRAPH RENDERER
+========================================================= -->
+
+<script>
+
+function renderIncidentGraph(
+    graphData
+) {
+
+
+    const container =
+        document.getElementById(
+            "attackGraph"
+        );
+
+
+    if (!container) {
+
+        return;
+
+    }
+
+
+    if (
+        !graphData ||
+        !graphData.nodes ||
+        graphData.nodes.length === 0
+    ) {
+
+        container.innerHTML = `
+
+            <div style="
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                height:430px;
+                color:#8fa3bf;
+            ">
+
+                No graph data available.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const nodes =
+        graphData.nodes;
+
+
+    const edges =
+        graphData.edges || [];
+
+
+    const width =
+        Math.max(
+            container.clientWidth || 700,
+            650
+        );
+
+
+    const height =
+        430;
+
+
+    const centerX =
+        width / 2;
+
+
+    const centerY =
+        height / 2;
+
+
+    const radius =
+        Math.min(
+            width,
+            height
+        ) * 0.33;
+
+
+    const positions = {};
+
+
+    nodes.forEach(
+        function(node, index) {
+
+
+            if (index === 0) {
+
+                positions[node.id] = {
+
+                    x:centerX,
+
+                    y:centerY
+
+                };
+
+                return;
+
+            }
+
+
+            const angle =
+                ((index - 1) /
+                Math.max(
+                    nodes.length - 1,
+                    1
+                ))
+                * Math.PI * 2;
+
+
+            positions[node.id] = {
+
+                x:
+                    centerX +
+                    Math.cos(angle) *
+                    radius,
+
+                y:
+                    centerY +
+                    Math.sin(angle) *
+                    radius
+
+            };
+
+        }
+    );
+
+
+    let svg = `
+
+        <svg
+            width="100%"
+            height="${height}"
+            viewBox="0 0 ${width} ${height}"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+    `;
+
+
+    /* EDGES */
+
+    edges.forEach(
+        function(edge) {
+
+
+            const source =
+                positions[
+                    edge.source
+                ];
+
+
+            const target =
+                positions[
+                    edge.target
+                ];
+
+
+            if (!source || !target) {
+
+                return;
+
+            }
+
+
+            const midX =
+                (source.x + target.x) / 2;
+
+
+            const midY =
+                (source.y + target.y) / 2;
+
+
+            svg += `
+
+                <line
+                    x1="${source.x}"
+                    y1="${source.y}"
+                    x2="${target.x}"
+                    y2="${target.y}"
+                    stroke="#334155"
+                    stroke-width="1.5"
+                />
+
+
+                <text
+                    x="${midX}"
+                    y="${midY - 6}"
+                    fill="#64748b"
+                    font-size="8"
+                    text-anchor="middle"
+                >
+                    ${String(
+                        edge.relationship ||
+                        "LINK"
+                    )}
+                </text>
+
+            `;
+
+        }
+    );
+
+
+    /* NODES */
+
+    nodes.forEach(
+        function(node) {
+
+
+            const position =
+                positions[node.id];
+
+
+            if (!position) {
+
+                return;
+
+            }
+
+
+            let fill =
+                "#172033";
+
+
+            let stroke =
+                "#64748b";
+
+
+            let nodeRadius =
+                25;
+
+
+            const type =
+                String(
+                    node.node_type ||
+                    "NODE"
+                ).toUpperCase();
+
+
+            if (type === "INCIDENT") {
+
+                fill =
+                    "#35131c";
+
+                stroke =
+                    "#ff4d6d";
+
+                nodeRadius =
+                    32;
+
+            }
+
+
+            else if (type === "URL") {
+
+                fill =
+                    "#102a3a";
+
+                stroke =
+                    "#38bdf8";
+
+            }
+
+
+            else if (type === "DOMAIN") {
+
+                fill =
+                    "#172c20";
+
+                stroke =
+                    "#22c55e";
+
+            }
+
+
+            else if (type === "FILE") {
+
+                fill =
+                    "#30210e";
+
+                stroke =
+                    "#f59e0b";
+
+            }
+
+
+            else if (type === "EMAIL") {
+
+                fill =
+                    "#241832";
+
+                stroke =
+                    "#c084fc";
+
+            }
+
+
+            let label =
+                String(
+                    node.label ||
+                    node.id ||
+                    ""
+                );
+
+
+            if (label.length > 22) {
+
+                label =
+                    label.substring(
+                        0,
+                        19
+                    ) + "...";
+
+            }
+
+
+            svg += `
+
+                <g
+                    class="cnx-node"
+                    data-node-id="${node.id}"
+                    style="cursor:pointer;"
+                >
+
+                    <circle
+                        cx="${position.x}"
+                        cy="${position.y}"
+                        r="${nodeRadius}"
+                        fill="${fill}"
+                        stroke="${stroke}"
+                        stroke-width="2"
+                    />
+
+
+                    <text
+                        x="${position.x}"
+                        y="${position.y - 4}"
+                        fill="white"
+                        font-size="9"
+                        font-weight="bold"
+                        text-anchor="middle"
+                    >
+                        ${type}
+                    </text>
+
+
+                    <text
+                        x="${position.x}"
+                        y="${position.y + 10}"
+                        fill="#94a3b8"
+                        font-size="7"
+                        text-anchor="middle"
+                    >
+                        ${label}
+                    </text>
+
+                </g>
+
+            `;
+
+        }
+    );
+
+
+    svg += `
+        </svg>
+    `;
+
+
+    container.innerHTML =
+        svg;
+
+
+    window.cyberNexusGraphNodes =
+        nodes;
+
+
+    window.cyberNexusGraphEdges =
+        edges;
+
+
+    /* NODE CLICK EVENTS */
+
+    const graphNodes =
+        container.querySelectorAll(
+            ".cnx-node"
+        );
+
+
+    graphNodes.forEach(
+        function(nodeElement) {
+
+
+            nodeElement.addEventListener(
+                "click",
+                function() {
+
+
+                    const nodeID =
+                        nodeElement
+                        .getAttribute(
+                            "data-node-id"
+                        );
+
+
+                    showGraphNode(
+                        nodeID
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    const details =
+        document.getElementById(
+            "graphNodeDetails"
+        );
+
+
+    if (details) {
+
+        details.innerHTML = `
+
+            <strong style="
+                color:white;
+            ">
+                LIVE ATTACK GRAPH
+            </strong>
+
+            <br>
+
+            <span>
+                ${nodes.length}
+                nodes
+                •
+                ${edges.length}
+                links
+            </span>
+
+        `;
+
+    }
+
+}
+
+
+
+function showGraphNode(
+    nodeID
+) {
+
+
+    const nodes =
+        window.cyberNexusGraphNodes ||
+        [];
+
+
+    const node =
+        nodes.find(
+            function(item) {
+
+                return item.id === nodeID;
+
+            }
+        );
+
+
+    const details =
+        document.getElementById(
+            "graphNodeDetails"
+        );
+
+
+    if (
+        !node ||
+        !details
+    ) {
+
+        return;
+
+    }
+
+
+    details.innerHTML = `
+
+        <strong style="
+            color:white;
+        ">
+
+            ${String(
+                node.node_type ||
+                "NODE"
+            )}
+
+        </strong>
+
+
+        <br>
+
+
+        <span style="
+            color:#00d4aa;
+            word-break:break-all;
+        ">
+
+            ${String(
+                node.label ||
+                node.id
+            )}
+
+        </span>
+
+
+        <br>
+
+
+        <small style="
+            color:#64748b;
+        ">
+
+            Node ID:
+            ${String(node.id)}
+
+        </small>
+
+    `;
+
+}
+
+</script>
+
+
+
+<!-- =========================================================
+     EXISTING JAVASCRIPT
+========================================================= -->
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/graph.js') }}"></script>
+
+
+</body>
+
+</html>

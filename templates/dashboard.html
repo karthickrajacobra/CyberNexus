@@ -1,0 +1,5302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>CyberNexus Ω</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+/* CYBERNEXUS OMEGA — subtle professional polish */
+body{
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(56,189,248,.06),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(99,102,241,.05),
+            transparent 30%
+        ),
+        #050a12!important;
+}
+.metric-card,
+.panel{
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 10px 35px rgba(0,0,0,.18);
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+.metric-card:hover,
+.panel:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 42px rgba(0,0,0,.28);
+}
+.metric-card{
+    border-color:rgba(71,85,105,.55)!important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,23,42,.92),
+            rgba(8,16,29,.88)
+        )!important;
+}
+.panel{
+    border-color:rgba(51,65,85,.65)!important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,23,42,.94),
+            rgba(7,14,25,.92)
+        )!important;
+}
+
+.live{
+    animation:cnxPulse 1.8s ease-in-out infinite;
+}
+
+.status-dot{
+    box-shadow:0 0 10px rgba(34,197,94,.75);
+}
+
+@keyframes cnxPulse{
+    0%,100%{opacity:1}
+    50%{opacity:.55}
+}
+
+@media(max-width:900px){
+    .metrics{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr))!important
+    }
+
+    .content-grid{
+        grid-template-columns:1fr!important
+    }
+
+    .main{
+        padding:18px!important
+    }
+}
+
+@media(max-width:560px){
+    .metrics{
+        grid-template-columns:1fr!important
+    }
+
+    .topbar{
+        gap:12px
+    }
+
+    .header-right{
+        gap:8px
+    }
+}
+
+/* URL scanner interaction polish */
+
+#urlInput:focus{
+    outline:none!important;
+    border-color:#38bdf8!important;
+    box-shadow:
+        0 0 0 3px rgba(56,189,248,.12),
+        0 0 24px rgba(56,189,248,.08);
+}
+
+.url-scanner-hint{
+    margin-top:9px;
+    color:#64748b;
+    font-size:12px;
+}
+
+.url-scan-button{
+    transition:
+        transform .15s ease,
+        box-shadow .15s ease,
+        filter .15s ease;
+}
+
+.url-scan-button:hover{
+    transform:translateY(-1px);
+    filter:brightness(1.08);
+    box-shadow:
+        0 8px 24px rgba(0,212,170,.18);
+}
+
+@media(max-width:700px){
+    #urlInput{
+        min-width:100%!important;
+    }
+
+    .url-scan-button{
+        width:100%;
+    }
+}
+
+/* LIVE SOC METRICS */
+.cnx-soc-mini,
+.cnx-soc-secondary{
+    padding:15px;
+    border:1px solid #26364b;
+    border-radius:12px;
+    background:rgba(8,16,29,.72);
+}
+
+.cnx-soc-mini span,
+.cnx-soc-secondary span{
+    display:block;
+    color:#64748b;
+    font-size:11px;
+    letter-spacing:.7px;
+    text-transform:uppercase;
+}
+
+.cnx-soc-mini strong,
+.cnx-soc-secondary strong{
+    display:block;
+    margin-top:7px;
+    color:#f8fafc;
+    font-size:24px;
+}
+
+.cnx-soc-secondary strong{
+    font-size:18px;
+}
+
+.cnx-soc-empty{
+    padding:16px;
+    border:1px dashed #334155;
+    border-radius:10px;
+    color:#64748b;
+    text-align:center;
+}
+
+.cnx-soc-incident{
+    display:grid;
+    grid-template-columns:1.4fr .7fr .7fr .7fr;
+    gap:10px;
+    align-items:center;
+    padding:12px 14px;
+    margin-top:8px;
+    border:1px solid #26364b;
+    border-radius:10px;
+    background:rgba(15,23,42,.55);
+}
+
+.cnx-soc-incident strong{
+    color:#e2e8f0;
+    font-size:12px;
+    word-break:break-all;
+}
+
+.cnx-soc-incident span{
+    color:#94a3b8;
+    font-size:12px;
+}
+
+.cnx-soc-level{
+    font-weight:800;
+}
+
+@media(max-width:900px){
+    #socMetricsGrid{
+        grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    }
+    .cnx-soc-incident{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:560px){
+    #socMetricsGrid{
+        grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    }
+}
+
+
+
+
+
+/* =========================================================
+   STEP 15 — INCIDENT INVESTIGATION VIEW
+========================================================= */
+
+.cnx-soc-incident{
+    cursor:pointer;
+    transition:transform .18s ease,border-color .18s ease,background .18s ease;
+}
+
+.cnx-soc-incident:hover{
+    transform:translateY(-1px);
+    border-color:rgba(56,189,248,.55)!important;
+    background:rgba(15,23,42,.72);
+}
+
+#cnxInvestigationOverlay{
+    position:fixed;
+    inset:0;
+    z-index:100000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(2,6,23,.78);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+#cnxInvestigationOverlay.open{
+    display:flex;
+}
+
+.cnx-investigation-modal{
+    width:min(920px,100%);
+    max-height:min(820px,calc(100vh - 48px));
+    overflow:auto;
+    border:1px solid rgba(51,65,85,.9);
+    border-radius:16px;
+    background:linear-gradient(145deg,#0b1424,#07101d);
+    box-shadow:0 30px 90px rgba(0,0,0,.55);
+}
+
+.cnx-investigation-header{
+    position:sticky;
+    top:0;
+    z-index:2;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding:18px 20px;
+    border-bottom:1px solid rgba(51,65,85,.75);
+    background:rgba(7,16,29,.96);
+}
+
+.cnx-investigation-title{
+    color:#f8fafc;
+    font-size:17px;
+    font-weight:800;
+}
+
+.cnx-investigation-subtitle{
+    margin-top:4px;
+    color:#64748b;
+    font-size:11px;
+}
+
+.cnx-investigation-close{
+    width:34px;
+    height:34px;
+    border:1px solid #334155;
+    border-radius:9px;
+    background:#0f172a;
+    color:#cbd5e1;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.cnx-investigation-body{
+    padding:20px;
+}
+
+.cnx-investigation-grid{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:12px;
+}
+
+.cnx-investigation-card{
+    padding:15px;
+    border:1px solid #26364c;
+    border-radius:12px;
+    background:rgba(9,18,32,.72);
+}
+
+.cnx-investigation-card span{
+    display:block;
+    color:#64748b;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+}
+
+.cnx-investigation-card strong{
+    display:block;
+    margin-top:7px;
+    color:#f8fafc;
+    font-size:20px;
+}
+
+.cnx-investigation-section{
+    margin-top:16px;
+    padding:16px;
+    border:1px solid #26364c;
+    border-radius:12px;
+    background:rgba(9,18,32,.55);
+}
+
+.cnx-investigation-section h3{
+    margin:0 0 10px;
+    color:#e2e8f0;
+    font-size:13px;
+}
+
+.cnx-investigation-list{
+    display:grid;
+    gap:8px;
+}
+
+.cnx-investigation-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:10px 12px;
+    border-radius:8px;
+    background:rgba(15,23,42,.72);
+    color:#94a3b8;
+    font-size:12px;
+}
+
+.cnx-investigation-note{
+    color:#64748b;
+    font-size:11px;
+    line-height:1.6;
+}
+
+@media(max-width:760px){
+    .cnx-investigation-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+
+@media(max-width:480px){
+    #cnxInvestigationOverlay{
+        padding:10px;
+    }
+    .cnx-investigation-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =========================================================
+   STEP 14 — LIVE INCIDENT ALERTS
+========================================================= */
+
+#cnxAlertStack{
+    position:fixed;
+    top:78px;
+    right:22px;
+    z-index:99999;
+    width:min(390px,calc(100vw - 32px));
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    pointer-events:none;
+}
+
+.cnx-live-alert{
+    pointer-events:auto;
+    padding:14px 16px;
+    border:1px solid rgba(71,85,105,.75);
+    border-radius:12px;
+    background:linear-gradient(145deg,rgba(15,23,42,.98),rgba(7,14,25,.98));
+    box-shadow:0 16px 45px rgba(0,0,0,.42);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    animation:cnxAlertIn .28s ease-out;
+}
+
+.cnx-live-alert.critical{
+    border-color:rgba(239,68,68,.75);
+}
+
+.cnx-live-alert.high{
+    border-color:rgba(249,115,22,.72);
+}
+
+.cnx-live-alert.medium{
+    border-color:rgba(234,179,8,.65);
+}
+
+.cnx-live-alert-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.cnx-live-alert-title{
+    color:#f8fafc;
+    font-weight:800;
+    font-size:13px;
+}
+
+.cnx-live-alert-close{
+    border:0;
+    background:transparent;
+    color:#64748b;
+    cursor:pointer;
+    font-size:17px;
+    line-height:1;
+}
+
+.cnx-live-alert-close:hover{
+    color:#f8fafc;
+}
+
+.cnx-live-alert-body{
+    margin-top:8px;
+    color:#94a3b8;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.cnx-live-alert-meta{
+    margin-top:9px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    color:#64748b;
+    font-size:11px;
+}
+
+.cnx-alert-level{
+    font-weight:800;
+    letter-spacing:.05em;
+}
+
+.cnx-live-alert.critical .cnx-alert-level{
+    color:#f87171;
+}
+
+.cnx-live-alert.high .cnx-alert-level{
+    color:#fb923c;
+}
+
+.cnx-live-alert.medium .cnx-alert-level{
+    color:#facc15;
+}
+
+@keyframes cnxAlertIn{
+    from{
+        opacity:0;
+        transform:translateY(-12px) translateX(12px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) translateX(0);
+    }
+}
+
+.cnx-soc-incident.cnx-new-incident{
+    animation:cnxIncidentPulse 1.8s ease-in-out 2;
+}
+
+@keyframes cnxIncidentPulse{
+    0%,100%{
+        box-shadow:0 0 0 rgba(56,189,248,0);
+    }
+    50%{
+        box-shadow:0 0 22px rgba(56,189,248,.22);
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     CYBERNEXUS INCIDENT CORRELATION ENGINE
+========================================================= -->
+
+<section style="
+    margin:30px;
+    padding:25px;
+    background:#07111f;
+    border:1px solid #00d4aa;
+    border-radius:15px;
+">
+
+    <div style="
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:15px;
+    ">
+
+        <div>
+
+            <span style="
+                color:#00d4aa;
+                font-size:12px;
+                letter-spacing:2px;
+                font-weight:bold;
+            ">
+                CYBERNEXUS Ω
+            </span>
+
+            <h2 style="
+                color:white;
+                margin:8px 0;
+            ">
+                ⚡ Incident Correlation Engine
+            </h2>
+
+            <p style="
+                color:#8fa3bf;
+                margin:0;
+            ">
+                Correlate URL, file and email signals into one security incident.
+            </p>
+
+        </div>
+
+
+        <div style="
+            color:#00d4aa;
+            border:1px solid #00d4aa;
+            border-radius:20px;
+            padding:8px 14px;
+            font-size:12px;
+            font-weight:bold;
+        ">
+            ORCHESTRATOR ONLINE
+        </div>
+
+    </div>
+
+
+    <!-- EMAIL -->
+
+    <div style="
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:15px;
+        margin-top:25px;
+    ">
+
+        <div>
+
+            <label style="
+                color:#8fa3bf;
+                font-size:13px;
+            ">
+                Sender
+            </label>
+
+            <input
+                id="emailSender"
+                type="text"
+                placeholder="security@example.com"
+                style="
+                    width:100%;
+                    box-sizing:border-box;
+                    margin-top:7px;
+                    padding:13px;
+                    border-radius:8px;
+                    border:1px solid #334155;
+                    background:#111827;
+                    color:white;
+                "
+            >
+
+        </div>
+
+
+        <div>
+
+            <label style="
+                color:#8fa3bf;
+                font-size:13px;
+            ">
+                Email Threat Content
+            </label>
+
+            <input
+                id="emailText"
+                type="text"
+                placeholder="Urgent! Verify your account immediately..."
+                style="
+                    width:100%;
+                    box-sizing:border-box;
+                    margin-top:7px;
+                    padding:13px;
+                    border-radius:8px;
+                    border:1px solid #334155;
+                    background:#111827;
+                    color:white;
+                "
+            >
+
+        </div>
+
+    </div>
+
+
+    <button
+        onclick="correlateIncident()"
+        style="
+            margin-top:18px;
+            padding:14px 28px;
+            border:none;
+            border-radius:8px;
+            background:#00d4aa;
+            color:#001b17;
+            font-weight:bold;
+            cursor:pointer;
+        "
+    >
+        ⚡ CORRELATE INCIDENT
+    </button>
+
+
+    <div
+        id="incidentStatus"
+        style="
+            margin-top:18px;
+            color:#8fa3bf;
+        "
+    >
+        Ready for incident correlation.
+    </div>
+
+
+    <div
+        id="incidentResult"
+        style="
+            margin-top:15px;
+        "
+    >
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FILE THREAT ANALYZER
+========================================================= -->
+
+<section style="
+    margin:30px;
+    padding:25px;
+    background:#0b1220;
+    border:1px solid #243247;
+    border-radius:15px;
+">
+
+    <h2 style="color:white;">
+        🛡️ File Threat Analyzer
+    </h2>
+
+    <p style="color:#8fa3bf;">
+        Static file analysis using hash, entropy and suspicious-pattern detection.
+    </p>
+
+
+    <input
+        id="fileInput"
+        type="file"
+        style="
+            margin-top:10px;
+            padding:12px;
+            color:white;
+        "
+    >
+
+
+    <br><br>
+
+
+    <button
+        onclick="scanFile()"
+        style="
+            padding:13px 24px;
+            border:none;
+            border-radius:8px;
+            background:#00d4aa;
+            color:#001b17;
+            font-weight:bold;
+            cursor:pointer;
+        "
+    >
+        ANALYZE FILE
+    </button>
+
+
+    <div
+        id="fileStatus"
+        style="
+            margin-top:20px;
+            color:#8fa3bf;
+        "
+    >
+    </div>
+
+
+    <div
+        id="fileResult"
+        style="margin-top:20px;"
+    >
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     URL THREAT SCANNER
+========================================================= -->
+
+<section style="
+    margin:30px;
+    padding:25px;
+    background:#0b1220;
+    border:1px solid #243247;
+    border-radius:15px;
+">
+
+    <h2 style="color:#ffffff;">
+        🔎 URL Threat Scanner
+    </h2>
+
+
+    <p style="color:#8fa3bf;">
+        Analyze a URL using CYBERNEXUS Ω threat intelligence engine.
+    </p>
+
+
+    <div style="
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+    ">
+
+        <input
+            id="urlInput"
+            type="url"
+            autocomplete="url"
+            spellcheck="false"
+            placeholder="Paste URL here and press Enter..."
+            onkeydown="if (event.key === 'Enter') { event.preventDefault(); scanURL(); }"
+            style="
+                flex:1;
+                min-width:300px;
+                padding:14px;
+                border-radius:8px;
+                border:1px solid #334155;
+                background:#111827;
+                color:white;
+            "
+        >
+
+
+        <button
+            type="button"
+            onclick="scanURL()"
+            class="url-scan-button"
+            style="
+                padding:14px 24px;
+                border:none;
+                border-radius:8px;
+                background:#00d4aa;
+                color:#001b17;
+                font-weight:bold;
+                cursor:pointer;
+            "
+        >
+            ANALYZE URL
+        </button>
+
+    </div>
+
+
+    <div class="url-scanner-hint">
+        Press <strong style="color:#94a3b8;">Enter</strong> to analyze instantly, or click ANALYZE URL.
+    </div>
+
+
+    <div
+        id="scanStatus"
+        style="
+            margin-top:20px;
+            color:#8fa3bf;
+        "
+    >
+    </div>
+
+
+    <div
+        id="scanResult"
+        style="
+            margin-top:20px;
+        "
+    >
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =========================================================
+     STEP 15 — INCIDENT INVESTIGATION OVERLAY
+========================================================= -->
+
+<div id="cnxInvestigationOverlay" aria-hidden="true">
+    <div class="cnx-investigation-modal" role="dialog" aria-modal="true" aria-labelledby="cnxInvestigationTitle">
+        <div class="cnx-investigation-header">
+            <div>
+                <div id="cnxInvestigationTitle" class="cnx-investigation-title">Incident Investigation</div>
+                <div id="cnxInvestigationSubtitle" class="cnx-investigation-subtitle">Loading incident...</div>
+            </div>
+            <button id="cnxInvestigationClose" class="cnx-investigation-close" type="button" aria-label="Close investigation">×</button>
+        </div>
+        <div id="cnxInvestigationBody" class="cnx-investigation-body"></div>
+    </div>
+</div>
+
+<!-- =========================================================
+     STEP 14 — LIVE INCIDENT ALERT STACK
+========================================================= -->
+
+<div id="cnxAlertStack" aria-live="polite" aria-atomic="false"></div>
+
+<!-- =========================================================
+     MAIN CYBERNEXUS DASHBOARD
+========================================================= -->
+
+<div class="app">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+            <div class="logo">
+                Ω
+            </div>
+
+            <div>
+
+                <h2>
+                    CYBERNEXUS
+                </h2>
+
+                <span>
+                    SECURITY OS
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a class="active" data-section="dashboard">
+                ◈ Dashboard
+            </a>
+
+            <a data-section="threats">
+                ⚠ Threats
+            </a>
+
+            <a data-section="investigation">
+                ⌕ Investigation
+            </a>
+
+            <a data-section="forensics">
+                ◉ Forensics
+            </a>
+
+            <a data-section="attack-graph">
+                ◇ Attack Graph
+            </a>
+
+            <a data-section="simulation">
+                ⟳ Simulation
+            </a>
+
+            <a data-section="ai-soc">
+                ⬢ AI SOC
+            </a>
+
+            <a data-section="cyber-range">
+                ▣ Cyber Range
+            </a>
+
+            <a data-section="reports">
+                ▤ Reports
+            </a>
+
+        </nav>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+
+                <small>
+                    SYSTEM STATUS
+                </small>
+
+                <strong>
+                    OPERATIONAL
+                </strong>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    SECURITY OPERATIONS CENTER
+                </p>
+
+                <h1>
+                    Cyber Defense Command
+                </h1>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <span class="live">
+                    ● LIVE
+                </span>
+
+                <button class="profile">
+                    KR
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             METRICS
+        ================================================== -->
+
+        <section class="metrics">
+
+
+            <div class="metric-card">
+
+                <span>
+                    THREAT LEVEL
+                </span>
+
+                <strong
+                    id="metricThreat"
+                    class="danger"
+                >
+                    HIGH
+                </strong>
+
+                <small id="metricThreatSub">
+                    Waiting for telemetry
+                </small>
+
+            </div>
+
+
+
+            <div class="metric-card">
+
+                <span>
+                    ACTIVE INCIDENTS
+                </span>
+
+                <strong id="metricIncidents">
+                    08
+                </strong>
+
+                <small>
+                    Correlated security events
+                </small>
+
+            </div>
+
+
+
+            <div class="metric-card">
+
+                <span>
+                    RISK SCORE
+                </span>
+
+                <strong id="metricRisk">
+                    76
+                </strong>
+
+                <small>
+                    / 100
+                </small>
+
+            </div>
+
+
+
+            <div class="metric-card">
+
+                <span>
+                    EVIDENCE
+                </span>
+
+                <strong id="metricEvidence">
+                    17
+                </strong>
+
+                <small id="metricEvidenceSub">
+                    Integrity verified
+                </small>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =================================================
+             LIVE SOC METRICS
+        ================================================== -->
+
+        <section class="panel" style="margin-top:20px;">
+
+            <div class="panel-header">
+
+                <div>
+                    <span class="eyebrow">
+                        LIVE SOC TELEMETRY
+                    </span>
+                    <h2>
+                        Security Operations Metrics
+                    </h2>
+                </div>
+
+                <span class="badge" id="socMetricsStatus">
+                    SYNCING...
+                </span>
+
+            </div>
+
+            <div id="socMetricsGrid" style="
+                display:grid;
+                grid-template-columns:repeat(6,minmax(0,1fr));
+                gap:12px;
+            ">
+
+                <div class="cnx-soc-mini">
+                    <span>Total Incidents</span>
+                    <strong id="socTotalIncidents">0</strong>
+                </div>
+
+                <div class="cnx-soc-mini">
+                    <span>Critical</span>
+                    <strong id="socCritical">0</strong>
+                </div>
+
+                <div class="cnx-soc-mini">
+                    <span>High</span>
+                    <strong id="socHigh">0</strong>
+                </div>
+
+                <div class="cnx-soc-mini">
+                    <span>Medium</span>
+                    <strong id="socMedium">0</strong>
+                </div>
+
+                <div class="cnx-soc-mini">
+                    <span>Low</span>
+                    <strong id="socLow">0</strong>
+                </div>
+
+                <div class="cnx-soc-mini">
+                    <span>IOC Records</span>
+                    <strong id="socTotalIOCs">0</strong>
+                </div>
+
+            </div>
+
+            <div style="
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                gap:15px;
+                margin-top:15px;
+            ">
+
+                <div class="cnx-soc-secondary">
+                    <span>Evidence Records</span>
+                    <strong id="socTotalEvidence">0</strong>
+                </div>
+
+                <div class="cnx-soc-secondary">
+                    <span>Last SOC Sync</span>
+                    <strong id="socLastSync">--</strong>
+                </div>
+
+            </div>
+
+            <div style="margin-top:18px;">
+                <div style="
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    gap:10px;
+                    margin-bottom:10px;
+                ">
+                    <strong style="color:#f8fafc;">
+                        Recent Incidents
+                    </strong>
+                    <small style="color:#64748b;">
+                        Live from /api/soc-metrics
+                    </small>
+                </div>
+
+                <div id="socRecentIncidents">
+                    <div class="cnx-soc-empty">
+                        Loading recent incidents...
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTENT GRID
+        ================================================== -->
+
+        <section class="content-grid">
+
+
+            <!-- ATTACK GRAPH -->
+
+            <div class="panel attack-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            RELATIONSHIP ENGINE
+                        </span>
+
+                        <h2>
+                            Live Attack Graph
+                        </h2>
+
+                    </div>
+
+
+                    <span class="badge">
+                        REAL-TIME
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="attackGraph"
+                    class="graph"
+                    style="
+                        min-height:430px;
+                        position:relative;
+                        overflow:hidden;
+                    "
+                >
+
+                    <div style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        height:430px;
+                        color:#8fa3bf;
+                        font-size:14px;
+                    ">
+
+                        Loading CyberNexus
+                        attack graph...
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="graphNodeDetails"
+                    style="
+                        margin-top:15px;
+                        padding:12px;
+                        min-height:25px;
+                        border:1px solid #243247;
+                        border-radius:8px;
+                        background:#08101d;
+                        color:#8fa3bf;
+                        font-size:13px;
+                    "
+                >
+
+                    Click a graph node
+                    to inspect details.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RISK ANALYSIS -->
+
+            <div class="panel risk-panel">
+
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            INTELLIGENCE
+                        </span>
+
+                        <h2>
+                            Risk Analysis
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="risk-score">
+
+                    <strong id="riskScoreDisplay">
+                        76
+                    </strong>
+
+                    <span>
+                        /100
+                    </span>
+
+                </div>
+
+
+                <div class="risk-bar">
+
+                    <div
+                        id="riskBarFill"
+                        style="width:76%;"
+                    >
+                    </div>
+
+                </div>
+
+
+                <p id="riskExplanation">
+
+                    Multiple correlated
+                    indicators detected.
+                    Investigation recommended.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RECENT EVENTS
+        ================================================== -->
+
+        <section class="panel events">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        SECURITY TELEMETRY
+                    </span>
+
+                    <h2>
+                        Recent Events
+                    </h2>
+
+                </div>
+
+
+                <button class="view-btn">
+                    VIEW ALL
+                </button>
+
+            </div>
+
+
+
+            <div class="event">
+
+                <span class="event-time">
+                    LIVE
+                </span>
+
+                <span class="event-dot danger-dot"></span>
+
+                <div>
+
+                    <strong>
+                        Behaviour anomaly detected
+                    </strong>
+
+                    <small>
+                        CyberNexus Detection Engine
+                    </small>
+
+                </div>
+
+                <span class="event-risk high">
+                    HIGH
+                </span>
+
+            </div>
+
+
+
+            <div class="event">
+
+                <span class="event-time">
+                    LIVE
+                </span>
+
+                <span class="event-dot warning-dot"></span>
+
+                <div>
+
+                    <strong>
+                        Suspicious URL identified
+                    </strong>
+
+                    <small>
+                        URL Detection Engine
+                    </small>
+
+                </div>
+
+                <span class="event-risk medium">
+                    MEDIUM
+                </span>
+
+            </div>
+
+
+
+            <div class="event">
+
+                <span class="event-time">
+                    LIVE
+                </span>
+
+                <span class="event-dot safe-dot"></span>
+
+                <div>
+
+                    <strong>
+                        Evidence integrity verified
+                    </strong>
+
+                    <small>
+                        Evidence Ledger
+                    </small>
+
+                </div>
+
+                <span class="event-risk safe">
+                    VERIFIED
+                </span>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     NAVIGATION DETAIL OVERLAY
+========================================================= -->
+
+<div
+    id="navDetailOverlay"
+    class="cnx-nav-overlay"
+    aria-hidden="true"
+>
+
+    <div class="cnx-nav-modal">
+
+        <div class="cnx-nav-modal-head">
+
+            <div>
+
+                <span
+                    id="navDetailEyebrow"
+                    class="eyebrow"
+                >
+                    CYBERNEXUS MODULE
+                </span>
+
+                <h2 id="navDetailTitle">
+                    Module Details
+                </h2>
+
+            </div>
+
+            <button
+                id="navDetailClose"
+                class="cnx-nav-close"
+                type="button"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div
+            id="navDetailBody"
+            class="cnx-nav-body"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+.cnx-nav-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(2,6,23,.72);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    z-index:9999;
+}
+
+.cnx-nav-overlay.open{
+    display:flex;
+    animation:cnxOverlayIn .18s ease-out;
+}
+
+.cnx-nav-modal{
+    width:min(820px,94vw);
+    max-height:82vh;
+    overflow:auto;
+    background:
+        linear-gradient(
+            145deg,
+            #0d1728,
+            #07101d
+        );
+    border:1px solid #243b57;
+    border-radius:18px;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.55),
+        0 0 35px rgba(56,189,248,.08);
+    padding:24px;
+}
+
+.cnx-nav-modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    border-bottom:1px solid #1e293b;
+    padding-bottom:16px;
+    margin-bottom:18px;
+}
+
+.cnx-nav-modal-head h2{
+    color:#f8fafc;
+    margin:6px 0 0;
+    font-size:25px;
+}
+
+.cnx-nav-close{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    border:1px solid #334155;
+    background:#111c2d;
+    color:#cbd5e1;
+    font-size:26px;
+    line-height:1;
+    cursor:pointer;
+}
+
+.cnx-nav-close:hover{
+    border-color:#38bdf8;
+    color:#fff;
+    background:#142238;
+}
+
+.cnx-nav-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+    gap:13px;
+}
+
+.cnx-info-card{
+    padding:16px;
+    border:1px solid #26364b;
+    border-radius:12px;
+    background:rgba(15,23,42,.72);
+}
+
+.cnx-info-card strong{
+    display:block;
+    color:#f8fafc;
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+.cnx-info-card span{
+    color:#94a3b8;
+    font-size:13px;
+    line-height:1.55;
+}
+
+.cnx-module-status{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:7px 10px;
+    border:1px solid #1d4d42;
+    background:rgba(0,212,170,.07);
+    border-radius:999px;
+    color:#5eead4;
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+.cnx-module-status i{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#34d399;
+    box-shadow:0 0 10px #34d399;
+    display:inline-block;
+}
+
+.cnx-module-list{
+    margin:14px 0 0;
+    padding-left:18px;
+    color:#94a3b8;
+    line-height:1.8;
+    font-size:13px;
+}
+
+.cnx-module-list li::marker{
+    color:#38bdf8;
+}
+
+.cnx-nav-action{
+    margin-top:16px;
+    padding:11px 15px;
+    border-radius:9px;
+    border:1px solid #155e75;
+    background:#082433;
+    color:#67e8f9;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.cnx-nav-action:hover{
+    background:#0b3144;
+    border-color:#22d3ee;
+}
+
+@keyframes cnxOverlayIn{
+    from{
+        opacity:0;
+        transform:scale(.985)
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1)
+    }
+}
+
+@media(max-width:650px){
+
+    .cnx-nav-grid{
+        grid-template-columns:1fr
+    }
+
+    .cnx-nav-modal{
+        padding:18px
+    }
+
+    .cnx-nav-modal-head h2{
+        font-size:21px
+    }
+
+}
+
+</style>
+
+
+
+<!-- =========================================================
+     URL SCANNER
+========================================================= -->
+
+<script>
+
+async function scanURL() {
+
+    const input =
+        document.getElementById("urlInput");
+
+    const status =
+        document.getElementById("scanStatus");
+
+    const result =
+        document.getElementById("scanResult");
+
+    const url =
+        input.value.trim();
+
+    if (!url) {
+
+        status.innerHTML =
+            "⚠️ Enter a URL first.";
+
+        return;
+    }
+
+    status.innerHTML =
+        "⏳ Analyzing URL...";
+
+    result.innerHTML = "";
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/analyze-url",
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            url:url
+                        })
+
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if (!data.success) {
+
+            throw new Error(
+                data.error ||
+                "URL analysis failed"
+            );
+
+        }
+
+        const r =
+            data.result;
+
+        window.latestURLResult =
+            r;
+
+        let level =
+            String(
+                r.risk_level ||
+                "UNKNOWN"
+            ).toUpperCase();
+
+        let icon =
+            "🟢";
+
+        if (level === "MEDIUM") {
+            icon = "🟠";
+        }
+
+        if (level === "HIGH") {
+            icon = "🔴";
+        }
+
+        if (level === "CRITICAL") {
+            icon = "🚨";
+        }
+
+        function safeHTML(value) {
+
+            const element =
+                document.createElement("div");
+
+            element.textContent =
+                String(value ?? "");
+
+            return element.innerHTML;
+        }
+
+        let findings =
+            "No suspicious findings";
+
+        if (
+            r.findings &&
+            r.findings.length
+        ) {
+
+            findings =
+                r.findings
+                .map(
+                    function(item) {
+                        return safeHTML(item);
+                    }
+                )
+                .join("<br>");
+
+        }
+
+        status.innerHTML =
+            "✅ Analysis completed";
+
+        result.innerHTML = `
+
+            <div style="
+                padding:20px;
+                border:1px solid #334155;
+                border-radius:12px;
+                background:#111827;
+            ">
+
+                <h3 style="
+                    color:white;
+                    margin-top:0;
+                ">
+
+                    ${icon}
+
+                    Threat Level:
+
+                    ${safeHTML(level)}
+
+                </h3>
+
+                <p style="
+                    color:#cbd5e1;
+                    word-break:break-all;
+                ">
+
+                    <strong>
+                        URL:
+                    </strong>
+
+                    ${safeHTML(
+                        r.url || url
+                    )}
+
+                </p>
+
+                <p style="
+                    color:#cbd5e1;
+                ">
+
+                    <strong>
+                        Risk Score:
+                    </strong>
+
+                    ${safeHTML(
+                        r.risk_score ?? 0
+                    )}/100
+
+                </p>
+
+                <p style="
+                    color:#cbd5e1;
+                ">
+
+                    <strong>
+                        Findings:
+                    </strong>
+
+                    <br><br>
+
+                    ${findings}
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+    catch(error) {
+
+        status.innerHTML =
+            "❌ Error: " +
+            String(error.message);
+
+        console.error(
+            "CyberNexus URL error:",
+            error
+        );
+
+    }
+
+}
+
+</script>
+
+
+
+<!-- =========================================================
+     FILE SCANNER
+========================================================= -->
+
+<script>
+
+async function scanFile() {
+
+    const input =
+        document.getElementById(
+            "fileInput"
+        );
+
+    const status =
+        document.getElementById(
+            "fileStatus"
+        );
+
+    const result =
+        document.getElementById(
+            "fileResult"
+        );
+
+    if (!input.files.length) {
+
+        status.innerHTML =
+            "⚠️ Please select a file.";
+
+        return;
+    }
+
+    const file =
+        input.files[0]; if (file.size > 10 * 1024 * 1024) { status.innerHTML = "⚠️ File too large. Maximum 10 MB."; input.value = ""; return; }
+
+    const formData =
+        new FormData();
+
+    formData.append(
+        "file",
+        file
+    );
+
+    status.innerHTML =
+        `⏳ Analyzing file (${(file.size / 1024 / 1024).toFixed(2)} MB)...`;
+
+    result.innerHTML =
+        "";
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/analyze-file",
+                {
+
+                    method:"POST",
+
+                    body:
+                        formData
+
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if (!data.success) {
+
+            throw new Error(
+                data.error ||
+                "File analysis failed"
+            );
+
+        }
+
+        const r =
+            data.result;
+
+        window.latestFileResult =
+            r;
+
+        let level =
+            String(
+                r.risk_level ||
+                "UNKNOWN"
+            ).toUpperCase();
+
+        let icon =
+            "🟢";
+
+        if (level === "MEDIUM") {
+            icon = "🟠";
+        }
+
+        if (level === "HIGH") {
+            icon = "🔴";
+        }
+
+        if (level === "CRITICAL") {
+            icon = "🚨";
+        }
+
+        function safeHTML(value) {
+
+            const element =
+                document.createElement("div");
+
+            element.textContent =
+                String(value ?? "");
+
+            return element.innerHTML;
+        }
+
+        let findings =
+            "No suspicious findings";
+
+        if (
+            r.findings &&
+            r.findings.length
+        ) {
+
+            findings =
+                r.findings
+                .map(
+                    function(item) {
+                        return safeHTML(item);
+                    }
+                )
+                .join("<br>");
+
+        }
+
+        status.innerHTML =
+            "✅ File analysis completed";
+
+        result.innerHTML = `
+
+            <div style="
+                padding:20px;
+                background:#111827;
+                border:1px solid #334155;
+                border-radius:12px;
+            ">
+
+                <h3 style="color:white;">
+
+                    ${icon}
+
+                    ${safeHTML(level)}
+
+                </h3>
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        File:
+                    </strong>
+
+                    ${safeHTML(
+                        r.file_name
+                    )}
+
+                </p>
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Risk Score:
+                    </strong>
+
+                    ${safeHTML(
+                        r.risk_score
+                    )}/100
+
+                </p>
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Entropy:
+                    </strong>
+
+                    ${safeHTML(
+                        r.entropy
+                    )}
+
+                </p>
+
+                <p style="
+                    color:#cbd5e1;
+                    word-break:break-all;
+                ">
+
+                    <strong>
+                        SHA-256:
+                    </strong>
+
+                    ${safeHTML(
+                        r.sha256
+                    )}
+
+                </p>
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Extension:
+                    </strong>
+
+                    ${safeHTML(
+                        r.extension
+                    )}
+
+                </p>
+
+                <p style="color:#cbd5e1;">
+
+                    <strong>
+                        Findings:
+                    </strong>
+
+                    <br>
+
+                    ${findings}
+
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+    catch(error) {
+
+        status.innerHTML =
+            "❌ " +
+            String(error.message);
+
+        console.error(
+            "CyberNexus File error:",
+            error
+        );
+
+    }
+
+}
+
+</script>
+
+
+
+<!-- =========================================================
+     INCIDENT ORCHESTRATOR
+========================================================= -->
+
+<script>
+
+let incidentCorrelationTimer = null;
+function scheduleIncidentCorrelation() { return; }
+    /* automatic correlation disabled */
+    /* automatic correlation disabled */
+    /* automatic correlation disabled */
+    /* automatic correlation disabled */
+    /* automatic correlation disabled */
+    /* automatic correlation disabled */
+// Manual correlation is used via the CORRELATE INCIDENT button.
+async function correlateIncident() {
+    const status =
+        document.getElementById(
+            "incidentStatus"
+        );
+    const result =
+        document.getElementById(
+            "incidentResult"
+        );
+    const emailText =
+        document.getElementById(
+            "emailText"
+        ).value.trim();
+    const emailSender =
+        document.getElementById(
+            "emailSender"
+        ).value.trim();
+
+    status.innerHTML =
+        "⏳ Running incident orchestration...";
+
+    result.innerHTML =
+        "";
+
+
+    try {
+
+        /* =====================================================
+           SAFE HTML
+        ===================================================== */
+
+        function safeHTML(value) {
+
+            const element =
+                document.createElement("div");
+
+            element.textContent =
+                String(value ?? "");
+
+            return element.innerHTML;
+
+        }
+
+
+        /* =====================================================
+           EMAIL ANALYSIS
+        ===================================================== */
+
+        let emailResult =
+            window.latestEmailResult ||
+            null;
+
+
+        if (emailText) {
+
+            const response =
+                await fetch(
+                    "/api/analyze-email",
+                    {
+
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify({
+
+                                email:
+                                    emailText,
+
+                                sender:
+                                    emailSender
+
+                            })
+
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (!data.success) {
+
+                throw new Error(
+                    data.error ||
+                    "Email analysis failed"
+                );
+
+            }
+
+
+            emailResult =
+                data.result;
+
+
+            window.latestEmailResult =
+                emailResult;
+
+        }
+
+
+        /* =====================================================
+           GET URL / FILE RESULTS
+        ===================================================== */
+
+        const urlResult =
+            window.latestURLResult ||
+            null;
+
+
+        const fileResult =
+            window.latestFileResult ||
+            null;
+
+
+        if (
+            !urlResult &&
+            !fileResult &&
+            !emailResult
+        ) {
+
+            throw new Error(
+                "Analyze a URL, analyze a file, or enter email data first."
+            );
+
+        }
+
+
+        /* =====================================================
+           INCIDENT API
+        ===================================================== */
+
+        const incidentResponse =
+            await fetch(
+                "/api/incident",
+                {
+
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            url_result:
+                                urlResult,
+
+                            file_result:
+                                fileResult,
+
+                            email_result:
+                                emailResult
+
+                        })
+
+                }
+            );
+
+
+        const incidentData =
+            await incidentResponse.json();
+
+
+        if (!incidentData.success) {
+
+            throw new Error(
+                incidentData.error ||
+                "Incident orchestration failed"
+            );
+
+        }
+
+
+        window.latestIncidentResult =
+            incidentData;
+
+        /* Consume the analyzed signals so the same data cannot be
+           submitted again accidentally on the next correlation. */
+        window.latestURLResult = null;
+        window.latestFileResult = null;
+        window.latestEmailResult = null;
+
+
+        /* =====================================================
+           MAIN DATA
+        ===================================================== */
+
+        const incident =
+            incidentData.incident ||
+            {};
+
+
+        const unified =
+            incidentData.unified_risk ||
+            {};
+
+
+        const ioc =
+            incidentData.ioc_intelligence ||
+            {};
+
+
+        const iocStorage =
+            incidentData.ioc_storage ||
+            {};
+
+
+        /* =====================================================
+           FINAL RISK
+        ===================================================== */
+
+        const riskScore =
+            Number(
+                unified.overall_score ||
+                0
+            );
+
+
+        const riskLevel =
+            String(
+                unified.overall_level ||
+                "LOW"
+            ).toUpperCase();
+
+
+        /* =====================================================
+           INITIAL RISK BEFORE IOC
+        ===================================================== */
+
+        const originalScore =
+            Number(
+                unified.overall_score_before_ioc ??
+                unified.original_score ??
+                incident.risk_score_before_ioc ??
+                riskScore
+            );
+
+
+        const originalLevel =
+            String(
+                unified.overall_level_before_ioc ||
+                incident.incident_level_before_ioc ||
+                "LOW"
+            ).toUpperCase();
+
+
+        /* =====================================================
+           IOC INTELLIGENCE
+        ===================================================== */
+
+        const iocBonus =
+            Number(
+                unified.ioc_risk_bonus ??
+                ioc.risk_bonus ??
+                0
+            );
+
+
+        const iocMatched =
+            Number(
+                ioc.matched_count ??
+                0
+            );
+
+
+        const threatIntelScore =
+            Number(
+                ioc.threat_intelligence_score ??
+                0
+            );
+
+
+        const confidence =
+            Number(
+                ioc.average_confidence ??
+                0
+            );
+
+
+        const iocRecords =
+            Number(
+                iocStorage.extracted_count ??
+                iocMatched ??
+                0
+            );
+
+
+        /* =====================================================
+           CORRELATION DATA
+        ===================================================== */
+
+        const correlationScore =
+            Number(
+                incident.correlation_score ??
+                (
+                    incidentData.correlation &&
+                    incidentData.correlation.correlation_score
+                ) ??
+                0
+            );
+
+
+        const signalCount =
+            Number(
+                incident.signal_count ??
+                0
+            );
+
+
+        const highRiskSignals =
+            Number(
+                incident.high_risk_signal_count ??
+                0
+            );
+
+
+        /* =====================================================
+           UPDATE DASHBOARD METRICS
+        ===================================================== */
+
+        document.getElementById(
+            "metricThreat"
+        ).innerText =
+            riskLevel;
+
+
+        document.getElementById(
+            "metricRisk"
+        ).innerText =
+            riskScore;
+
+
+        document.getElementById(
+            "riskScoreDisplay"
+        ).innerText =
+            riskScore;
+
+
+        document.getElementById(
+            "riskBarFill"
+        ).style.width =
+            Math.min(
+                100,
+                Math.max(
+                    0,
+                    riskScore
+                )
+            ) + "%";
+
+
+        document.getElementById(
+            "metricIncidents"
+        ).innerText =
+            "1";
+
+
+        /* Refresh complete SOC metrics from database */
+        loadSOCMetrics();
+
+
+        document.getElementById(
+            "metricEvidence"
+        ).innerText =
+            Number(
+                (
+                    incidentData.evidence &&
+                    incidentData.evidence.records_created
+                ) ??
+                0
+            );
+
+
+        document.getElementById(
+            "metricThreatSub"
+        ).innerText =
+            signalCount +
+            " correlated signal(s)";
+
+
+        document.getElementById(
+            "metricEvidenceSub"
+        ).innerText =
+            "Integrity ledger updated";
+
+
+        /* =====================================================
+           RISK EXPLANATION
+        ===================================================== */
+
+        const explanation =
+            Array.isArray(
+                unified.explanation
+            )
+                ? unified.explanation.join(" ")
+                : "Unified security assessment completed.";
+
+
+        document.getElementById(
+            "riskExplanation"
+        ).innerText =
+            explanation;
+
+
+        /* =====================================================
+           INCIDENT ID
+        ===================================================== */
+
+        const incidentID =
+            safeHTML(
+                incident.incident_id ||
+                "N/A"
+            );
+
+
+        /* =====================================================
+           RESULT CARD
+        ===================================================== */
+
+        result.innerHTML = `
+
+            <div style="
+                padding:22px;
+                background:
+                    linear-gradient(
+                        145deg,
+                        #0f172a,
+                        #07111f
+                    );
+                border:1px solid #334155;
+                border-radius:14px;
+                box-shadow:
+                    0 12px 35px rgba(0,0,0,.25);
+            ">
+
+
+                <!-- HEADER -->
+
+                <div style="
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    flex-wrap:wrap;
+                    gap:12px;
+                    margin-bottom:20px;
+                ">
+
+                    <h3 style="
+                        color:white;
+                        margin:0;
+                        font-size:20px;
+                    ">
+                        ⚡ Incident Correlated
+                    </h3>
+
+
+                    <span style="
+                        padding:7px 12px;
+                        border-radius:20px;
+                        background:
+                            rgba(255,77,109,.12);
+                        border:1px solid #ff4d6d;
+                        color:#ff6b86;
+                        font-size:12px;
+                        font-weight:bold;
+                    ">
+                        ${safeHTML(riskLevel)}
+                    </span>
+
+                </div>
+
+
+                <!-- INCIDENT ID -->
+
+                <div style="
+                    padding:14px;
+                    margin-bottom:12px;
+                    background:#08101d;
+                    border:1px solid #243247;
+                    border-radius:10px;
+                ">
+
+                    <div style="
+                        color:#64748b;
+                        font-size:11px;
+                        letter-spacing:1px;
+                        margin-bottom:5px;
+                    ">
+                        INCIDENT ID
+                    </div>
+
+
+                    <div style="
+                        color:#38bdf8;
+                        font-weight:bold;
+                        word-break:break-all;
+                    ">
+                        ${incidentID}
+                    </div>
+
+                </div>
+
+
+                <!-- RISK SUMMARY -->
+
+                <div style="
+                    display:grid;
+                    grid-template-columns:
+                        repeat(
+                            auto-fit,
+                            minmax(150px,1fr)
+                        );
+                    gap:10px;
+                    margin-bottom:15px;
+                ">
+
+
+                    <!-- INITIAL RISK -->
+
+                    <div style="
+                        padding:14px;
+                        background:#111827;
+                        border:1px solid #334155;
+                        border-radius:10px;
+                    ">
+
+                        <div style="
+                            color:#64748b;
+                            font-size:11px;
+                            margin-bottom:5px;
+                        ">
+                            INITIAL RISK
+                        </div>
+
+
+                        <strong style="
+                            color:#f59e0b;
+                            font-size:24px;
+                        ">
+                            ${originalScore}
+                        </strong>
+
+
+                        <span style="
+                            color:#94a3b8;
+                            font-size:12px;
+                        ">
+                            /100
+                        </span>
+
+
+                        <div style="
+                            color:#f59e0b;
+                            font-size:12px;
+                            margin-top:4px;
+                            font-weight:bold;
+                        ">
+                            ${safeHTML(originalLevel)}
+                        </div>
+
+                    </div>
+
+
+                    <!-- IOC BONUS -->
+
+                    <div style="
+                        padding:14px;
+                        background:#111827;
+                        border:1px solid #334155;
+                        border-radius:10px;
+                    ">
+
+                        <div style="
+                            color:#64748b;
+                            font-size:11px;
+                            margin-bottom:5px;
+                        ">
+                            IOC RISK BONUS
+                        </div>
+
+
+                        <strong style="
+                            color:#f97316;
+                            font-size:24px;
+                        ">
+                            +${iocBonus}
+                        </strong>
+
+
+                        <div style="
+                            color:#94a3b8;
+                            font-size:12px;
+                            margin-top:4px;
+                        ">
+                            Threat intelligence impact
+                        </div>
+
+                    </div>
+
+
+                    <!-- FINAL RISK -->
+
+                    <div style="
+                        padding:14px;
+                        background:#111827;
+                        border:1px solid #ff4d6d;
+                        border-radius:10px;
+                    ">
+
+                        <div style="
+                            color:#64748b;
+                            font-size:11px;
+                            margin-bottom:5px;
+                        ">
+                            FINAL RISK
+                        </div>
+
+
+                        <strong style="
+                            color:#ff4d6d;
+                            font-size:24px;
+                        ">
+                            ${riskScore}
+                        </strong>
+
+
+                        <span style="
+                            color:#94a3b8;
+                            font-size:12px;
+                        ">
+                            /100
+                        </span>
+
+
+                        <div style="
+                            color:#ff6b86;
+                            font-size:12px;
+                            margin-top:4px;
+                            font-weight:bold;
+                        ">
+                            ${safeHTML(riskLevel)}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IOC INTELLIGENCE -->
+
+                <div style="
+                    padding:16px;
+                    margin-bottom:15px;
+                    background:
+                        rgba(56,189,248,.04);
+                    border:1px solid #1e3a5f;
+                    border-radius:10px;
+                ">
+
+                    <div style="
+                        color:#38bdf8;
+                        font-size:12px;
+                        font-weight:bold;
+                        letter-spacing:1px;
+                        margin-bottom:12px;
+                    ">
+                        ◈ IOC INTELLIGENCE
+                    </div>
+
+
+                    <div style="
+                        display:grid;
+                        grid-template-columns:
+                            repeat(
+                                auto-fit,
+                                minmax(130px,1fr)
+                            );
+                        gap:10px;
+                    ">
+
+
+                        <div>
+
+                            <div style="
+                                color:#64748b;
+                                font-size:11px;
+                            ">
+                                MATCHED IOCs
+                            </div>
+
+
+                            <strong style="
+                                color:white;
+                                font-size:18px;
+                            ">
+                                ${iocMatched}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <div style="
+                                color:#64748b;
+                                font-size:11px;
+                            ">
+                                CONFIDENCE
+                            </div>
+
+
+                            <strong style="
+                                color:#22c55e;
+                                font-size:18px;
+                            ">
+                                ${confidence}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <div style="
+                                color:#64748b;
+                                font-size:11px;
+                            ">
+                                THREAT INTEL SCORE
+                            </div>
+
+
+                            <strong style="
+                                color:#c084fc;
+                                font-size:18px;
+                            ">
+                                ${threatIntelScore}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <div style="
+                                color:#64748b;
+                                font-size:11px;
+                            ">
+                                IOC BONUS
+                            </div>
+
+
+                            <strong style="
+                                color:#f97316;
+                                font-size:18px;
+                            ">
+                                +${iocBonus}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CORRELATION DETAILS -->
+
+                <div style="
+                    display:grid;
+                    grid-template-columns:
+                        repeat(
+                            auto-fit,
+                            minmax(140px,1fr)
+                        );
+                    gap:10px;
+                    margin-bottom:15px;
+                ">
+
+
+                    <div style="
+                        padding:12px;
+                        background:#111827;
+                        border-radius:9px;
+                        border:1px solid #243247;
+                    ">
+
+                        <small style="
+                            color:#64748b;
+                        ">
+                            CORRELATION SCORE
+                        </small>
+
+
+                        <div style="
+                            color:#38bdf8;
+                            font-size:18px;
+                            font-weight:bold;
+                            margin-top:4px;
+                        ">
+                            ${correlationScore}/100
+                        </div>
+
+                    </div>
+
+
+                    <div style="
+                        padding:12px;
+                        background:#111827;
+                        border-radius:9px;
+                        border:1px solid #243247;
+                    ">
+
+                        <small style="
+                            color:#64748b;
+                        ">
+                            SECURITY SIGNALS
+                        </small>
+
+
+                        <div style="
+                            color:white;
+                            font-size:18px;
+                            font-weight:bold;
+                            margin-top:4px;
+                        ">
+                            ${signalCount}
+                        </div>
+
+                    </div>
+
+
+                    <div style="
+                        padding:12px;
+                        background:#111827;
+                        border-radius:9px;
+                        border:1px solid #243247;
+                    ">
+
+                        <small style="
+                            color:#64748b;
+                        ">
+                            HIGH-RISK SIGNALS
+                        </small>
+
+
+                        <div style="
+                            color:#ff4d6d;
+                            font-size:18px;
+                            font-weight:bold;
+                            margin-top:4px;
+                        ">
+                            ${highRiskSignals}
+                        </div>
+
+                    </div>
+
+
+                    <div style="
+                        padding:12px;
+                        background:#111827;
+                        border-radius:9px;
+                        border:1px solid #243247;
+                    ">
+
+                        <small style="
+                            color:#64748b;
+                        ">
+                            IOC RECORDS
+                        </small>
+
+
+                        <div style="
+                            color:#22c55e;
+                            font-size:18px;
+                            font-weight:bold;
+                            margin-top:4px;
+                        ">
+                            ${iocRecords}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROCESS STATUS -->
+
+                <div style="
+                    padding-top:15px;
+                    border-top:1px solid #1e293b;
+                    color:#00d4aa;
+                    line-height:1.8;
+                    font-size:13px;
+                ">
+
+                    ✓ URL / File / Email signals processed<br>
+
+                    ✓ IOC intelligence evaluated<br>
+
+                    ✓ Risk score adjusted<br>
+
+                    ✓ Evidence chain updated<br>
+
+                    ✓ Correlation completed<br>
+
+                    ✓ Attack graph generated
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        /* =====================================================
+           ATTACK GRAPH
+        ===================================================== */
+
+        renderIncidentGraph(
+            incidentData.graph
+        );
+
+
+        /* =====================================================
+           SUCCESS
+        ===================================================== */
+
+        status.innerHTML =
+            "✅ Incident correlation completed successfully.";
+
+
+        console.log(
+            "CYBERNEXUS Ω Incident Result:",
+            incidentData
+        );
+
+    }
+
+
+    catch(error) {
+
+        status.innerHTML =
+            "❌ Error: " +
+            String(error.message);
+
+        console.error(
+            "CyberNexus Incident error:",
+            error
+        );
+
+    }
+
+}
+
+</script>
+
+
+
+<!-- =========================================================
+     ATTACK GRAPH RENDERER
+========================================================= -->
+
+<script>
+
+function renderIncidentGraph(
+    graphData
+) {
+
+    const container =
+        document.getElementById(
+            "attackGraph"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    if (
+        !graphData ||
+        !graphData.nodes ||
+        graphData.nodes.length === 0
+    ) {
+
+        container.innerHTML = `
+
+            <div style="
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                height:430px;
+                color:#8fa3bf;
+            ">
+
+                No graph data available.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const nodes =
+        graphData.nodes;
+
+
+    const edges =
+        graphData.edges || [];
+
+
+    const width =
+        Math.max(
+            container.clientWidth || 700,
+            650
+        );
+
+
+    const height =
+        430;
+
+
+    const centerX =
+        width / 2;
+
+
+    const centerY =
+        height / 2;
+
+
+    const radius =
+        Math.min(
+            width,
+            height
+        ) * 0.33;
+
+
+    const positions = {};
+
+
+    nodes.forEach(
+        function(node, index) {
+
+            if (index === 0) {
+
+                positions[node.id] = {
+                    x:centerX,
+                    y:centerY
+                };
+
+                return;
+            }
+
+
+            const angle =
+                (
+                    (index - 1) /
+                    Math.max(
+                        nodes.length - 1,
+                        1
+                    )
+                )
+                * Math.PI * 2;
+
+
+            positions[node.id] = {
+
+                x:
+                    centerX +
+                    Math.cos(angle) *
+                    radius,
+
+                y:
+                    centerY +
+                    Math.sin(angle) *
+                    radius
+
+            };
+
+        }
+    );
+
+
+    let svg = `
+
+        <svg
+            width="100%"
+            height="${height}"
+            viewBox="0 0 ${width} ${height}"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+    `;
+
+
+    /* EDGES */
+
+    edges.forEach(
+        function(edge) {
+
+            const source =
+                positions[
+                    edge.source
+                ];
+
+
+            const target =
+                positions[
+                    edge.target
+                ];
+
+
+            if (!source || !target) {
+                return;
+            }
+
+
+            const midX =
+                (source.x + target.x) / 2;
+
+
+            const midY =
+                (source.y + target.y) / 2;
+
+
+            svg += `
+
+                <line
+                    x1="${source.x}"
+                    y1="${source.y}"
+                    x2="${target.x}"
+                    y2="${target.y}"
+                    stroke="#334155"
+                    stroke-width="1.5"
+                />
+
+
+                <text
+                    x="${midX}"
+                    y="${midY - 6}"
+                    fill="#64748b"
+                    font-size="8"
+                    text-anchor="middle"
+                >
+                    ${String(
+                        edge.relationship ||
+                        "LINK"
+                    )}
+                </text>
+
+            `;
+
+        }
+    );
+
+
+    /* NODES */
+
+    nodes.forEach(
+        function(node) {
+
+            const position =
+                positions[node.id];
+
+
+            if (!position) {
+                return;
+            }
+
+
+            let fill =
+                "#172033";
+
+
+            let stroke =
+                "#64748b";
+
+
+            let nodeRadius =
+                25;
+
+
+            const type =
+                String(
+                    node.node_type ||
+                    "NODE"
+                ).toUpperCase();
+
+
+            if (type === "INCIDENT") {
+
+                fill =
+                    "#35131c";
+
+                stroke =
+                    "#ff4d6d";
+
+                nodeRadius =
+                    32;
+
+            }
+
+            else if (type === "URL") {
+
+                fill =
+                    "#102a3a";
+
+                stroke =
+                    "#38bdf8";
+
+            }
+
+            else if (type === "DOMAIN") {
+
+                fill =
+                    "#172c20";
+
+                stroke =
+                    "#22c55e";
+
+            }
+
+            else if (type === "FILE") {
+
+                fill =
+                    "#30210e";
+
+                stroke =
+                    "#f59e0b";
+
+            }
+
+            else if (type === "EMAIL") {
+
+                fill =
+                    "#241832";
+
+                stroke =
+                    "#c084fc";
+
+            }
+
+
+            let label =
+                String(
+                    node.label ||
+                    node.id ||
+                    ""
+                );
+
+
+            if (label.length > 22) {
+
+                label =
+                    label.substring(
+                        0,
+                        19
+                    ) + "...";
+
+            }
+
+
+            svg += `
+
+                <g
+                    class="cnx-node"
+                    data-node-id="${safeGraphValue(node.id)}"
+                    style="cursor:pointer;"
+                >
+
+                    <circle
+                        cx="${position.x}"
+                        cy="${position.y}"
+                        r="${nodeRadius}"
+                        fill="${fill}"
+                        stroke="${stroke}"
+                        stroke-width="2"
+                    />
+
+
+                    <text
+                        x="${position.x}"
+                        y="${position.y - 4}"
+                        fill="white"
+                        font-size="9"
+                        font-weight="bold"
+                        text-anchor="middle"
+                    >
+                        ${safeGraphValue(type)}
+                    </text>
+
+
+                    <text
+                        x="${position.x}"
+                        y="${position.y + 10}"
+                        fill="#94a3b8"
+                        font-size="7"
+                        text-anchor="middle"
+                    >
+                        ${safeGraphValue(label)}
+                    </text>
+
+                </g>
+
+            `;
+
+        }
+    );
+
+
+    svg += `
+        </svg>
+    `;
+
+
+    container.innerHTML =
+        svg;
+
+
+    window.cyberNexusGraphNodes =
+        nodes;
+
+
+    window.cyberNexusGraphEdges =
+        edges;
+
+
+    /* NODE CLICK EVENTS */
+
+    const graphNodes =
+        container.querySelectorAll(
+            ".cnx-node"
+        );
+
+
+    graphNodes.forEach(
+        function(nodeElement) {
+
+            nodeElement.addEventListener(
+                "click",
+                function() {
+
+                    const nodeID =
+                        nodeElement
+                        .getAttribute(
+                            "data-node-id"
+                        );
+
+
+                    showGraphNode(
+                        nodeID
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+    const details =
+        document.getElementById(
+            "graphNodeDetails"
+        );
+
+
+    if (details) {
+
+        details.innerHTML = `
+
+            <strong style="
+                color:white;
+            ">
+                LIVE ATTACK GRAPH
+            </strong>
+
+            <br>
+
+            <span>
+                ${nodes.length}
+                nodes
+                •
+                ${edges.length}
+                links
+            </span>
+
+        `;
+
+    }
+
+}
+
+
+/* Safe text helper for graph */
+
+function safeGraphValue(value) {
+
+    const element =
+        document.createElement("div");
+
+    element.textContent =
+        String(value ?? "");
+
+    return element.innerHTML;
+
+}
+
+
+function showGraphNode(
+    nodeID
+) {
+
+    const nodes =
+        window.cyberNexusGraphNodes ||
+        [];
+
+
+    const node =
+        nodes.find(
+            function(item) {
+
+                return String(item.id) ===
+                       String(nodeID);
+
+            }
+        );
+
+
+    const details =
+        document.getElementById(
+            "graphNodeDetails"
+        );
+
+
+    if (
+        !node ||
+        !details
+    ) {
+
+        return;
+
+    }
+
+
+    details.innerHTML = `
+
+        <strong style="
+            color:white;
+        ">
+
+            ${safeGraphValue(
+                node.node_type ||
+                "NODE"
+            )}
+
+        </strong>
+
+
+        <br>
+
+
+        <span style="
+            color:#00d4aa;
+            word-break:break-all;
+        ">
+
+            ${safeGraphValue(
+                node.label ||
+                node.id
+            )}
+
+        </span>
+
+
+        <br>
+
+
+        <small style="
+            color:#64748b;
+        ">
+
+            Node ID:
+            ${safeGraphValue(node.id)}
+
+        </small>
+
+    `;
+
+}
+
+</script>
+
+
+
+<!-- =========================================================
+     LIVE SOC METRICS ENGINE
+========================================================= -->
+
+<script>
+
+async function loadSOCMetrics(){
+
+    const status =
+        document.getElementById("socMetricsStatus");
+
+    try{
+
+        const response =
+            await fetch("/api/soc-metrics", {
+                cache:"no-store"
+            });
+
+        const data =
+            await response.json();
+
+        if(!data || !data.success){
+            throw new Error(
+                data && data.error
+                    ? data.error
+                    : "SOC metrics request failed"
+            );
+        }
+
+        const m =
+            data.metrics || {};
+
+        const setText =
+            function(id, value){
+
+                const el =
+                    document.getElementById(id);
+
+                if(el){
+                    el.innerText =
+                        String(value ?? 0);
+                }
+
+            };
+
+        setText(
+            "socTotalIncidents",
+            m.total_incidents
+        );
+
+        setText(
+            "socCritical",
+            m.critical
+        );
+
+        setText(
+            "socHigh",
+            m.high
+        );
+
+        setText(
+            "socMedium",
+            m.medium
+        );
+
+        setText(
+            "socLow",
+            m.low
+        );
+
+        setText(
+            "socTotalIOCs",
+            m.total_iocs
+        );
+
+        setText(
+            "socTotalEvidence",
+            m.total_evidence
+        );
+
+        const now =
+            new Date();
+
+        setText(
+            "socLastSync",
+            now.toLocaleTimeString()
+        );
+
+        /* Keep the main dashboard cards live too. */
+        setText(
+            "metricIncidents",
+            m.total_incidents
+        );
+
+        const recent =
+            Array.isArray(data.recent_incidents)
+                ? data.recent_incidents
+                : [];
+
+        /* STEP 14 — detect incidents that appeared after the first sync. */
+        detectNewSOCIncidents(recent);
+
+        const container =
+            document.getElementById(
+                "socRecentIncidents"
+            );
+
+        if(container){
+
+            if(!recent.length){
+
+                container.innerHTML = `
+                    <div class="cnx-soc-empty">
+                        No incidents found in the database.
+                    </div>
+                `;
+
+            }
+            else{
+
+                container.innerHTML =
+                    recent
+                    .map(
+                        function(item){
+
+                            const level =
+                                String(
+                                    item.incident_level ||
+                                    item.risk_level ||
+                                    "LOW"
+                                ).toUpperCase();
+
+                            const score =
+                                Number(
+                                    item.risk_score ?? 0
+                                );
+
+                            const correlation =
+                                Number(
+                                    item.correlation_score ?? 0
+                                );
+
+                            const isNew =
+                                window.cnxNewIncidentIds instanceof Set &&
+                                window.cnxNewIncidentIds.has(
+                                    String(item.incident_id || "")
+                                );
+
+                            return `
+                                <div class="cnx-soc-incident${isNew ? " cnx-new-incident" : ""}" data-cnx-incident-id="${escapeSOCHTML(item.incident_id || "")}">
+                                    <strong>
+                                        ${escapeSOCHTML(
+                                            item.incident_id ||
+                                            "UNKNOWN"
+                                        )}
+                                    </strong>
+
+                                    <span class="cnx-soc-level">
+                                        ${escapeSOCHTML(level)}
+                                    </span>
+
+                                    <span>
+                                        Risk: ${score}/100
+                                    </span>
+
+                                    <span>
+                                        Correlation: ${correlation}
+                                    </span>
+                                </div>
+                            `;
+
+                        }
+                    )
+                    .join("");
+
+                /* STEP 15 — make each live incident open its investigation view. */
+                container
+                    .querySelectorAll(".cnx-soc-incident")
+                    .forEach(function(row){
+
+                        row.addEventListener("click", function(){
+
+                            const incidentId =
+                                row.getAttribute("data-cnx-incident-id") || "";
+
+                            const selected =
+                                recent.find(function(item){
+                                    return String(item.incident_id || "") === incidentId;
+                                });
+
+                            if(selected){
+                                openSOCIncidentInvestigation(selected);
+                            }
+
+                        });
+
+                    });
+
+            }
+
+        }
+
+        if(status){
+            status.innerText =
+                "LIVE • SYNCED";
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            "CyberNexus SOC metrics error:",
+            error
+        );
+
+        if(status){
+            status.innerText =
+                "SYNC ERROR";
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   STEP 14 — INCIDENT ALERT ENGINE
+========================================================= */
+
+window.cnxSOCInitialized = false;
+window.cnxKnownIncidentIds = new Set();
+window.cnxNewIncidentIds = new Set();
+
+function detectNewSOCIncidents(incidents){
+
+    const currentIds = new Set();
+
+    incidents.forEach(function(item){
+
+        const id =
+            String(item.incident_id || "").trim();
+
+        if(id){
+            currentIds.add(id);
+        }
+
+    });
+
+    /* First sync establishes the baseline; existing incidents must not alert. */
+    if(!window.cnxSOCInitialized){
+
+        window.cnxKnownIncidentIds = currentIds;
+        window.cnxNewIncidentIds = new Set();
+        window.cnxSOCInitialized = true;
+        return;
+
+    }
+
+    const newIds = new Set();
+
+    incidents.forEach(function(item){
+
+        const id =
+            String(item.incident_id || "").trim();
+
+        if(!id || window.cnxKnownIncidentIds.has(id)){
+            return;
+        }
+
+        newIds.add(id);
+        showSOCIncidentAlert(item);
+
+    });
+
+    window.cnxNewIncidentIds = newIds;
+    window.cnxKnownIncidentIds = currentIds;
+
+}
+
+function showSOCIncidentAlert(item){
+
+    const stack =
+        document.getElementById("cnxAlertStack");
+
+    if(!stack){
+        return;
+    }
+
+    const level =
+        String(
+            item.incident_level ||
+            item.risk_level ||
+            "LOW"
+        ).toUpperCase();
+
+    const score =
+        Number(item.risk_score ?? 0);
+
+    const correlation =
+        Number(item.correlation_score ?? 0);
+
+    const incidentId =
+        String(item.incident_id || "UNKNOWN");
+
+    const alertClass =
+        ["CRITICAL","HIGH","MEDIUM"].includes(level)
+            ? level.toLowerCase()
+            : "medium";
+
+    const alert =
+        document.createElement("div");
+
+    alert.className =
+        "cnx-live-alert " +
+        alertClass;
+
+    alert.innerHTML = `
+        <div class="cnx-live-alert-header">
+            <span class="cnx-live-alert-title">
+                🚨 NEW SECURITY INCIDENT
+            </span>
+            <button
+                class="cnx-live-alert-close"
+                type="button"
+                aria-label="Close alert"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="cnx-live-alert-body">
+            Incident <strong>${escapeSOCHTML(incidentId)}</strong>
+            has entered the live SOC telemetry stream.
+        </div>
+
+        <div class="cnx-live-alert-meta">
+            <span class="cnx-alert-level">
+                ${escapeSOCHTML(level)}
+            </span>
+            <span>
+                Risk ${score}/100 · Correlation ${correlation}
+            </span>
+        </div>
+    `;
+
+    const close =
+        alert.querySelector(".cnx-live-alert-close");
+
+    if(close){
+        close.addEventListener("click", function(){
+            alert.remove();
+        });
+    }
+
+    stack.prepend(alert);
+
+    while(stack.children.length > 4){
+        stack.lastElementChild.remove();
+    }
+
+    /* Use browser notification only if permission was already granted.
+       No permission prompt is forced on the user. */
+    if(
+        typeof Notification !== "undefined" &&
+        Notification.permission === "granted"
+    ){
+        try{
+            new Notification(
+                "CYBERNEXUS Ω — New Incident",
+                {
+                    body:
+                        incidentId +
+                        " · " +
+                        level +
+                        " · Risk " +
+                        score +
+                        "/100"
+                }
+            );
+        }
+        catch(e){}
+    }
+
+    window.setTimeout(function(){
+        if(alert.isConnected){
+            alert.remove();
+        }
+    }, 10000);
+
+}
+
+
+/* =========================================================
+   STEP 15 — INCIDENT INVESTIGATION
+========================================================= */
+
+async function openSOCIncidentInvestigation(item){
+
+    const overlay =
+        document.getElementById("cnxInvestigationOverlay");
+
+    const body =
+        document.getElementById("cnxInvestigationBody");
+
+    const subtitle =
+        document.getElementById("cnxInvestigationSubtitle");
+
+    if(!overlay || !body){
+        return;
+    }
+
+    const incidentId =
+        String(item.incident_id || "UNKNOWN");
+
+    const level =
+        String(item.incident_level || item.risk_level || "LOW").toUpperCase();
+
+    const risk =
+        Number(item.risk_score ?? 0);
+
+    const correlation =
+        Number(item.correlation_score ?? 0);
+
+    const status =
+        String(item.status || "ACTIVE").toUpperCase();
+
+    subtitle.innerText =
+        incidentId + " • Loading investigation data";
+
+    body.innerHTML = `
+        <div class="cnx-investigation-note">
+            <strong>Loading incident investigation...</strong><br>
+            Resolving IOC, evidence, correlation and attack-graph data.
+        </div>
+    `;
+
+    overlay.classList.add("open");
+    overlay.setAttribute("aria-hidden", "false");
+
+    try{
+
+        const controller =
+            new AbortController();
+
+        const investigationTimeout =
+            setTimeout(function(){
+                controller.abort();
+            }, 5000);
+
+        let response;
+
+        try{
+
+            response =
+                await fetch(
+                    "/api/incident/" +
+                    encodeURIComponent(incidentId),
+                    {
+                        method:"GET",
+                        headers:{"Accept":"application/json"},
+                        signal: controller.signal
+                    }
+                );
+
+        }finally{
+
+            clearTimeout(
+                investigationTimeout
+            );
+        }
+
+        const data =
+            await response.json();
+
+        if(!response.ok || !data || !data.success){
+            throw new Error(
+                data && data.error
+                    ? data.error
+                    : "Incident investigation data unavailable."
+            );
+        }
+
+        const incident =
+            data.incident || {};
+
+        const riskData =
+            data.risk || {};
+
+        const correlationData =
+            data.correlation || {};
+
+        const iocIntelligence =
+            data.ioc_intelligence || {};
+
+        const iocs =
+            data.iocs || {};
+
+        const evidence =
+            data.evidence || {};
+
+        const graph =
+            data.graph || {};
+
+        const finalRisk =
+            Number(
+                incident.risk_score ??
+                riskData.overall_score ??
+                risk
+            );
+
+        const finalLevel =
+            String(
+                incident.risk_level ||
+                incident.incident_level ||
+                level
+            ).toUpperCase();
+
+        const finalCorrelation =
+            Number(
+                incident.correlation_score ??
+                correlationData.correlation_score ??
+                correlation
+            );
+
+        const iocCount =
+            Number(iocs.count ?? 0);
+
+        const evidenceCount =
+            Number(evidence.count ?? 0);
+
+        const nodeCount =
+            Number(graph.node_count ?? (graph.nodes || []).length ?? 0);
+
+        const edgeCount =
+            Number(graph.edge_count ?? (graph.edges || []).length ?? 0);
+
+        const intelligenceScore =
+            Number(
+                iocIntelligence.threat_intelligence_score ?? 0
+            );
+
+        const matchedCount =
+            Number(
+                iocIntelligence.matched_count ?? 0
+            );
+
+        const riskBonus =
+            Number(
+                iocIntelligence.risk_bonus ?? 0
+            );
+
+        const safe =
+            function(value){
+                return escapeSOCHTML(
+                    value === null || value === undefined
+                        ? "-"
+                        : String(value)
+                );
+            };
+
+        const iocRows =
+            Array.isArray(iocs.records)
+                ? iocs.records.slice(0,12).map(function(record){
+                    return `
+                        <div class="cnx-investigation-row">
+                            <span>
+                                ${safe(record.ioc_type || "IOC")}
+                                ·
+                                ${safe(record.value || "")}
+                            </span>
+                            <strong>
+                                ${safe(record.confidence ?? "-")}%
+                            </strong>
+                        </div>
+                    `;
+                }).join("")
+                : "";
+
+        const evidenceRows =
+            Array.isArray(evidence.records)
+                ? evidence.records.slice(0,8).map(function(record){
+                    const evidenceType =
+                        record.evidence_type ||
+                        record.type ||
+                        "Evidence";
+
+                    const source =
+                        record.source ||
+                        "CyberNexus";
+
+                    const hash =
+                        record.evidence_hash ||
+                        record.hash ||
+                        record.ledger_hash ||
+                        "";
+
+                    return `
+                        <div class="cnx-investigation-row">
+                            <span>
+                                ${safe(evidenceType)}
+                                ·
+                                ${safe(source)}
+                            </span>
+                            <strong style="word-break:break-all;max-width:52%;text-align:right;">
+                                ${safe(hash || "Recorded")}
+                            </strong>
+                        </div>
+                    `;
+                }).join("")
+                : "";
+
+        const graphRows =
+            Array.isArray(graph.nodes)
+                ? graph.nodes.slice(0,12).map(function(node){
+                    return `
+                        <div class="cnx-investigation-row">
+                            <span>
+                                ${safe(node.node_type || "NODE")}
+                            </span>
+                            <strong style="word-break:break-all;max-width:60%;text-align:right;">
+                                ${safe(node.label || node.id || "-")}
+                            </strong>
+                        </div>
+                    `;
+                }).join("")
+                : "";
+
+        subtitle.innerText =
+            incidentId + " • Live investigation record";
+
+        body.innerHTML = `
+            <div class="cnx-investigation-grid">
+                <div class="cnx-investigation-card">
+                    <span>Risk Score</span>
+                    <strong>${finalRisk}/100</strong>
+                </div>
+                <div class="cnx-investigation-card">
+                    <span>Risk Level</span>
+                    <strong>${safe(finalLevel)}</strong>
+                </div>
+                <div class="cnx-investigation-card">
+                    <span>Correlation</span>
+                    <strong>${finalCorrelation}/100</strong>
+                </div>
+                <div class="cnx-investigation-card">
+                    <span>Status</span>
+                    <strong>${safe(incident.status || status)}</strong>
+                </div>
+            </div>
+
+            <div class="cnx-investigation-section">
+                <h3>Incident Identity</h3>
+                <div class="cnx-investigation-list">
+                    <div class="cnx-investigation-row">
+                        <span>Incident ID</span>
+                        <strong>${safe(incident.incident_id || incidentId)}</strong>
+                    </div>
+                    <div class="cnx-investigation-row">
+                        <span>Severity</span>
+                        <strong>${safe(incident.severity || finalLevel)}</strong>
+                    </div>
+                    <div class="cnx-investigation-row">
+                        <span>Security Signals</span>
+                        <strong>${safe(incident.signal_count ?? "-")}</strong>
+                    </div>
+                    <div class="cnx-investigation-row">
+                        <span>High-Risk Signals</span>
+                        <strong>${safe(incident.high_risk_signal_count ?? "-")}</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cnx-investigation-section">
+                <h3>IOC Intelligence</h3>
+                <div class="cnx-investigation-grid">
+                    <div class="cnx-investigation-card">
+                        <span>IOC Records</span>
+                        <strong>${iocCount}</strong>
+                    </div>
+                    <div class="cnx-investigation-card">
+                        <span>Matched Known IOCs</span>
+                        <strong>${matchedCount}</strong>
+                    </div>
+                    <div class="cnx-investigation-card">
+                        <span>Threat Intel Score</span>
+                        <strong>${intelligenceScore}/100</strong>
+                    </div>
+                    <div class="cnx-investigation-card">
+                        <span>IOC Risk Bonus</span>
+                        <strong>+${riskBonus}</strong>
+                    </div>
+                </div>
+                <div class="cnx-investigation-list" style="margin-top:12px;">
+                    ${
+                        iocRows ||
+                        `<div class="cnx-investigation-note">No incident-specific IOC records are currently available.</div>`
+                    }
+                </div>
+            </div>
+
+            <div class="cnx-investigation-section">
+                <h3>Evidence Chain</h3>
+                <div class="cnx-investigation-row" style="margin-bottom:10px;">
+                    <span>Evidence records</span>
+                    <strong>${evidenceCount}</strong>
+                </div>
+                <div class="cnx-investigation-list">
+                    ${
+                        evidenceRows ||
+                        `<div class="cnx-investigation-note">No incident-specific evidence records are stored in the incident payload.</div>`
+                    }
+                </div>
+            </div>
+
+            <div class="cnx-investigation-section">
+                <h3>Correlation Context</h3>
+                <div class="cnx-investigation-list">
+                    <div class="cnx-investigation-row">
+                        <span>Correlation Score</span>
+                        <strong>${finalCorrelation}/100</strong>
+                    </div>
+                    <div class="cnx-investigation-row">
+                        <span>Correlation Sources</span>
+                        <strong>${safe((correlationData.sources || []).length || "-")}</strong>
+                    </div>
+                    <div class="cnx-investigation-row">
+                        <span>Correlation Status</span>
+                        <strong>${safe(correlationData.status || "Available")}</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cnx-investigation-section">
+                <h3>Attack Graph</h3>
+                <div class="cnx-investigation-grid">
+                    <div class="cnx-investigation-card">
+                        <span>Graph Nodes</span>
+                        <strong>${nodeCount}</strong>
+                    </div>
+                    <div class="cnx-investigation-card">
+                        <span>Graph Edges</span>
+                        <strong>${edgeCount}</strong>
+                    </div>
+                </div>
+                <div class="cnx-investigation-list" style="margin-top:12px;">
+                    ${
+                        graphRows ||
+                        `<div class="cnx-investigation-note">No persisted graph nodes are available for this incident.</div>`
+                    }
+                </div>
+            </div>
+
+            <div class="cnx-investigation-note" style="margin-top:14px;">
+                Investigation data is resolved from <strong>/api/incident/${safe(incidentId)}</strong> using the existing CyberNexus SQLite records and persisted orchestration context.
+            </div>
+        `;
+
+    }
+    catch(error){
+
+        subtitle.innerText =
+            incidentId + " • Investigation error";
+
+        body.innerHTML = `
+            <div class="cnx-investigation-note" style="border-color:#7f1d1d;">
+                <strong>❌ Investigation data could not be loaded.</strong><br><br>
+                ${safe(
+                    error && error.name === "AbortError"
+                        ? "Investigation request timed out after 5 seconds."
+                        : (error.message || error)
+                )}
+            </div>
+        `;
+
+        console.error(
+            "CYBERNEXUS investigation error:",
+            error
+        );
+    }
+
+}
+
+function closeSOCIncidentInvestigation(){
+
+    const overlay =
+        document.getElementById("cnxInvestigationOverlay");
+
+    if(!overlay){
+        return;
+    }
+
+    overlay.classList.remove("open");
+    overlay.setAttribute("aria-hidden", "true");
+
+}
+
+(function initSOCInvestigation(){
+
+    const overlay =
+        document.getElementById("cnxInvestigationOverlay");
+
+    const closeButton =
+        document.getElementById("cnxInvestigationClose");
+
+    if(closeButton){
+        closeButton.addEventListener("click", closeSOCIncidentInvestigation);
+    }
+
+    if(overlay){
+        overlay.addEventListener("click", function(event){
+            if(event.target === overlay){
+                closeSOCIncidentInvestigation();
+            }
+        });
+    }
+
+    document.addEventListener("keydown", function(event){
+        if(event.key === "Escape"){
+            closeSOCIncidentInvestigation();
+        }
+    });
+
+})();
+
+
+function escapeSOCHTML(value){
+
+    const element =
+        document.createElement("div");
+
+    element.textContent =
+        String(value ?? "");
+
+    return element.innerHTML;
+
+}
+
+
+/* Load live SOC data when dashboard is ready. */
+loadSOCMetrics();
+
+
+/* Refresh every 10 seconds without reloading the page. */
+setInterval(
+    loadSOCMetrics,
+    10000
+);
+
+</script>
+
+
+
+<!-- =========================================================
+     EXISTING JAVASCRIPT
+========================================================= -->
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
+<script src="{{ url_for('static', filename='js/graph.js') }}"></script>
+
+
+
+<!-- =========================================================
+     SIDEBAR MODULE NAVIGATION
+========================================================= -->
+
+<script>
+
+(function(){
+
+    const overlay =
+        document.getElementById(
+            "navDetailOverlay"
+        );
+
+
+    const title =
+        document.getElementById(
+            "navDetailTitle"
+        );
+
+
+    const eyebrow =
+        document.getElementById(
+            "navDetailEyebrow"
+        );
+
+
+    const body =
+        document.getElementById(
+            "navDetailBody"
+        );
+
+
+    const closeBtn =
+        document.getElementById(
+            "navDetailClose"
+        );
+
+
+    const modules = {
+
+        threats:{
+            title:"Threat Intelligence",
+            eyebrow:"THREAT MONITORING",
+            status:"LIVE THREAT DATA",
+
+            cards:[
+
+                [
+                    "IOC Intelligence",
+                    "Known URLs, domains, IPs, emails and file hashes collected by the IOC engine."
+                ],
+
+                [
+                    "Confidence",
+                    "Each known IOC carries a confidence value used by the threat-intelligence risk layer."
+                ],
+
+                [
+                    "Risk Impact",
+                    "Matched IOCs can increase the incident risk score before final severity is calculated."
+                ],
+
+                [
+                    "Detection Sources",
+                    "URL Detector, File Detector, Email Detector and IOC Engine contribute signals."
+                ]
+
+            ],
+
+            list:[
+                "Known IOC matching",
+                "Confidence scoring",
+                "Threat-intelligence score",
+                "Risk-level escalation"
+            ]
+        },
+
+
+        investigation:{
+            title:"Investigation Center",
+            eyebrow:"INCIDENT INVESTIGATION",
+            status:"ORCHESTRATOR READY",
+
+            cards:[
+
+                [
+                    "Incident Correlation",
+                    "URL, file and email signals are combined into a single security incident."
+                ],
+
+                [
+                    "Incident ID",
+                    "Every orchestrated incident receives a unique CyberNexus incident identifier."
+                ],
+
+                [
+                    "Evidence",
+                    "Investigation keeps the generated evidence records and integrity information together."
+                ],
+
+                [
+                    "Attack Context",
+                    "Correlated signals are represented as relationships in the attack graph."
+                ]
+
+            ],
+
+            list:[
+                "Review correlated signals",
+                "Inspect incident severity",
+                "Trace evidence",
+                "Inspect graph relationships"
+            ]
+        },
+
+
+        forensics:{
+            title:"Digital Forensics",
+            eyebrow:"FORENSIC ANALYSIS",
+            status:"EVIDENCE LEDGER ONLINE",
+
+            cards:[
+
+                [
+                    "Hashing",
+                    "Files can be fingerprinted with cryptographic hashes such as SHA-256."
+                ],
+
+                [
+                    "Metadata",
+                    "Static file information can be used as supporting forensic evidence."
+                ],
+
+                [
+                    "Evidence Ledger",
+                    "Evidence records can be stored and verified for integrity."
+                ],
+
+                [
+                    "Chain of Evidence",
+                    "Forensic records remain associated with the incident that generated them."
+                ]
+
+            ],
+
+            list:[
+                "File hash analysis",
+                "Metadata inspection",
+                "Evidence integrity",
+                "Incident evidence history"
+            ]
+        },
+
+
+        "attack-graph":{
+
+            title:"Attack Graph",
+            eyebrow:"RELATIONSHIP ENGINE",
+            status:"GRAPH ENGINE ONLINE",
+
+            cards:[
+
+                [
+                    "Nodes",
+                    "Incidents, URLs, domains, files and email indicators can appear as graph nodes."
+                ],
+
+                [
+                    "Edges",
+                    "Relationships such as CONTAINS, RESOLVES_TO and HIGH_RISK_ARTIFACT connect evidence."
+                ],
+
+                [
+                    "Interactive Nodes",
+                    "Click a node in the graph to inspect its type, label and node ID."
+                ],
+
+                [
+                    "Incident Context",
+                    "The graph is generated from correlated security signals."
+                ]
+
+            ],
+
+            list:[
+                "Inspect nodes",
+                "Trace relationships",
+                "Identify high-risk artifacts",
+                "Follow incident context"
+            ]
+        },
+
+
+        simulation:{
+
+            title:"Attack Simulation",
+            eyebrow:"WHAT-IF SECURITY LAB",
+            status:"SIMULATION MODULE",
+
+            cards:[
+
+                [
+                    "Attack Graph Simulation",
+                    "Model how an attack can move through connected stages and assets."
+                ],
+
+                [
+                    "What-If Analysis",
+                    "Compare the effect of different security controls on the simulated risk."
+                ],
+
+                [
+                    "Risk Reduction",
+                    "Simulation results can show how much risk is reduced across stages."
+                ],
+
+                [
+                    "Decision Support",
+                    "Use simulated outcomes to understand possible defensive actions."
+                ]
+
+            ],
+
+            list:[
+                "Build attack scenarios",
+                "Run what-if changes",
+                "Compare risk movement",
+                "Review simulated outcomes"
+            ]
+        },
+
+
+        "ai-soc":{
+
+            title:"AI SOC",
+            eyebrow:"AI SECURITY OPERATIONS",
+            status:"MULTI-AGENT SOC",
+
+            cards:[
+
+                [
+                    "Threat Agent",
+                    "Analyzes threat signals and contributes threat context."
+                ],
+
+                [
+                    "Forensic Agent",
+                    "Supports evidence and forensic interpretation."
+                ],
+
+                [
+                    "Behaviour Agent",
+                    "Looks for suspicious behavioural patterns and anomalies."
+                ],
+
+                [
+                    "Intelligence Agent",
+                    "Combines intelligence signals for investigation context."
+                ],
+
+                [
+                    "Graph Agent",
+                    "Builds relationships between security entities."
+                ],
+
+                [
+                    "Response Agent",
+                    "Produces response-oriented security actions."
+                ]
+
+            ],
+
+            list:[
+                "Threat analysis",
+                "Behaviour analysis",
+                "Forensic context",
+                "Threat intelligence",
+                "Graph reasoning",
+                "Response planning"
+            ]
+        },
+
+
+        "cyber-range":{
+
+            title:"Cyber Range",
+            eyebrow:"CONTROLLED ATTACK LAB",
+            status:"RANGE ENGINE READY",
+
+            cards:[
+
+                [
+                    "Attack Stages",
+                    "A controlled scenario can be divided into multiple attack stages."
+                ],
+
+                [
+                    "Defensive Controls",
+                    "Controls can be applied to measure their effect on simulated risk."
+                ],
+
+                [
+                    "Before / After Risk",
+                    "The range can compare initial risk with the resulting risk after controls."
+                ],
+
+                [
+                    "Learning Environment",
+                    "Use the range for safe demonstrations and defensive testing."
+                ]
+
+            ],
+
+            list:[
+                "Create a scenario",
+                "Run attack stages",
+                "Apply controls",
+                "Measure risk reduction"
+            ]
+        },
+
+
+        reports:{
+
+            title:"Security Reports",
+            eyebrow:"REPORTING CENTER",
+            status:"REPORT ENGINE READY",
+
+            cards:[
+
+                [
+                    "Incident Report",
+                    "Summarize incident severity, correlated signals and evidence."
+                ],
+
+                [
+                    "Forensic Evidence",
+                    "Include hashes, findings and evidence integrity information."
+                ],
+
+                [
+                    "Threat Intelligence",
+                    "Present IOC matches, confidence and intelligence scoring."
+                ],
+
+                [
+                    "Executive View",
+                    "Convert technical findings into a concise security overview."
+                ]
+
+            ],
+
+            list:[
+                "Incident summary",
+                "Threat findings",
+                "Evidence summary",
+                "Risk assessment"
+            ]
+        }
+
+    };
+
+
+    function escapeHTML(v){
+
+        const el =
+            document.createElement(
+                "div"
+            );
+
+        el.textContent =
+            String(v ?? "");
+
+        return el.innerHTML;
+
+    }
+
+
+    async function loadThreatData(){
+
+        try{
+
+            const r =
+                await fetch(
+                    "/api/ioc"
+                );
+
+
+            const d =
+                await r.json();
+
+
+            if(
+                d &&
+                d.success
+            ){
+
+                const count =
+                    Number(
+                        d.count || 0
+                    );
+
+
+                const rows =
+                    (
+                        d.records || []
+                    )
+                    .slice(0,8)
+                    .map(
+                        function(x){
+
+                            return `
+                                <li>
+                                    ${escapeHTML(
+                                        x.ioc_type ||
+                                        "IOC"
+                                    )}
+                                    —
+                                    ${escapeHTML(
+                                        x.value ||
+                                        ""
+                                    )}
+                                    —
+                                    confidence
+                                    ${escapeHTML(
+                                        x.confidence ??
+                                        "-"
+                                    )}
+                                </li>
+                            `;
+
+                        }
+                    )
+                    .join("");
+
+
+                return `
+
+                    <div
+                        class="cnx-info-card"
+                        style="grid-column:1/-1"
+                    >
+
+                        <strong>
+                            Current IOC Database
+                        </strong>
+
+                        <span>
+                            ${count}
+                            IOC record(s)
+                            currently stored.
+                        </span>
+
+                        ${
+                            rows
+                            ?
+                            `
+                                <ul
+                                    class="cnx-module-list"
+                                >
+                                    ${rows}
+                                </ul>
+                            `
+                            :
+                            ""
+                        }
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+        catch(e){}
+
+
+        return "";
+
+    }
+
+
+    async function openModule(key){
+
+        if(
+            key ===
+            "dashboard"
+        ){
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+            return;
+        }
+
+
+        const m =
+            modules[key];
+
+
+        if(!m){
+            return;
+        }
+
+
+        eyebrow.textContent =
+            m.eyebrow;
+
+
+        title.textContent =
+            m.title;
+
+
+        body.innerHTML = `
+
+            <div class="cnx-module-status">
+
+                <i></i>
+
+                ${escapeHTML(
+                    m.status
+                )}
+
+            </div>
+
+
+            <div class="cnx-nav-grid">
+
+                ${
+                    m.cards
+                    .map(
+                        function(c){
+
+                            return `
+
+                                <div
+                                    class="cnx-info-card"
+                                >
+
+                                    <strong>
+                                        ${escapeHTML(
+                                            c[0]
+                                        )}
+                                    </strong>
+
+                                    <span>
+                                        ${escapeHTML(
+                                            c[1]
+                                        )}
+                                    </span>
+
+                                </div>
+
+                            `;
+
+                        }
+                    )
+                    .join("")
+                }
+
+            </div>
+
+
+            <ul
+                class="cnx-module-list"
+            >
+
+                ${
+                    m.list
+                    .map(
+                        function(x){
+
+                            return `
+                                <li>
+                                    ${escapeHTML(x)}
+                                </li>
+                            `;
+
+                        }
+                    )
+                    .join("")
+                }
+
+            </ul>
+
+        `;
+
+
+        overlay.classList.add(
+            "open"
+        );
+
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+
+        document.body.style.overflow =
+            "hidden";
+
+
+        if(
+            key ===
+            "threats"
+        ){
+
+            body.insertAdjacentHTML(
+                "beforeend",
+                `
+                    <div
+                        id="cnxThreatLive"
+                        style="margin-top:14px"
+                    ></div>
+                `
+            );
+
+
+            const live =
+                await loadThreatData();
+
+
+            const box =
+                document.getElementById(
+                    "cnxThreatLive"
+                );
+
+
+            if(box){
+                box.innerHTML =
+                    live;
+            }
+
+        }
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".sidebar nav a[data-section]"
+        )
+        .forEach(
+            function(a){
+
+                a.addEventListener(
+                    "click",
+                    function(e){
+
+                        e.preventDefault();
+
+
+                        document
+                            .querySelectorAll(
+                                ".sidebar nav a"
+                            )
+                            .forEach(
+                                function(x){
+
+                                    x.classList.remove(
+                                        "active"
+                                    );
+
+                                }
+                            );
+
+
+                        this.classList.add(
+                            "active"
+                        );
+
+
+                        openModule(
+                            this.dataset.section
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+    function close(){
+
+        overlay.classList.remove(
+            "open"
+        );
+
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+    closeBtn.addEventListener(
+        "click",
+        close
+    );
+
+
+    overlay.addEventListener(
+        "click",
+        function(e){
+
+            if(
+                e.target ===
+                overlay
+            ){
+
+                close();
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        function(e){
+
+            if(
+                e.key ===
+                "Escape"
+            ){
+
+                close();
+
+            }
+
+        }
+    );
+
+})();
+
+</script>
+
+
+</body>
+
+</html>

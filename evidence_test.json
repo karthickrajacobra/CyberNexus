@@ -1,0 +1,9 @@
+﻿{
+  "evidence_type": "URL",
+  "source": "URL Detector",
+  "evidence": {
+    "url": "https://example.com/login"
+  },
+  "risk_score": 55,
+  "risk_level": "HIGH"
+}

@@ -1,0 +1,12 @@
+﻿{
+  "url_result": {
+    "url": "http://example.com/login",
+    "risk_score": 35,
+    "risk_level": "MEDIUM",
+    "findings": [
+      "Suspicious keywords: login",
+      "URL uses unencrypted HTTP",
+      "Authentication-related URL path"
+    ]
+  }
+}
