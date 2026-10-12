@@ -582,6 +582,215 @@ table{background:#071109!important;color:#eaffed!important;border-color:#1d4729!
 @media(max-width:560px){.main{padding:10px!important}.topbar{padding:14px!important}.metric-card,.panel{padding:14px!important}.sidebar nav a{padding:10px!important}}
 </style>
 
+
+<style id="cnx-pdf-mint-theme">
+:root{
+  --cnx-bg:#f7faf8;
+  --cnx-card:#ffffff;
+  --cnx-border:#b8c9c0;
+  --cnx-border-strong:#6fa58d;
+  --cnx-mint:#2fcf9b;
+  --cnx-mint-dark:#13845f;
+  --cnx-text:#26332d;
+  --cnx-muted:#718078;
+  --cnx-green:#18a86f;
+  --cnx-orange:#e58a18;
+  --cnx-red:#d94b63;
+  --cnx-purple:#7657b8;
+  --cnx-shadow:0 10px 30px rgba(38,65,52,.10);
+}
+html,body{background:var(--cnx-bg)!important;color:var(--cnx-text)!important}
+body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif!important}
+body:before{display:none!important}
+
+/* New PDF-style analysis workspace */
+.cnx-analysis-stack{
+  margin:24px 30px 34px!important;
+  max-width:1180px;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.cnx-analysis-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:22px 24px;
+  margin-bottom:16px;
+  background:#fff!important;
+  border:1px solid var(--cnx-border)!important;
+  border-radius:18px!important;
+  box-shadow:var(--cnx-shadow)!important;
+}
+.cnx-analysis-kicker{
+  color:var(--cnx-mint-dark)!important;
+  font-size:11px!important;
+  letter-spacing:2px!important;
+  font-weight:900!important;
+  text-transform:uppercase!important;
+}
+.cnx-analysis-title{
+  margin:5px 0 0!important;
+  color:var(--cnx-text)!important;
+  font-size:25px!important;
+  letter-spacing:.2px!important;
+}
+.cnx-analysis-subtitle{
+  margin:6px 0 0!important;
+  color:var(--cnx-muted)!important;
+  font-size:13px!important;
+}
+.cnx-online-pill{
+  flex:0 0 auto;
+  color:var(--cnx-mint-dark)!important;
+  border:1px solid var(--cnx-border-strong)!important;
+  background:#f1fff9!important;
+  border-radius:999px!important;
+  padding:9px 14px!important;
+  font-size:11px!important;
+  font-weight:900!important;
+}
+.cnx-analysis-stack>section{
+  margin:0 0 16px!important;
+  padding:24px!important;
+  background:var(--cnx-card)!important;
+  border:1px solid var(--cnx-border)!important;
+  border-radius:18px!important;
+  box-shadow:var(--cnx-shadow)!important;
+  color:var(--cnx-text)!important;
+}
+.cnx-analysis-stack>section h2{
+  color:var(--cnx-text)!important;
+  margin:0 0 8px!important;
+  font-size:19px!important;
+}
+.cnx-analysis-stack>section p,
+.cnx-analysis-stack>section label,
+.cnx-analysis-stack>section .url-scanner-hint{
+  color:var(--cnx-muted)!important;
+}
+.cnx-analysis-stack>section input,
+.cnx-analysis-stack>section textarea,
+.cnx-analysis-stack>section select{
+  background:#fbfdfc!important;
+  color:var(--cnx-text)!important;
+  border:1px solid var(--cnx-border)!important;
+  border-radius:10px!important;
+}
+.cnx-analysis-stack>section input::placeholder,
+.cnx-analysis-stack>section textarea::placeholder{color:#9aa8a1!important}
+.cnx-analysis-stack>section input:focus,
+.cnx-analysis-stack>section textarea:focus{
+  border-color:var(--cnx-mint)!important;
+  box-shadow:0 0 0 3px rgba(47,207,155,.12)!important;
+}
+.cnx-analysis-stack>section button{
+  background:linear-gradient(135deg,#48dcae,#24b986)!important;
+  color:#073a29!important;
+  border:1px solid #8be7c7!important;
+  box-shadow:0 5px 16px rgba(47,207,155,.18)!important;
+  border-radius:10px!important;
+}
+.cnx-analysis-stack>section button:hover{filter:brightness(1.04)!important;transform:translateY(-1px)!important}
+
+/* Email card */
+.cnx-analysis-stack>section:first-of-type:before{
+  content:"EMAIL ANALYSIS";
+  display:inline-block;
+  margin-bottom:9px;
+  color:var(--cnx-purple)!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:1.8px!important;
+}
+/* Result cards */
+#scanResult>div,
+#fileResult>div,
+#incidentResult>div{
+  background:#fff!important;
+  color:var(--cnx-text)!important;
+  border:1px solid var(--cnx-border)!important;
+  border-radius:14px!important;
+  box-shadow:0 5px 18px rgba(38,65,52,.07)!important;
+}
+#scanResult h3,#fileResult h3,#incidentResult h3{color:var(--cnx-text)!important}
+#scanResult p,#fileResult p,#incidentResult p,
+#scanResult div,#fileResult div,#incidentResult div{color:inherit}
+#scanResult strong,#fileResult strong,#incidentResult strong{color:var(--cnx-text)!important}
+
+/* Make risk badges match the PDF language */
+#scanResult h3,
+#fileResult h3{font-weight:900!important}
+#incidentResult span{font-weight:900!important}
+
+/* Existing SOC dashboard follows the new analysis workspace */
+.app{
+  background:#f7faf8!important;
+  color:var(--cnx-text)!important;
+}
+.sidebar{
+  background:#ffffff!important;
+  border-right:1px solid var(--cnx-border)!important;
+  box-shadow:4px 0 20px rgba(38,65,52,.05)!important;
+}
+.brand{border-bottom:1px solid #dbe5df!important}
+.logo{
+  background:linear-gradient(145deg,#3fd8a8,#1eb67f)!important;
+  color:#073a29!important;
+  border:1px solid #8be7c7!important;
+  box-shadow:0 0 18px rgba(47,207,155,.20)!important;
+}
+.brand h2{color:var(--cnx-text)!important}
+.brand span{color:var(--cnx-muted)!important}
+.sidebar nav a{color:#66756d!important}
+.sidebar nav a:hover{background:#f1fbf7!important;color:var(--cnx-mint-dark)!important;border-color:#bfe5d5!important}
+.sidebar nav a.active{background:#f0fbf7!important;color:var(--cnx-mint-dark)!important;border-color:#9ed8c3!important;box-shadow:inset 3px 0 var(--cnx-mint)!important}
+.system-status{background:#f6fbf8!important;border-color:#c9ddd3!important}
+.system-status small{color:var(--cnx-muted)!important}
+.system-status strong{color:var(--cnx-green)!important}
+.status-dot{background:var(--cnx-mint)!important;box-shadow:0 0 8px rgba(47,207,155,.45)!important}
+.main{background:#f7faf8!important}
+.topbar{background:#fff!important;border:1px solid var(--cnx-border)!important;box-shadow:var(--cnx-shadow)!important}
+.eyebrow{color:var(--cnx-mint-dark)!important}
+.topbar h1{color:var(--cnx-text)!important}
+.live{color:var(--cnx-green)!important;text-shadow:none!important}
+.metric-card,.panel{background:#fff!important;border:1px solid var(--cnx-border)!important;box-shadow:var(--cnx-shadow)!important;color:var(--cnx-text)!important}
+.metric-card:hover,.panel:hover{border-color:#9bc9b4!important;box-shadow:0 14px 34px rgba(38,65,52,.10)!important}
+.metric-card:before{background:linear-gradient(90deg,transparent,var(--cnx-mint),transparent)!important}
+.metric-card *{color:var(--cnx-text)!important}
+.metric-card .metric-label{color:var(--cnx-muted)!important}
+.metric-card .metric-value{color:var(--cnx-mint-dark)!important;text-shadow:none!important}
+.panel-title,.panel h2,.panel h3,.panel h4{color:var(--cnx-text)!important}
+.panel p,.panel span,.panel small,.description{color:var(--cnx-muted)!important}
+.cnx-soc-mini,.cnx-soc-secondary{background:#fbfdfc!important;border-color:#c9ddd3!important}
+.cnx-soc-mini span,.cnx-soc-secondary span{color:var(--cnx-muted)!important}
+.cnx-soc-mini strong,.cnx-soc-secondary strong{color:var(--cnx-text)!important}
+.cnx-soc-incident{background:#fbfdfc!important;border-color:#d0ded7!important}
+.cnx-soc-incident:hover{background:#f2fbf7!important;border-color:#8fc8ae!important}
+.cnx-soc-incident strong{color:var(--cnx-text)!important}
+.cnx-soc-incident span{color:var(--cnx-muted)!important}
+.cnx-investigation-modal{background:#fff!important;border-color:#b8c9c0!important}
+.cnx-investigation-header{background:#fbfdfc!important;border-color:#d6e2dc!important}
+.cnx-investigation-title{color:var(--cnx-text)!important}
+.cnx-investigation-subtitle{color:var(--cnx-muted)!important}
+.cnx-investigation-card,.cnx-investigation-section{background:#fbfdfc!important;border-color:#d0ded7!important}
+.cnx-investigation-card span,.cnx-investigation-row,.cnx-investigation-note{color:var(--cnx-muted)!important}
+.cnx-investigation-card strong,.cnx-investigation-section h3{color:var(--cnx-text)!important}
+.cnx-investigation-row{background:#fff!important}
+.cnx-live-alert{background:#fff!important;border-color:#c9ddd3!important;box-shadow:0 12px 30px rgba(38,65,52,.12)!important}
+.cnx-live-alert-title{color:var(--cnx-text)!important}
+.cnx-live-alert-body{color:var(--cnx-muted)!important}
+.cnx-live-alert-meta{color:#839188!important}
+
+@media(max-width:700px){
+ .cnx-analysis-stack{margin:14px!important}
+ .cnx-analysis-head{padding:17px!important}
+ .cnx-analysis-title{font-size:21px!important}
+ .cnx-online-pill{display:none}
+ .cnx-analysis-stack>section{padding:17px!important}
+}
+</style>
+
 </head>
 
 
@@ -5369,6 +5578,64 @@ setInterval(
 
 </script>
 
+
+
+<script id="cnx-pdf-layout-script">
+(function(){
+  function setupPdfStyleLayout(){
+    const body=document.body;
+    if(!body || document.getElementById('cnxAnalysisStack')) return;
+
+    const sections=Array.from(body.children).filter(el=>el.tagName==='SECTION');
+    if(sections.length<3) return;
+
+    const emailSection=sections[0];
+    const fileSection=sections[1];
+    const urlSection=sections[2];
+
+    const stack=document.createElement('div');
+    stack.id='cnxAnalysisStack';
+    stack.className='cnx-analysis-stack';
+
+    const head=document.createElement('div');
+    head.className='cnx-analysis-head';
+    head.innerHTML=`
+      <div>
+        <div class="cnx-analysis-kicker">CYBERNEXUS Ω • THREAT ANALYSIS</div>
+        <h1 class="cnx-analysis-title">Cyber Threat Analysis Workspace</h1>
+        <p class="cnx-analysis-subtitle">Analyze suspicious URLs, files and emails with one unified security workflow.</p>
+      </div>
+      <div class="cnx-online-pill">● ORCHESTRATOR ONLINE</div>
+    `;
+    stack.appendChild(head);
+
+    // PDF-inspired vertical order: URL → File → Email/Correlation
+    stack.appendChild(urlSection);
+    stack.appendChild(fileSection);
+    stack.appendChild(emailSection);
+
+    const app=body.querySelector('.app');
+    if(app) body.insertBefore(stack,app);
+    else body.appendChild(stack);
+
+    // Rename the correlation card to make its purpose clear.
+    const emailHeading=emailSection.querySelector('h2');
+    if(emailHeading) emailHeading.textContent='✉️ Email Threat Analyzer';
+    const emailDescription=emailSection.querySelector('p');
+    if(emailDescription) emailDescription.textContent='Analyze suspicious email content and correlate it with URL and file signals.';
+
+    // Make the first button explicit about the combined workflow.
+    const correlateButton=emailSection.querySelector('button');
+    if(correlateButton) correlateButton.textContent='⚡ ANALYZE & CORRELATE';
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',setupPdfStyleLayout,{once:true});
+  }else{
+    setupPdfStyleLayout();
+  }
+})();
+</script>
 
 </body>
 
