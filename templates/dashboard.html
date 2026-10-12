@@ -10,24 +10,13 @@
 <style>
 /* CYBERNEXUS OMEGA — subtle professional polish */
 body{
-    background:
-        radial-gradient(
-            circle at 15% 10%,
-            rgba(56,189,248,.06),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(99,102,241,.05),
-            transparent 30%
-        ),
-        #050a12!important;
+    background:#ffffff !important;
 }
 .metric-card,
 .panel{
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
-    box-shadow:0 10px 35px rgba(0,0,0,.18);
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
     transition:
         transform .2s ease,
         border-color .2s ease,
@@ -36,25 +25,15 @@ body{
 .metric-card:hover,
 .panel:hover{
     transform:translateY(-2px);
-    box-shadow:0 14px 42px rgba(0,0,0,.28);
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
 }
 .metric-card{
-    border-color:rgba(71,85,105,.55)!important;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(15,23,42,.92),
-            rgba(8,16,29,.88)
-        )!important;
+    border-color:#d1d5db !important;
+    background:#ffffff !important;
 }
 .panel{
-    border-color:rgba(51,65,85,.65)!important;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(15,23,42,.94),
-            rgba(7,14,25,.92)
-        )!important;
+    border-color:#d1d5db !important;
+    background:#ffffff !important;
 }
 
 .live{
@@ -62,7 +41,7 @@ body{
 }
 
 .status-dot{
-    box-shadow:0 0 10px rgba(34,197,94,.75);
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
 }
 
 @keyframes cnxPulse{
@@ -103,15 +82,13 @@ body{
 
 #urlInput:focus{
     outline:none!important;
-    border-color:#38bdf8!important;
-    box-shadow:
-        0 0 0 3px rgba(56,189,248,.12),
-        0 0 24px rgba(56,189,248,.08);
+    border-color:#d1d5db !important;
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
 }
 
 .url-scanner-hint{
     margin-top:9px;
-    color:#64748b;
+    color:#111827 !important;
     font-size:12px;
 }
 
@@ -125,8 +102,7 @@ body{
 .url-scan-button:hover{
     transform:translateY(-1px);
     filter:brightness(1.08);
-    box-shadow:
-        0 8px 24px rgba(0,212,170,.18);
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
 }
 
 @media(max-width:700px){
@@ -145,13 +121,13 @@ body{
     padding:15px;
     border:1px solid #26364b;
     border-radius:12px;
-    background:rgba(8,16,29,.72);
+    background:#ffffff !important;
 }
 
 .cnx-soc-mini span,
 .cnx-soc-secondary span{
     display:block;
-    color:#64748b;
+    color:#111827 !important;
     font-size:11px;
     letter-spacing:.7px;
     text-transform:uppercase;
@@ -161,7 +137,7 @@ body{
 .cnx-soc-secondary strong{
     display:block;
     margin-top:7px;
-    color:#f8fafc;
+    color:#111827 !important;
     font-size:24px;
 }
 
@@ -173,7 +149,7 @@ body{
     padding:16px;
     border:1px dashed #334155;
     border-radius:10px;
-    color:#64748b;
+    color:#111827 !important;
     text-align:center;
 }
 
@@ -186,17 +162,17 @@ body{
     margin-top:8px;
     border:1px solid #26364b;
     border-radius:10px;
-    background:rgba(15,23,42,.55);
+    background:#ffffff !important;
 }
 
 .cnx-soc-incident strong{
-    color:#e2e8f0;
+    color:#111827 !important;
     font-size:12px;
     word-break:break-all;
 }
 
 .cnx-soc-incident span{
-    color:#94a3b8;
+    color:#111827 !important;
     font-size:12px;
 }
 
@@ -234,8 +210,8 @@ body{
 
 .cnx-soc-incident:hover{
     transform:translateY(-1px);
-    border-color:rgba(56,189,248,.55)!important;
-    background:rgba(15,23,42,.72);
+    border-color:#d1d5db !important;
+    background:#ffffff !important;
 }
 
 #cnxInvestigationOverlay{
@@ -246,7 +222,7 @@ body{
     align-items:center;
     justify-content:center;
     padding:24px;
-    background:rgba(2,6,23,.78);
+    background:#ffffff !important;
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
 }
@@ -261,8 +237,8 @@ body{
     overflow:auto;
     border:1px solid rgba(51,65,85,.9);
     border-radius:16px;
-    background:linear-gradient(145deg,#0b1424,#07101d);
-    box-shadow:0 30px 90px rgba(0,0,0,.55);
+    background:#ffffff !important;
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
 }
 
 .cnx-investigation-header{
@@ -275,28 +251,28 @@ body{
     gap:16px;
     padding:18px 20px;
     border-bottom:1px solid rgba(51,65,85,.75);
-    background:rgba(7,16,29,.96);
+    background:#ffffff !important;
 }
 
 .cnx-investigation-title{
-    color:#f8fafc;
+    color:#111827 !important;
     font-size:17px;
     font-weight:800;
 }
 
 .cnx-investigation-subtitle{
     margin-top:4px;
-    color:#64748b;
+    color:#111827 !important;
     font-size:11px;
 }
 
 .cnx-investigation-close{
     width:34px;
     height:34px;
-    border:1px solid #334155;
+    border:1px solid #d1d5db;
     border-radius:9px;
-    background:#0f172a;
-    color:#cbd5e1;
+    background:#ffffff !important;
+    color:#111827 !important;
     cursor:pointer;
     font-size:20px;
 }
@@ -315,12 +291,12 @@ body{
     padding:15px;
     border:1px solid #26364c;
     border-radius:12px;
-    background:rgba(9,18,32,.72);
+    background:#ffffff !important;
 }
 
 .cnx-investigation-card span{
     display:block;
-    color:#64748b;
+    color:#111827 !important;
     font-size:10px;
     text-transform:uppercase;
     letter-spacing:.08em;
@@ -329,7 +305,7 @@ body{
 .cnx-investigation-card strong{
     display:block;
     margin-top:7px;
-    color:#f8fafc;
+    color:#111827 !important;
     font-size:20px;
 }
 
@@ -338,12 +314,12 @@ body{
     padding:16px;
     border:1px solid #26364c;
     border-radius:12px;
-    background:rgba(9,18,32,.55);
+    background:#ffffff !important;
 }
 
 .cnx-investigation-section h3{
     margin:0 0 10px;
-    color:#e2e8f0;
+    color:#111827 !important;
     font-size:13px;
 }
 
@@ -358,13 +334,13 @@ body{
     gap:15px;
     padding:10px 12px;
     border-radius:8px;
-    background:rgba(15,23,42,.72);
-    color:#94a3b8;
+    background:#ffffff !important;
+    color:#111827 !important;
     font-size:12px;
 }
 
 .cnx-investigation-note{
-    color:#64748b;
+    color:#111827 !important;
     font-size:11px;
     line-height:1.6;
 }
@@ -405,23 +381,23 @@ body{
     padding:14px 16px;
     border:1px solid rgba(71,85,105,.75);
     border-radius:12px;
-    background:linear-gradient(145deg,rgba(15,23,42,.98),rgba(7,14,25,.98));
-    box-shadow:0 16px 45px rgba(0,0,0,.42);
+    background:#ffffff !important;
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
     animation:cnxAlertIn .28s ease-out;
 }
 
 .cnx-live-alert.critical{
-    border-color:rgba(239,68,68,.75);
+    border-color:#d1d5db !important;
 }
 
 .cnx-live-alert.high{
-    border-color:rgba(249,115,22,.72);
+    border-color:#d1d5db !important;
 }
 
 .cnx-live-alert.medium{
-    border-color:rgba(234,179,8,.65);
+    border-color:#d1d5db !important;
 }
 
 .cnx-live-alert-header{
@@ -432,27 +408,27 @@ body{
 }
 
 .cnx-live-alert-title{
-    color:#f8fafc;
+    color:#111827 !important;
     font-weight:800;
     font-size:13px;
 }
 
 .cnx-live-alert-close{
     border:0;
-    background:transparent;
-    color:#64748b;
+    background:#ffffff !important;
+    color:#111827 !important;
     cursor:pointer;
     font-size:17px;
     line-height:1;
 }
 
 .cnx-live-alert-close:hover{
-    color:#f8fafc;
+    color:#111827 !important;
 }
 
 .cnx-live-alert-body{
     margin-top:8px;
-    color:#94a3b8;
+    color:#111827 !important;
     font-size:12px;
     line-height:1.5;
 }
@@ -462,7 +438,7 @@ body{
     display:flex;
     justify-content:space-between;
     gap:10px;
-    color:#64748b;
+    color:#111827 !important;
     font-size:11px;
 }
 
@@ -472,15 +448,15 @@ body{
 }
 
 .cnx-live-alert.critical .cnx-alert-level{
-    color:#f87171;
+    color:#111827 !important;
 }
 
 .cnx-live-alert.high .cnx-alert-level{
-    color:#fb923c;
+    color:#111827 !important;
 }
 
 .cnx-live-alert.medium .cnx-alert-level{
-    color:#facc15;
+    color:#111827 !important;
 }
 
 @keyframes cnxAlertIn{
@@ -500,10 +476,10 @@ body{
 
 @keyframes cnxIncidentPulse{
     0%,100%{
-        box-shadow:0 0 0 rgba(56,189,248,0);
+        box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
     }
     50%{
-        box-shadow:0 0 22px rgba(56,189,248,.22);
+        box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
     }
 }
 
@@ -520,322 +496,340 @@ body{
 *{box-sizing:border-box}
 html{background:var(--bg)!important}
 body{
- margin:0!important;background:
- radial-gradient(circle at 10% 0%,rgba(57,255,20,.10),transparent 26%),
- radial-gradient(circle at 90% 15%,rgba(57,255,20,.06),transparent 24%),
- linear-gradient(135deg,#020403,#06100a 55%,#020403)!important;
- color:var(--text)!important;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif!important;
+ margin:0!important;background:#ffffff !important;
+ color:#111827 !important;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif!important;
 }
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background-image:linear-gradient(rgba(57,255,20,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,.035) 1px,transparent 1px);background-size:32px 32px}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background-image:#ffffff !important;background-size:32px 32px}
 .app{min-height:100vh!important;background:transparent!important}
 .sidebar{
- background:linear-gradient(180deg,#061009,#030805)!important;border-right:1px solid #1e4d2b!important;
- box-shadow:8px 0 35px rgba(0,0,0,.35)!important;position:relative!important;overflow:hidden!important
+ background:#ffffff !important;border-right:1px solid #1e4d2b!important;
+ box-shadow:0 1px 3px rgba(0,0,0,.08) !important;position:relative!important;overflow:hidden!important
 }
-.sidebar:after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:radial-gradient(circle at 50% 100%,rgba(57,255,20,.12),transparent 70%);pointer-events:none}
+.sidebar:after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:#ffffff !important;pointer-events:none}
 .brand{padding:24px 20px!important;border-bottom:1px solid #173a22!important}
-.logo{background:linear-gradient(145deg,#39ff14,#19b800)!important;color:#041006!important;box-shadow:0 0 25px rgba(57,255,20,.35)!important;border:1px solid #7dff68!important}
-.brand h2{color:#f4fff6!important;letter-spacing:1.5px!important}.brand span{color:#62a974!important}
+.logo{background:#ffffff !important;color:#111827 !important;box-shadow:0 1px 3px rgba(0,0,0,.08) !important;border:1px solid #7dff68!important}
+.brand h2{color:#111827 !important;letter-spacing:1.5px!important}.brand span{color:#62a974!important}
 .sidebar nav{padding:18px 12px!important}
-.sidebar nav a{color:#a8c1ae!important;border:1px solid transparent!important;border-radius:11px!important;margin:5px 0!important;padding:12px 14px!important;transition:.2s!important}
-.sidebar nav a:hover{background:#0d2515!important;color:#7dff68!important;border-color:#225c31!important;box-shadow:inset 3px 0 #39ff14!important}
-.sidebar nav a.active{background:linear-gradient(90deg,rgba(57,255,20,.14),rgba(57,255,20,.03))!important;color:#f4fff6!important;border-color:#2a6937!important;box-shadow:inset 3px 0 #39ff14,0 0 18px rgba(57,255,20,.06)!important}
-.system-status{margin:14px!important;background:#07130b!important;border:1px solid #1d4729!important;border-radius:14px!important;padding:14px!important}
-.system-status small{color:#6f9478!important}.system-status strong{color:#72ff5a!important}.status-dot{background:#39ff14!important;box-shadow:0 0 8px #39ff14,0 0 22px rgba(57,255,20,.55)!important}
-.main{background:transparent!important;padding:24px 28px!important}
-.topbar{background:rgba(5,13,8,.82)!important;border:1px solid #183b23!important;border-radius:16px!important;padding:18px 20px!important;box-shadow:0 12px 35px rgba(0,0,0,.25)!important;backdrop-filter:blur(12px)!important}
-.eyebrow{color:#52d94c!important;letter-spacing:2px!important;font-weight:800!important}.topbar h1{color:#f6fff8!important;margin-top:5px!important}.live{color:#39ff14!important;font-weight:900!important;text-shadow:0 0 10px rgba(57,255,20,.35)!important}
+.sidebar nav a{color:#111827 !important;border:1px solid transparent!important;border-radius:11px!important;margin:5px 0!important;padding:12px 14px!important;transition:.2s!important}
+.sidebar nav a:hover{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;box-shadow:inset 3px 0 #39ff14!important}
+.sidebar nav a.active{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;box-shadow:inset 3px 0 #39ff14,0 0 18px rgba(57,255,20,.06)!important}
+.system-status{margin:14px!important;background:#ffffff !important;border:1px solid #1d4729!important;border-radius:14px!important;padding:14px!important}
+.system-status small{color:#6f9478!important}.system-status strong{color:#72ff5a!important}.status-dot{background:#ffffff !important;box-shadow:0 0 8px #39ff14,0 0 22px rgba(57,255,20,.55)!important}
+.main{background:#ffffff !important;padding:24px 28px!important}
+.topbar{background:#ffffff !important;border:1px solid #183b23!important;border-radius:16px!important;padding:18px 20px!important;box-shadow:0 1px 3px rgba(0,0,0,.08) !important;backdrop-filter:blur(12px)!important}
+.eyebrow{color:#111827 !important;letter-spacing:2px!important;font-weight:800!important}.topbar h1{color:#111827 !important;margin-top:5px!important}.live{color:#111827 !important;font-weight:900!important;text-shadow:0 0 10px rgba(57,255,20,.35)!important}
 .metrics{gap:14px!important;margin:18px 0!important}
 .metric-card{
- background:linear-gradient(145deg,#0a1810,#06100a)!important;border:1px solid #20512e!important;border-radius:16px!important;padding:18px!important;
- box-shadow:0 10px 30px rgba(0,0,0,.22)!important;position:relative!important;overflow:hidden!important
+ background:#ffffff !important;border:1px solid #20512e!important;border-radius:16px!important;padding:18px!important;
+ box-shadow:0 1px 3px rgba(0,0,0,.08) !important;position:relative!important;overflow:hidden!important
 }
-.metric-card:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,#39ff14,transparent);opacity:.7}
-.metric-card:hover{transform:translateY(-3px)!important;border-color:#39ff14!important;box-shadow:0 16px 35px rgba(57,255,20,.12)!important}
-.metric-card *{color:var(--text)!important}.metric-card .metric-label{color:#8fb19a!important}.metric-card .metric-value{color:#39ff14!important;text-shadow:0 0 14px rgba(57,255,20,.28)!important}
+.metric-card:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:#ffffff !important;opacity:.7}
+.metric-card:hover{transform:translateY(-3px)!important;border-color:#d1d5db !important;box-shadow:0 16px 35px rgba(57,255,20,.12)!important}
+.metric-card *{color:var(--text)!important}.metric-card .metric-label{color:#8fb19a!important}.metric-card .metric-value{color:#111827 !important;text-shadow:0 0 14px rgba(57,255,20,.28)!important}
 .content-grid{gap:18px!important}
 .panel{
- background:linear-gradient(145deg,rgba(10,23,14,.98),rgba(5,13,8,.98))!important;border:1px solid #1e4829!important;border-radius:17px!important;
- box-shadow:0 12px 36px rgba(0,0,0,.25)!important;padding:20px!important
+ background:#ffffff !important;border:1px solid #1e4829!important;border-radius:17px!important;
+ box-shadow:0 1px 3px rgba(0,0,0,.08) !important;padding:20px!important
 }
-.panel:hover{border-color:#2f713e!important;box-shadow:0 16px 42px rgba(0,0,0,.35),0 0 20px rgba(57,255,20,.05)!important}
+.panel:hover{border-color:#d1d5db !important;box-shadow:0 16px 42px rgba(0,0,0,.35),0 0 20px rgba(57,255,20,.05)!important}
 .panel-title,.panel h2,.panel h3,.panel h4{color:#effff3!important}.panel p,.panel span,.panel small,.description{color:#9fbaa7!important}
-button,.btn,.button{border-radius:10px!important;background:linear-gradient(135deg,#39ff14,#1ed600)!important;color:#031006!important;font-weight:900!important;border:1px solid #7dff68!important;box-shadow:0 0 18px rgba(57,255,20,.15)!important;transition:.18s!important}
+button,.btn,.button{border-radius:10px!important;background:#ffffff !important;color:#111827 !important;font-weight:900!important;border:1px solid #7dff68!important;box-shadow:0 1px 3px rgba(0,0,0,.08) !important;transition:.18s!important}
 button:hover,.btn:hover,.button:hover{transform:translateY(-1px)!important;filter:brightness(1.08)!important;box-shadow:0 0 28px rgba(57,255,20,.30)!important}
-input,textarea,select{background:#030806!important;color:#f2fff5!important;border:1px solid #285736!important;border-radius:10px!important}
-input:focus,textarea:focus,select:focus,#urlInput:focus{border-color:#39ff14!important;box-shadow:0 0 0 3px rgba(57,255,20,.10),0 0 22px rgba(57,255,20,.12)!important}
+input,textarea,select{background:#ffffff !important;color:#111827 !important;border:1px solid #285736!important;border-radius:10px!important}
+input:focus,textarea:focus,select:focus,#urlInput:focus{border-color:#d1d5db !important;box-shadow:0 0 0 3px rgba(57,255,20,.10),0 0 22px rgba(57,255,20,.12)!important}
 input::placeholder,textarea::placeholder{color:#62806c!important}
 .url-scanner-hint{color:#75917e!important}.url-scanner-hint strong{color:#b9ffc0!important}
-.cnx-soc-mini,.cnx-soc-secondary{background:linear-gradient(145deg,#0b1a10,#071009)!important;border:1px solid #1e4829!important;box-shadow:none!important}
-.cnx-soc-mini span,.cnx-soc-secondary span{color:#73927d!important}.cnx-soc-mini strong,.cnx-soc-secondary strong{color:#f3fff5!important}.cnx-soc-incident{background:#071109!important;border-color:#1d4729!important}.cnx-soc-incident:hover{background:#0b1d10!important;border-color:#39ff14!important}.cnx-soc-incident strong{color:#eaffed!important}.cnx-soc-incident span{color:#91ae99!important}
-.cnx-investigation-modal,.cnx-nav-modal{background:linear-gradient(145deg,#08130c,#030806)!important;border:1px solid #2a6337!important;box-shadow:0 30px 100px rgba(0,0,0,.7)!important}.cnx-investigation-header,.cnx-nav-modal-head{background:#071109!important;border-color:#1d4729!important}.cnx-investigation-title,.cnx-nav-modal-head h2{color:#f4fff6!important}.cnx-investigation-subtitle{color:#76917e!important}.cnx-investigation-card,.cnx-investigation-section{background:#09160d!important;border-color:#1d4729!important}.cnx-investigation-card span,.cnx-investigation-row,.cnx-investigation-note{color:#91ae99!important}.cnx-investigation-card strong,.cnx-investigation-section h3{color:#effff2!important}.cnx-investigation-row{background:#071109!important}
-.cnx-live-alert{background:linear-gradient(145deg,#0a1710,#040a06)!important;border-color:#285936!important}.cnx-live-alert-title{color:#f4fff6!important}.cnx-live-alert-body{color:#9fbaa7!important}.cnx-live-alert-meta{color:#718c78!important}
-section[style*="margin:30px"]{background:linear-gradient(145deg,#09160d,#040a06)!important;border-color:#235c31!important;box-shadow:0 12px 35px rgba(0,0,0,.25)!important}
+.cnx-soc-mini,.cnx-soc-secondary{background:#ffffff !important;border:1px solid #1e4829!important;box-shadow:none!important}
+.cnx-soc-mini span,.cnx-soc-secondary span{color:#73927d!important}.cnx-soc-mini strong,.cnx-soc-secondary strong{color:#f3fff5!important}.cnx-soc-incident{background:#ffffff !important;border-color:#1d4729!important}.cnx-soc-incident:hover{background:#ffffff !important;border-color:#39ff14!important}.cnx-soc-incident strong{color:#eaffed!important}.cnx-soc-incident span{color:#91ae99!important}
+.cnx-investigation-modal,.cnx-nav-modal{background:#ffffff !important;border:1px solid #2a6337!important;box-shadow:0 30px 100px rgba(0,0,0,.7)!important}.cnx-investigation-header,.cnx-nav-modal-head{background:#ffffff !important;border-color:#1d4729!important}.cnx-investigation-title,.cnx-nav-modal-head h2{color:#f4fff6!important}.cnx-investigation-subtitle{color:#76917e!important}.cnx-investigation-card,.cnx-investigation-section{background:#ffffff !important;border-color:#1d4729!important}.cnx-investigation-card span,.cnx-investigation-row,.cnx-investigation-note{color:#91ae99!important}.cnx-investigation-card strong,.cnx-investigation-section h3{color:#effff2!important}.cnx-investigation-row{background:#071109!important}
+.cnx-live-alert{background:#ffffff !important;border-color:#285936!important}.cnx-live-alert-title{color:#f4fff6!important}.cnx-live-alert-body{color:#9fbaa7!important}.cnx-live-alert-meta{color:#718c78!important}
+section[style*="margin:30px"]{background:#ffffff !important;border-color:#d1d5db !important;box-shadow:0 12px 35px rgba(0,0,0,.25)!important}
 section[style*="margin:30px"] h2{color:#f4fff6!important}section[style*="margin:30px"] p,label{color:#9fbaa7!important}
-section[style*="margin:30px"] input{background:#030806!important;color:#f4fff6!important;border-color:#285736!important}
-pre,code,.json,.api-response,.response,.output,.result,.result-box{background:#020503!important;color:#d9ffdf!important;border-color:#1d4729!important}
-table{background:#071109!important;color:#eaffed!important;border-color:#1d4729!important}th{background:#0e2415!important;color:#72ff5a!important;border-color:#245b31!important}td{color:#d8e9dc!important;border-color:#173c23!important}tr:hover td{background:#0d2113!important}
-.risk-bar{background:#122217!important}.risk-bar>div{background:linear-gradient(90deg,#1ed600,#7dff68)!important;box-shadow:0 0 15px rgba(57,255,20,.45)!important}
+section[style*="margin:30px"] input{background:#ffffff !important;color:#111827 !important;border-color:#285736!important}
+pre,code,.json,.api-response,.response,.output,.result,.result-box{background:#ffffff !important;color:#111827 !important;border-color:#1d4729!important}
+table{background:#ffffff !important;color:#111827 !important;border-color:#1d4729!important}th{background:#ffffff !important;color:#111827 !important;border-color:#245b31!important}td{color:#111827 !important;border-color:#173c23!important}tr:hover td{background:#0d2113!important}
+.risk-bar{background:#122217!important}.risk-bar>div{background:#ffffff !important;box-shadow:0 0 15px rgba(57,255,20,.45)!important}
 #cnxAlertStack{right:24px!important}.cnx-live-alert.critical{border-color:#ff4d67!important}.cnx-live-alert.high{border-color:#ff8b38!important}.cnx-live-alert.medium{border-color:#ffd84d!important}
-*{scrollbar-width:thin;scrollbar-color:#2d7a3a #030605}*::-webkit-scrollbar{width:9px;height:9px}*::-webkit-scrollbar-track{background:#030605}*::-webkit-scrollbar-thumb{background:#245f31;border-radius:20px}*::-webkit-scrollbar-thumb:hover{background:#39ff14}
+*{scrollbar-width:thin;scrollbar-color:#2d7a3a #030605}*::-webkit-scrollbar{width:9px;height:9px}*::-webkit-scrollbar-track{background:#030605}*::-webkit-scrollbar-thumb{background:#ffffff !important;border-radius:20px}*::-webkit-scrollbar-thumb:hover{background:#39ff14}
 @media(max-width:900px){.main{padding:15px!important}.topbar{border-radius:12px!important}.panel{border-radius:13px!important}.sidebar{box-shadow:none!important}}
 @media(max-width:560px){.main{padding:10px!important}.topbar{padding:14px!important}.metric-card,.panel{padding:14px!important}.sidebar nav a{padding:10px!important}}
 </style>
 
 
-<style id="cnx-pdf-mint-theme">
-:root{
-  --cnx-bg:#f7faf8;
-  --cnx-card:#ffffff;
-  --cnx-border:#b8c9c0;
-  --cnx-border-strong:#6fa58d;
-  --cnx-mint:#2fcf9b;
-  --cnx-mint-dark:#13845f;
-  --cnx-text:#26332d;
-  --cnx-muted:#718078;
-  --cnx-green:#18a86f;
-  --cnx-orange:#e58a18;
-  --cnx-red:#d94b63;
-  --cnx-purple:#7657b8;
-  --cnx-shadow:0 10px 30px rgba(38,65,52,.10);
-}
-html,body{background:var(--cnx-bg)!important;color:var(--cnx-text)!important}
-body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif!important}
-body:before{display:none!important}
+<style id="cnx-full-white-theme">
+/* =========================================================
+   CYBERNEXUS Ω — FULL WHITE / ZERO BLUE THEME
+   No blue/cyan UI. White surfaces, dark text, neutral borders.
+   Risk/status colors remain only where semantically useful.
+   ========================================================= */
+html,body{background:#ffffff !important;color:#111827 !important;}
+body{background-image:#ffffff !important;}
 
-/* New PDF-style analysis workspace */
-.cnx-analysis-stack{
-  margin:24px 30px 34px!important;
-  max-width:1180px;
-  margin-left:auto!important;
-  margin-right:auto!important;
+/* Main layout and common surfaces */
+main,header,footer,section,article,aside,nav,
+.container,.app,.dashboard,.page,.content,.content-grid,
+.panel,.metric-card,.card,.module,.widget,.box,
+.cnx-panel,.cnx-card,.cnx-module,.cnx-soc-mini,
+.cnx-investigation-section,.cnx-investigation-card,
+.cnx-soc-secondary,.cnx-nav-modal,.cnx-nav-grid,
+.result,.results,.analysis-result,.scan-result,
+.attack-panel,.risk-panel,.events,.graph,
+[style*="background:#050a12"],[style*="background:#07101d"],
+[style*="background:#08101d"],[style*="background:#0b1220"],
+[style*="background:#0f172a"],[style*="background:#111827"],
+[style*="background:#020403"],[style*="background:#020503"],
+[style*="background:#030605"],[style*="background:#030805"],
+[style*="background:#040a06"],[style*="background:#061009"],
+[style*="background:#071009"],[style*="background:#071109"],
+[style*="background:#07130b"],[style*="background:#08130c"],
+[style*="background:#0a1710"],[style*="background:#0a1810"],
+[style*="background:#0b1a10"],[style*="background:#0d1728"],
+[style*="background:#0d1c12"],[style*="background:#0e2415"],
+[style*="background:#102a3a"],[style*="background:#111c2d"]{
+    background:#ffffff !important;
+    background-image:#ffffff !important;
+    color:#111827 !important;
 }
-.cnx-analysis-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  padding:22px 24px;
-  margin-bottom:16px;
-  background:#fff!important;
-  border:1px solid var(--cnx-border)!important;
-  border-radius:18px!important;
-  box-shadow:var(--cnx-shadow)!important;
-}
-.cnx-analysis-kicker{
-  color:var(--cnx-mint-dark)!important;
-  font-size:11px!important;
-  letter-spacing:2px!important;
-  font-weight:900!important;
-  text-transform:uppercase!important;
-}
-.cnx-analysis-title{
-  margin:5px 0 0!important;
-  color:var(--cnx-text)!important;
-  font-size:25px!important;
-  letter-spacing:.2px!important;
-}
-.cnx-analysis-subtitle{
-  margin:6px 0 0!important;
-  color:var(--cnx-muted)!important;
-  font-size:13px!important;
-}
-.cnx-online-pill{
-  flex:0 0 auto;
-  color:var(--cnx-mint-dark)!important;
-  border:1px solid var(--cnx-border-strong)!important;
-  background:#f1fff9!important;
-  border-radius:999px!important;
-  padding:9px 14px!important;
-  font-size:11px!important;
-  font-weight:900!important;
-}
-.cnx-analysis-stack>section{
-  margin:0 0 16px!important;
-  padding:24px!important;
-  background:var(--cnx-card)!important;
-  border:1px solid var(--cnx-border)!important;
-  border-radius:18px!important;
-  box-shadow:var(--cnx-shadow)!important;
-  color:var(--cnx-text)!important;
-}
-.cnx-analysis-stack>section h2{
-  color:var(--cnx-text)!important;
-  margin:0 0 8px!important;
-  font-size:19px!important;
-}
-.cnx-analysis-stack>section p,
-.cnx-analysis-stack>section label,
-.cnx-analysis-stack>section .url-scanner-hint{
-  color:var(--cnx-muted)!important;
-}
-.cnx-analysis-stack>section input,
-.cnx-analysis-stack>section textarea,
-.cnx-analysis-stack>section select{
-  background:#fbfdfc!important;
-  color:var(--cnx-text)!important;
-  border:1px solid var(--cnx-border)!important;
-  border-radius:10px!important;
-}
-.cnx-analysis-stack>section input::placeholder,
-.cnx-analysis-stack>section textarea::placeholder{color:#9aa8a1!important}
-.cnx-analysis-stack>section input:focus,
-.cnx-analysis-stack>section textarea:focus{
-  border-color:var(--cnx-mint)!important;
-  box-shadow:0 0 0 3px rgba(47,207,155,.12)!important;
-}
-.cnx-analysis-stack>section button{
-  background:linear-gradient(135deg,#48dcae,#24b986)!important;
-  color:#073a29!important;
-  border:1px solid #8be7c7!important;
-  box-shadow:0 5px 16px rgba(47,207,155,.18)!important;
-  border-radius:10px!important;
-}
-.cnx-analysis-stack>section button:hover{filter:brightness(1.04)!important;transform:translateY(-1px)!important}
 
-/* Email card */
-.cnx-analysis-stack>section:first-of-type:before{
-  content:"EMAIL ANALYSIS";
-  display:inline-block;
-  margin-bottom:9px;
-  color:var(--cnx-purple)!important;
-  font-size:10px!important;
-  font-weight:900!important;
-  letter-spacing:1.8px!important;
+.metric-card,.panel,.card,.module,.widget,.box,
+.cnx-panel,.cnx-card,.cnx-module,.cnx-soc-mini,
+.cnx-investigation-section,.cnx-investigation-card,
+.cnx-soc-secondary,.result,.results,.analysis-result,
+.scan-result,.attack-panel,.risk-panel,.events{
+    border-color:#d1d5db !important;
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
 }
-/* Result cards */
-#scanResult>div,
-#fileResult>div,
-#incidentResult>div{
-  background:#fff!important;
-  color:var(--cnx-text)!important;
-  border:1px solid var(--cnx-border)!important;
-  border-radius:14px!important;
-  box-shadow:0 5px 18px rgba(38,65,52,.07)!important;
-}
-#scanResult h3,#fileResult h3,#incidentResult h3{color:var(--cnx-text)!important}
-#scanResult p,#fileResult p,#incidentResult p,
-#scanResult div,#fileResult div,#incidentResult div{color:inherit}
-#scanResult strong,#fileResult strong,#incidentResult strong{color:var(--cnx-text)!important}
 
-/* Make risk badges match the PDF language */
-#scanResult h3,
-#fileResult h3{font-weight:900!important}
-#incidentResult span{font-weight:900!important}
+/* All regular text */
+body,h1,h2,h3,h4,h5,h6,p,span,small,label,strong,li,td,th,
+.panel-header,.eyebrow,.metric-card span,.metric-card small,
+.cnx-module-list,.cnx-investigation-note,.cnx-soc-empty,
+.cnx-soc-secondary span,.cnx-soc-mini span{
+    color:#111827 !important;
+}
 
-/* Existing SOC dashboard follows the new analysis workspace */
-.app{
-  background:#f7faf8!important;
-  color:var(--cnx-text)!important;
+/* Secondary text */
+small,.muted,.secondary,.description,.subtitle,
+.cnx-module-list,.cnx-investigation-note,.cnx-soc-empty,
+.cnx-soc-secondary span,.cnx-soc-mini span{
+    color:#111827 !important;
 }
-.sidebar{
-  background:#ffffff!important;
-  border-right:1px solid var(--cnx-border)!important;
-  box-shadow:4px 0 20px rgba(38,65,52,.05)!important;
-}
-.brand{border-bottom:1px solid #dbe5df!important}
-.logo{
-  background:linear-gradient(145deg,#3fd8a8,#1eb67f)!important;
-  color:#073a29!important;
-  border:1px solid #8be7c7!important;
-  box-shadow:0 0 18px rgba(47,207,155,.20)!important;
-}
-.brand h2{color:var(--cnx-text)!important}
-.brand span{color:var(--cnx-muted)!important}
-.sidebar nav a{color:#66756d!important}
-.sidebar nav a:hover{background:#f1fbf7!important;color:var(--cnx-mint-dark)!important;border-color:#bfe5d5!important}
-.sidebar nav a.active{background:#f0fbf7!important;color:var(--cnx-mint-dark)!important;border-color:#9ed8c3!important;box-shadow:inset 3px 0 var(--cnx-mint)!important}
-.system-status{background:#f6fbf8!important;border-color:#c9ddd3!important}
-.system-status small{color:var(--cnx-muted)!important}
-.system-status strong{color:var(--cnx-green)!important}
-.status-dot{background:var(--cnx-mint)!important;box-shadow:0 0 8px rgba(47,207,155,.45)!important}
-.main{background:#f7faf8!important}
-.topbar{background:#fff!important;border:1px solid var(--cnx-border)!important;box-shadow:var(--cnx-shadow)!important}
-.eyebrow{color:var(--cnx-mint-dark)!important}
-.topbar h1{color:var(--cnx-text)!important}
-.live{color:var(--cnx-green)!important;text-shadow:none!important}
-.metric-card,.panel{background:#fff!important;border:1px solid var(--cnx-border)!important;box-shadow:var(--cnx-shadow)!important;color:var(--cnx-text)!important}
-.metric-card:hover,.panel:hover{border-color:#9bc9b4!important;box-shadow:0 14px 34px rgba(38,65,52,.10)!important}
-.metric-card:before{background:linear-gradient(90deg,transparent,var(--cnx-mint),transparent)!important}
-.metric-card *{color:var(--cnx-text)!important}
-.metric-card .metric-label{color:var(--cnx-muted)!important}
-.metric-card .metric-value{color:var(--cnx-mint-dark)!important;text-shadow:none!important}
-.panel-title,.panel h2,.panel h3,.panel h4{color:var(--cnx-text)!important}
-.panel p,.panel span,.panel small,.description{color:var(--cnx-muted)!important}
-.cnx-soc-mini,.cnx-soc-secondary{background:#fbfdfc!important;border-color:#c9ddd3!important}
-.cnx-soc-mini span,.cnx-soc-secondary span{color:var(--cnx-muted)!important}
-.cnx-soc-mini strong,.cnx-soc-secondary strong{color:var(--cnx-text)!important}
-.cnx-soc-incident{background:#fbfdfc!important;border-color:#d0ded7!important}
-.cnx-soc-incident:hover{background:#f2fbf7!important;border-color:#8fc8ae!important}
-.cnx-soc-incident strong{color:var(--cnx-text)!important}
-.cnx-soc-incident span{color:var(--cnx-muted)!important}
-.cnx-investigation-modal{background:#fff!important;border-color:#b8c9c0!important}
-.cnx-investigation-header{background:#fbfdfc!important;border-color:#d6e2dc!important}
-.cnx-investigation-title{color:var(--cnx-text)!important}
-.cnx-investigation-subtitle{color:var(--cnx-muted)!important}
-.cnx-investigation-card,.cnx-investigation-section{background:#fbfdfc!important;border-color:#d0ded7!important}
-.cnx-investigation-card span,.cnx-investigation-row,.cnx-investigation-note{color:var(--cnx-muted)!important}
-.cnx-investigation-card strong,.cnx-investigation-section h3{color:var(--cnx-text)!important}
-.cnx-investigation-row{background:#fff!important}
-.cnx-live-alert{background:#fff!important;border-color:#c9ddd3!important;box-shadow:0 12px 30px rgba(38,65,52,.12)!important}
-.cnx-live-alert-title{color:var(--cnx-text)!important}
-.cnx-live-alert-body{color:var(--cnx-muted)!important}
-.cnx-live-alert-meta{color:#839188!important}
 
-@media(max-width:700px){
- .cnx-analysis-stack{margin:14px!important}
- .cnx-analysis-head{padding:17px!important}
- .cnx-analysis-title{font-size:21px!important}
- .cnx-online-pill{display:none}
- .cnx-analysis-stack>section{padding:17px!important}
+/* Remove blue/cyan accents */
+.eyebrow,.badge,.live,.brand,.logo,.accent,.link,
+a,a:visited,.cnx-nav-action,.cnx-module-list li::marker,
+.metric-card strong:not(.danger):not(.high):not(.medium):not(.low):not(.critical),
+.risk-score strong,#riskScoreDisplay,#socMetricsStatus{
+    color:#111827 !important;
+}
+
+a:hover,.link:hover{color:#111827 !important;}
+
+/* Known blue/cyan inline colors */
+[style*="#38bdf8"],[style*="#22d3ee"],[style*="#67e8f9"],
+[style*="#52f7ff"],[style*="#5eead4"],[style*="#00d4aa"],
+[style*="#8fa3bf"],[style*="#94a3b8"],[style*="#cbd5e1"]{
+    color:#111827 !important;
+}
+
+[style*="#155e75"],[style*="#082433"],[style*="#0b3144"],
+[style*="#243247"],[style*="#243b57"],[style*="#334155"]{
+    border-color:#d1d5db !important;
+    background:#ffffff !important;
+}
+
+/* Dark inline result cards -> white */
+[style*="background:#111827"],
+[style*="background:#0f172a"],
+[style*="background:#08101d"],
+[style*="background:#0b1220"]{
+    background:#ffffff !important;
+    color:#111827 !important;
+}
+
+/* Form controls */
+input,textarea,select,
+input[type="url"],input[type="text"],input[type="email"],
+input[type="file"]{
+    background:#ffffff !important;
+    color:#111827 !important;
+    border:1px solid #9ca3af!important;
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+}
+input::placeholder,textarea::placeholder{color:#111827 !important;}
+
+/* Buttons: white, black text, no blue */
+button,.btn,.button,.cnx-nav-action,
+input[type="button"],input[type="submit"]{
+    background:#ffffff !important;
+    color:#111827 !important;
+    border:1px solid #111827!important;
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+}
+button:hover,.btn:hover,.button:hover,.cnx-nav-action:hover,
+input[type="button"]:hover,input[type="submit"]:hover{
+    background:#ffffff !important;
+    color:#111827 !important;
+    border-color:#d1d5db !important;
+}
+
+/* Risk colors only: red / orange / green / yellow */
+.danger,.critical,[class*="critical"],.risk-critical{
+    color:#111827 !important;
+}
+.high,.risk-high{color:#111827 !important;}
+.medium,.risk-medium{color:#111827 !important;}
+.low,.risk-low{color:#111827 !important;}
+.success,.verified,.status-ok{color:#111827 !important;}
+
+/* Risk badges */
+.badge-danger,.badge-critical{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;}
+.badge-high{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;}
+.badge-medium{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;}
+.badge-low,.badge-success{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;}
+
+/* Progress/risk bars: neutral base; risk fill can keep semantic colors */
+.risk-bar{background:#ffffff !important;border:1px solid #d1d5db!important;}
+
+/* Graph: white canvas, neutral nodes/edges, no blue */
+.graph,svg{background:#ffffff !important;}
+.graph svg{background:#ffffff !important;}
+.graph line,.graph path{stroke:#9ca3af!important;}
+.graph circle{fill:#ffffff!important;stroke:#111827!important;}
+.graph text{fill:#111827!important;}
+.cnx-node circle{fill:#ffffff!important;stroke:#111827!important;}
+.cnx-node text{fill:#111827!important;}
+
+/* Separators */
+hr{border-color:#d1d5db !important;background:#ffffff !important;}
+
+/* Remove blue glow/shadows */
+*{text-shadow:0 1px 3px rgba(0,0,0,.08) !important;}
+
+/* Keep green status dot, but no blue glow */
+.status-dot{background:#ffffff !important;box-shadow:0 1px 3px rgba(0,0,0,.08) !important;}
+
+/* Incident result cards */
+#incidentResult,#scanResult,#fileResult,#emailResult,
+#incidentResult > div,#scanResult > div,#fileResult > div,#emailResult > div{
+    background:#ffffff !important;
+    color:#111827 !important;
+    border-color:#d1d5db !important;
+}
+
+/* Force common dark/blue utility surfaces to white */
+.cnx-soc-mini,.cnx-soc-secondary,.cnx-investigation-card,
+.cnx-investigation-section,.cnx-nav-modal,.cnx-nav-action{
+    background:#ffffff !important;
+}
+
+@media(max-width:900px){
+    .metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+    .content-grid{grid-template-columns:1fr!important;}
+}
+@media(max-width:650px){
+    .metrics{grid-template-columns:1fr!important;}
 }
 </style>
 
 
-<style id="cnx-bold-visible-text">
-/* CYBERNEXUS - stronger typography and visibility */
-body, button, input, textarea, select {
-    font-weight: 500 !important;
-    text-rendering: optimizeLegibility;
+<style id="cnx-attack-graph-full-white">
+/* CYBERNEXUS ATTACK GRAPH — FULL WHITE */
+#attackGraph,
+#attackGraph svg {
+    background:#ffffff !important;
+    background-color:#ffffff !important;
+    color:#111827 !important;
 }
-h1, h2, h3, h4, h5, h6,
-.panel-title, .topbar h1, .brand h2 {
-    font-weight: 800 !important;
-    letter-spacing: .15px !important;
+#attackGraph .cnx-node text {
+    fill: #111827 !important;
 }
-p, label, span, small, .description,
-.sidebar nav a, .metric-label,
-.url-scanner-hint, .cnx-soc-mini span,
-.cnx-soc-secondary span, .cnx-investigation-subtitle,
-.cnx-investigation-note, .cnx-live-alert-body,
-.cnx-live-alert-meta {
-    font-weight: 600 !important;
-    opacity: 1 !important;
+#graphNodeDetails {
+    background:#ffffff !important;
+    background-color:#ffffff !important;
+    color:#111827 !important;
+    border-color:#d1d5db !important;
 }
-.metric-value, .cnx-soc-mini strong,
-.cnx-soc-secondary strong, .cnx-investigation-card strong,
-.cnx-soc-incident strong {
-    font-weight: 850 !important;
+#attackGraph line,
+#attackGraph path {
+    stroke: #9ca3af !important;
 }
-button, .btn, .button, .url-scan-button {
-    font-weight: 800 !important;
-    letter-spacing: .25px !important;
+</style>
+
+
+<style id="cnx-true-full-white-final">
+/* CYBERNEXUS Ω — TRUE FULL WHITE THEME */
+html, body {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111827 !important;
 }
-input, textarea, select {
-    font-weight: 600 !important;
+body * {
+    text-shadow: none !important;
 }
-pre, code, table, th, td,
-.json, .api-response, .response, .output,
-.result, .result-box {
-    font-weight: 600 !important;
+.app, main, .main, .content, .container, .dashboard,
+.sidebar, .topbar, header, section, article,
+.panel, .card, .metric-card, .result, .result-card,
+.cnx-module, .cnx-soc-mini, .cnx-soc-secondary,
+.cnx-investigation-section, .cnx-investigation-card,
+.cnx-investigation-list, .cnx-nav-modal, .modal,
+#attackGraph, #attackGraph svg, #graphNodeDetails,
+#scanResult, #fileResult, #incidentResult {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111827 !important;
+    border-color: #d1d5db !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,.08) !important;
 }
-.panel p, .panel span, .panel small, .description {
-    opacity: 1 !important;
+button, .btn, .button, input, textarea, select {
+    background: #ffffff !important;
+    background-image: none !important;
+    color: #111827 !important;
+    border-color: #9ca3af !important;
+    box-shadow: none !important;
 }
-@media (max-width: 700px) {
-    body { font-size: 15px; }
-    p, label, span, small { line-height: 1.5 !important; }
-    button, .btn, .button { font-size: 14px !important; }
+button:hover, .btn:hover, .button:hover {
+    background: #f3f4f6 !important;
+    color: #111827 !important;
+    border-color: #6b7280 !important;
+}
+h1,h2,h3,h4,h5,h6,p,span,small,strong,label,li,a {
+    color: #111827 !important;
+}
+a:hover {
+    color: #111827 !important;
+}
+hr {
+    border-color: #d1d5db !important;
+}
+#attackGraph,
+#attackGraph svg {
+    background: #ffffff !important;
+    background-image: none !important;
+}
+#attackGraph circle,
+#attackGraph rect,
+#attackGraph ellipse {
+    fill: #ffffff !important;
+    stroke: #9ca3af !important;
+}
+#attackGraph line,
+#attackGraph path,
+#attackGraph polyline {
+    stroke: #9ca3af !important;
+}
+#attackGraph text,
+#graphNodeDetails * {
+    fill: #111827 !important;
+    color: #111827 !important;
+}
+.badge, .live, .status-dot, .logo {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border-color: #d1d5db !important;
+    box-shadow: none !important;
 }
 </style>
 
@@ -852,7 +846,7 @@ pre, code, table, th, td,
 <section style="
     margin:30px;
     padding:25px;
-    background:#07111f;
+    background:#ffffff !important;
     border:1px solid #00d4aa;
     border-radius:15px;
 ">
@@ -868,7 +862,7 @@ pre, code, table, th, td,
         <div>
 
             <span style="
-                color:#00d4aa;
+                color:#111827 !important;
                 font-size:12px;
                 letter-spacing:2px;
                 font-weight:bold;
@@ -877,14 +871,14 @@ pre, code, table, th, td,
             </span>
 
             <h2 style="
-                color:white;
+                color:#111827 !important;
                 margin:8px 0;
             ">
                 ⚡ Incident Correlation Engine
             </h2>
 
             <p style="
-                color:#8fa3bf;
+                color:#111827 !important;
                 margin:0;
             ">
                 Correlate URL, file and email signals into one security incident.
@@ -894,7 +888,7 @@ pre, code, table, th, td,
 
 
         <div style="
-            color:#00d4aa;
+            color:#111827 !important;
             border:1px solid #00d4aa;
             border-radius:20px;
             padding:8px 14px;
@@ -919,7 +913,7 @@ pre, code, table, th, td,
         <div>
 
             <label style="
-                color:#8fa3bf;
+                color:#111827 !important;
                 font-size:13px;
             ">
                 Sender
@@ -935,9 +929,9 @@ pre, code, table, th, td,
                     margin-top:7px;
                     padding:13px;
                     border-radius:8px;
-                    border:1px solid #334155;
-                    background:#111827;
-                    color:white;
+                    border:1px solid #d1d5db;
+                    background:#ffffff !important;
+                    color:#111827 !important;
                 "
             >
 
@@ -947,7 +941,7 @@ pre, code, table, th, td,
         <div>
 
             <label style="
-                color:#8fa3bf;
+                color:#111827 !important;
                 font-size:13px;
             ">
                 Email Threat Content
@@ -963,9 +957,9 @@ pre, code, table, th, td,
                     margin-top:7px;
                     padding:13px;
                     border-radius:8px;
-                    border:1px solid #334155;
-                    background:#111827;
-                    color:white;
+                    border:1px solid #d1d5db;
+                    background:#ffffff !important;
+                    color:#111827 !important;
                 "
             >
 
@@ -981,8 +975,8 @@ pre, code, table, th, td,
             padding:14px 28px;
             border:none;
             border-radius:8px;
-            background:#00d4aa;
-            color:#001b17;
+            background:#ffffff !important;
+            color:#111827 !important;
             font-weight:bold;
             cursor:pointer;
         "
@@ -995,7 +989,7 @@ pre, code, table, th, td,
         id="incidentStatus"
         style="
             margin-top:18px;
-            color:#8fa3bf;
+            color:#111827 !important;
         "
     >
         Ready for incident correlation.
@@ -1021,16 +1015,16 @@ pre, code, table, th, td,
 <section style="
     margin:30px;
     padding:25px;
-    background:#0b1220;
-    border:1px solid #243247;
+    background:#ffffff !important;
+    border:1px solid #d1d5db;
     border-radius:15px;
 ">
 
-    <h2 style="color:white;">
+    <h2 style="color:#111827 !important;">
         🛡️ File Threat Analyzer
     </h2>
 
-    <p style="color:#8fa3bf;">
+    <p style="color:#111827 !important;">
         Static file analysis using hash, entropy and suspicious-pattern detection.
     </p>
 
@@ -1041,7 +1035,7 @@ pre, code, table, th, td,
         style="
             margin-top:10px;
             padding:12px;
-            color:white;
+            color:#111827 !important;
         "
     >
 
@@ -1055,8 +1049,8 @@ pre, code, table, th, td,
             padding:13px 24px;
             border:none;
             border-radius:8px;
-            background:#00d4aa;
-            color:#001b17;
+            background:#ffffff !important;
+            color:#111827 !important;
             font-weight:bold;
             cursor:pointer;
         "
@@ -1069,7 +1063,7 @@ pre, code, table, th, td,
         id="fileStatus"
         style="
             margin-top:20px;
-            color:#8fa3bf;
+            color:#111827 !important;
         "
     >
     </div>
@@ -1092,17 +1086,17 @@ pre, code, table, th, td,
 <section style="
     margin:30px;
     padding:25px;
-    background:#0b1220;
-    border:1px solid #243247;
+    background:#ffffff !important;
+    border:1px solid #d1d5db;
     border-radius:15px;
 ">
 
-    <h2 style="color:#ffffff;">
+    <h2 style="color:#111827 !important;">
         🔎 URL Threat Scanner
     </h2>
 
 
-    <p style="color:#8fa3bf;">
+    <p style="color:#111827 !important;">
         Analyze a URL using CYBERNEXUS Ω threat intelligence engine.
     </p>
 
@@ -1125,9 +1119,9 @@ pre, code, table, th, td,
                 min-width:300px;
                 padding:14px;
                 border-radius:8px;
-                border:1px solid #334155;
-                background:#111827;
-                color:white;
+                border:1px solid #d1d5db;
+                background:#ffffff !important;
+                color:#111827 !important;
             "
         >
 
@@ -1140,8 +1134,8 @@ pre, code, table, th, td,
                 padding:14px 24px;
                 border:none;
                 border-radius:8px;
-                background:#00d4aa;
-                color:#001b17;
+                background:#ffffff !important;
+                color:#111827 !important;
                 font-weight:bold;
                 cursor:pointer;
             "
@@ -1153,7 +1147,7 @@ pre, code, table, th, td,
 
 
     <div class="url-scanner-hint">
-        Press <strong style="color:#94a3b8;">Enter</strong> to analyze instantly, or click ANALYZE URL.
+        Press <strong style="color:#111827 !important;">Enter</strong> to analyze instantly, or click ANALYZE URL.
     </div>
 
 
@@ -1161,7 +1155,7 @@ pre, code, table, th, td,
         id="scanStatus"
         style="
             margin-top:20px;
-            color:#8fa3bf;
+            color:#111827 !important;
         "
     >
     </div>
@@ -1510,10 +1504,10 @@ pre, code, table, th, td,
                     gap:10px;
                     margin-bottom:10px;
                 ">
-                    <strong style="color:#f8fafc;">
+                    <strong style="color:#111827 !important;">
                         Recent Incidents
                     </strong>
-                    <small style="color:#64748b;">
+                    <small style="color:#111827 !important;">
                         Live from /api/soc-metrics
                     </small>
                 </div>
@@ -1578,7 +1572,7 @@ pre, code, table, th, td,
                         align-items:center;
                         justify-content:center;
                         height:430px;
-                        color:#8fa3bf;
+                        color:#111827 !important;
                         font-size:14px;
                     ">
 
@@ -1596,10 +1590,10 @@ pre, code, table, th, td,
                         margin-top:15px;
                         padding:12px;
                         min-height:25px;
-                        border:1px solid #243247;
+                        border:1px solid #d1d5db;
                         border-radius:8px;
-                        background:#08101d;
-                        color:#8fa3bf;
+                        background:#ffffff !important;
+                        color:#111827 !important;
                         font-size:13px;
                     "
                 >
@@ -1850,7 +1844,7 @@ pre, code, table, th, td,
 .cnx-nav-overlay{
     position:fixed;
     inset:0;
-    background:rgba(2,6,23,.72);
+    background:#ffffff !important;
     backdrop-filter:blur(7px);
     -webkit-backdrop-filter:blur(7px);
     display:none;
@@ -1869,17 +1863,10 @@ pre, code, table, th, td,
     width:min(820px,94vw);
     max-height:82vh;
     overflow:auto;
-    background:
-        linear-gradient(
-            145deg,
-            #0d1728,
-            #07101d
-        );
+    background:#ffffff !important;
     border:1px solid #243b57;
     border-radius:18px;
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.55),
-        0 0 35px rgba(56,189,248,.08);
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
     padding:24px;
 }
 
@@ -1894,7 +1881,7 @@ pre, code, table, th, td,
 }
 
 .cnx-nav-modal-head h2{
-    color:#f8fafc;
+    color:#111827 !important;
     margin:6px 0 0;
     font-size:25px;
 }
@@ -1903,18 +1890,18 @@ pre, code, table, th, td,
     width:38px;
     height:38px;
     border-radius:10px;
-    border:1px solid #334155;
-    background:#111c2d;
-    color:#cbd5e1;
+    border:1px solid #d1d5db;
+    background:#ffffff !important;
+    color:#111827 !important;
     font-size:26px;
     line-height:1;
     cursor:pointer;
 }
 
 .cnx-nav-close:hover{
-    border-color:#38bdf8;
-    color:#fff;
-    background:#142238;
+    border-color:#d1d5db !important;
+    color:#111827 !important;
+    background:#ffffff !important;
 }
 
 .cnx-nav-grid{
@@ -1928,18 +1915,18 @@ pre, code, table, th, td,
     padding:16px;
     border:1px solid #26364b;
     border-radius:12px;
-    background:rgba(15,23,42,.72);
+    background:#ffffff !important;
 }
 
 .cnx-info-card strong{
     display:block;
-    color:#f8fafc;
+    color:#111827 !important;
     font-size:14px;
     margin-bottom:7px;
 }
 
 .cnx-info-card span{
-    color:#94a3b8;
+    color:#111827 !important;
     font-size:13px;
     line-height:1.55;
 }
@@ -1950,9 +1937,9 @@ pre, code, table, th, td,
     gap:7px;
     padding:7px 10px;
     border:1px solid #1d4d42;
-    background:rgba(0,212,170,.07);
+    background:#ffffff !important;
     border-radius:999px;
-    color:#5eead4;
+    color:#111827 !important;
     font-size:11px;
     font-weight:700;
     margin-bottom:16px;
@@ -1962,21 +1949,21 @@ pre, code, table, th, td,
     width:7px;
     height:7px;
     border-radius:50%;
-    background:#34d399;
-    box-shadow:0 0 10px #34d399;
+    background:#ffffff !important;
+    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
     display:inline-block;
 }
 
 .cnx-module-list{
     margin:14px 0 0;
     padding-left:18px;
-    color:#94a3b8;
+    color:#111827 !important;
     line-height:1.8;
     font-size:13px;
 }
 
 .cnx-module-list li::marker{
-    color:#38bdf8;
+    color:#111827 !important;
 }
 
 .cnx-nav-action{
@@ -1984,15 +1971,15 @@ pre, code, table, th, td,
     padding:11px 15px;
     border-radius:9px;
     border:1px solid #155e75;
-    background:#082433;
-    color:#67e8f9;
+    background:#ffffff !important;
+    color:#111827 !important;
     font-weight:700;
     cursor:pointer;
 }
 
 .cnx-nav-action:hover{
-    background:#0b3144;
-    border-color:#22d3ee;
+    background:#ffffff !important;
+    border-color:#d1d5db !important;
 }
 
 @keyframes cnxOverlayIn{
@@ -2158,13 +2145,13 @@ async function scanURL() {
 
             <div style="
                 padding:20px;
-                border:1px solid #334155;
+                border:1px solid #d1d5db;
                 border-radius:12px;
-                background:#111827;
+                background:#ffffff !important;
             ">
 
                 <h3 style="
-                    color:white;
+                    color:#111827 !important;
                     margin-top:0;
                 ">
 
@@ -2177,7 +2164,7 @@ async function scanURL() {
                 </h3>
 
                 <p style="
-                    color:#cbd5e1;
+                    color:#111827 !important;
                     word-break:break-all;
                 ">
 
@@ -2192,7 +2179,7 @@ async function scanURL() {
                 </p>
 
                 <p style="
-                    color:#cbd5e1;
+                    color:#111827 !important;
                 ">
 
                     <strong>
@@ -2206,7 +2193,7 @@ async function scanURL() {
                 </p>
 
                 <p style="
-                    color:#cbd5e1;
+                    color:#111827 !important;
                 ">
 
                     <strong>
@@ -2383,12 +2370,12 @@ async function scanFile() {
 
             <div style="
                 padding:20px;
-                background:#111827;
-                border:1px solid #334155;
+                background:#ffffff !important;
+                border:1px solid #d1d5db;
                 border-radius:12px;
             ">
 
-                <h3 style="color:white;">
+                <h3 style="color:#111827 !important;">
 
                     ${icon}
 
@@ -2396,7 +2383,7 @@ async function scanFile() {
 
                 </h3>
 
-                <p style="color:#cbd5e1;">
+                <p style="color:#111827 !important;">
 
                     <strong>
                         File:
@@ -2408,7 +2395,7 @@ async function scanFile() {
 
                 </p>
 
-                <p style="color:#cbd5e1;">
+                <p style="color:#111827 !important;">
 
                     <strong>
                         Risk Score:
@@ -2420,7 +2407,7 @@ async function scanFile() {
 
                 </p>
 
-                <p style="color:#cbd5e1;">
+                <p style="color:#111827 !important;">
 
                     <strong>
                         Entropy:
@@ -2433,7 +2420,7 @@ async function scanFile() {
                 </p>
 
                 <p style="
-                    color:#cbd5e1;
+                    color:#111827 !important;
                     word-break:break-all;
                 ">
 
@@ -2447,7 +2434,7 @@ async function scanFile() {
 
                 </p>
 
-                <p style="color:#cbd5e1;">
+                <p style="color:#111827 !important;">
 
                     <strong>
                         Extension:
@@ -2459,7 +2446,7 @@ async function scanFile() {
 
                 </p>
 
-                <p style="color:#cbd5e1;">
+                <p style="color:#111827 !important;">
 
                     <strong>
                         Findings:
@@ -2941,16 +2928,10 @@ async function correlateIncident() {
 
             <div style="
                 padding:22px;
-                background:
-                    linear-gradient(
-                        145deg,
-                        #0f172a,
-                        #07111f
-                    );
-                border:1px solid #334155;
+                background:#ffffff !important;
+                border:1px solid #d1d5db;
                 border-radius:14px;
-                box-shadow:
-                    0 12px 35px rgba(0,0,0,.25);
+                box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
             ">
 
 
@@ -2966,7 +2947,7 @@ async function correlateIncident() {
                 ">
 
                     <h3 style="
-                        color:white;
+                        color:#111827 !important;
                         margin:0;
                         font-size:20px;
                     ">
@@ -2977,10 +2958,9 @@ async function correlateIncident() {
                     <span style="
                         padding:7px 12px;
                         border-radius:20px;
-                        background:
-                            rgba(255,77,109,.12);
+                        background:#ffffff !important;
                         border:1px solid #ff4d6d;
-                        color:#ff6b86;
+                        color:#111827 !important;
                         font-size:12px;
                         font-weight:bold;
                     ">
@@ -2995,13 +2975,13 @@ async function correlateIncident() {
                 <div style="
                     padding:14px;
                     margin-bottom:12px;
-                    background:#08101d;
-                    border:1px solid #243247;
+                    background:#ffffff !important;
+                    border:1px solid #d1d5db;
                     border-radius:10px;
                 ">
 
                     <div style="
-                        color:#64748b;
+                        color:#111827 !important;
                         font-size:11px;
                         letter-spacing:1px;
                         margin-bottom:5px;
@@ -3011,7 +2991,7 @@ async function correlateIncident() {
 
 
                     <div style="
-                        color:#38bdf8;
+                        color:#111827 !important;
                         font-weight:bold;
                         word-break:break-all;
                     ">
@@ -3039,13 +3019,13 @@ async function correlateIncident() {
 
                     <div style="
                         padding:14px;
-                        background:#111827;
-                        border:1px solid #334155;
+                        background:#ffffff !important;
+                        border:1px solid #d1d5db;
                         border-radius:10px;
                     ">
 
                         <div style="
-                            color:#64748b;
+                            color:#111827 !important;
                             font-size:11px;
                             margin-bottom:5px;
                         ">
@@ -3054,7 +3034,7 @@ async function correlateIncident() {
 
 
                         <strong style="
-                            color:#f59e0b;
+                            color:#111827 !important;
                             font-size:24px;
                         ">
                             ${originalScore}
@@ -3062,7 +3042,7 @@ async function correlateIncident() {
 
 
                         <span style="
-                            color:#94a3b8;
+                            color:#111827 !important;
                             font-size:12px;
                         ">
                             /100
@@ -3070,7 +3050,7 @@ async function correlateIncident() {
 
 
                         <div style="
-                            color:#f59e0b;
+                            color:#111827 !important;
                             font-size:12px;
                             margin-top:4px;
                             font-weight:bold;
@@ -3085,13 +3065,13 @@ async function correlateIncident() {
 
                     <div style="
                         padding:14px;
-                        background:#111827;
-                        border:1px solid #334155;
+                        background:#ffffff !important;
+                        border:1px solid #d1d5db;
                         border-radius:10px;
                     ">
 
                         <div style="
-                            color:#64748b;
+                            color:#111827 !important;
                             font-size:11px;
                             margin-bottom:5px;
                         ">
@@ -3100,7 +3080,7 @@ async function correlateIncident() {
 
 
                         <strong style="
-                            color:#f97316;
+                            color:#111827 !important;
                             font-size:24px;
                         ">
                             +${iocBonus}
@@ -3108,7 +3088,7 @@ async function correlateIncident() {
 
 
                         <div style="
-                            color:#94a3b8;
+                            color:#111827 !important;
                             font-size:12px;
                             margin-top:4px;
                         ">
@@ -3122,13 +3102,13 @@ async function correlateIncident() {
 
                     <div style="
                         padding:14px;
-                        background:#111827;
+                        background:#ffffff !important;
                         border:1px solid #ff4d6d;
                         border-radius:10px;
                     ">
 
                         <div style="
-                            color:#64748b;
+                            color:#111827 !important;
                             font-size:11px;
                             margin-bottom:5px;
                         ">
@@ -3137,7 +3117,7 @@ async function correlateIncident() {
 
 
                         <strong style="
-                            color:#ff4d6d;
+                            color:#111827 !important;
                             font-size:24px;
                         ">
                             ${riskScore}
@@ -3145,7 +3125,7 @@ async function correlateIncident() {
 
 
                         <span style="
-                            color:#94a3b8;
+                            color:#111827 !important;
                             font-size:12px;
                         ">
                             /100
@@ -3153,7 +3133,7 @@ async function correlateIncident() {
 
 
                         <div style="
-                            color:#ff6b86;
+                            color:#111827 !important;
                             font-size:12px;
                             margin-top:4px;
                             font-weight:bold;
@@ -3171,14 +3151,13 @@ async function correlateIncident() {
                 <div style="
                     padding:16px;
                     margin-bottom:15px;
-                    background:
-                        rgba(56,189,248,.04);
+                    background:#ffffff !important;
                     border:1px solid #1e3a5f;
                     border-radius:10px;
                 ">
 
                     <div style="
-                        color:#38bdf8;
+                        color:#111827 !important;
                         font-size:12px;
                         font-weight:bold;
                         letter-spacing:1px;
@@ -3202,7 +3181,7 @@ async function correlateIncident() {
                         <div>
 
                             <div style="
-                                color:#64748b;
+                                color:#111827 !important;
                                 font-size:11px;
                             ">
                                 MATCHED IOCs
@@ -3210,7 +3189,7 @@ async function correlateIncident() {
 
 
                             <strong style="
-                                color:white;
+                                color:#111827 !important;
                                 font-size:18px;
                             ">
                                 ${iocMatched}
@@ -3222,7 +3201,7 @@ async function correlateIncident() {
                         <div>
 
                             <div style="
-                                color:#64748b;
+                                color:#111827 !important;
                                 font-size:11px;
                             ">
                                 CONFIDENCE
@@ -3230,7 +3209,7 @@ async function correlateIncident() {
 
 
                             <strong style="
-                                color:#22c55e;
+                                color:#111827 !important;
                                 font-size:18px;
                             ">
                                 ${confidence}
@@ -3242,7 +3221,7 @@ async function correlateIncident() {
                         <div>
 
                             <div style="
-                                color:#64748b;
+                                color:#111827 !important;
                                 font-size:11px;
                             ">
                                 THREAT INTEL SCORE
@@ -3250,7 +3229,7 @@ async function correlateIncident() {
 
 
                             <strong style="
-                                color:#c084fc;
+                                color:#111827 !important;
                                 font-size:18px;
                             ">
                                 ${threatIntelScore}
@@ -3262,7 +3241,7 @@ async function correlateIncident() {
                         <div>
 
                             <div style="
-                                color:#64748b;
+                                color:#111827 !important;
                                 font-size:11px;
                             ">
                                 IOC BONUS
@@ -3270,7 +3249,7 @@ async function correlateIncident() {
 
 
                             <strong style="
-                                color:#f97316;
+                                color:#111827 !important;
                                 font-size:18px;
                             ">
                                 +${iocBonus}
@@ -3299,20 +3278,20 @@ async function correlateIncident() {
 
                     <div style="
                         padding:12px;
-                        background:#111827;
+                        background:#ffffff !important;
                         border-radius:9px;
-                        border:1px solid #243247;
+                        border:1px solid #d1d5db;
                     ">
 
                         <small style="
-                            color:#64748b;
+                            color:#111827 !important;
                         ">
                             CORRELATION SCORE
                         </small>
 
 
                         <div style="
-                            color:#38bdf8;
+                            color:#111827 !important;
                             font-size:18px;
                             font-weight:bold;
                             margin-top:4px;
@@ -3325,20 +3304,20 @@ async function correlateIncident() {
 
                     <div style="
                         padding:12px;
-                        background:#111827;
+                        background:#ffffff !important;
                         border-radius:9px;
-                        border:1px solid #243247;
+                        border:1px solid #d1d5db;
                     ">
 
                         <small style="
-                            color:#64748b;
+                            color:#111827 !important;
                         ">
                             SECURITY SIGNALS
                         </small>
 
 
                         <div style="
-                            color:white;
+                            color:#111827 !important;
                             font-size:18px;
                             font-weight:bold;
                             margin-top:4px;
@@ -3351,20 +3330,20 @@ async function correlateIncident() {
 
                     <div style="
                         padding:12px;
-                        background:#111827;
+                        background:#ffffff !important;
                         border-radius:9px;
-                        border:1px solid #243247;
+                        border:1px solid #d1d5db;
                     ">
 
                         <small style="
-                            color:#64748b;
+                            color:#111827 !important;
                         ">
                             HIGH-RISK SIGNALS
                         </small>
 
 
                         <div style="
-                            color:#ff4d6d;
+                            color:#111827 !important;
                             font-size:18px;
                             font-weight:bold;
                             margin-top:4px;
@@ -3377,20 +3356,20 @@ async function correlateIncident() {
 
                     <div style="
                         padding:12px;
-                        background:#111827;
+                        background:#ffffff !important;
                         border-radius:9px;
-                        border:1px solid #243247;
+                        border:1px solid #d1d5db;
                     ">
 
                         <small style="
-                            color:#64748b;
+                            color:#111827 !important;
                         ">
                             IOC RECORDS
                         </small>
 
 
                         <div style="
-                            color:#22c55e;
+                            color:#111827 !important;
                             font-size:18px;
                             font-weight:bold;
                             margin-top:4px;
@@ -3408,7 +3387,7 @@ async function correlateIncident() {
                 <div style="
                     padding-top:15px;
                     border-top:1px solid #1e293b;
-                    color:#00d4aa;
+                    color:#111827 !important;
                     line-height:1.8;
                     font-size:13px;
                 ">
@@ -3510,7 +3489,7 @@ function renderIncidentGraph(
                 align-items:center;
                 justify-content:center;
                 height:430px;
-                color:#8fa3bf;
+                color:#111827 !important;
             ">
 
                 No graph data available.
@@ -3653,7 +3632,7 @@ function renderIncidentGraph(
                     y1="${source.y}"
                     x2="${target.x}"
                     y2="${target.y}"
-                    stroke="#334155"
+                    stroke="#9ca3af"
                     stroke-width="1.5"
                 />
 
@@ -3661,7 +3640,7 @@ function renderIncidentGraph(
                 <text
                     x="${midX}"
                     y="${midY - 6}"
-                    fill="#64748b"
+                    fill="#111827"
                     font-size="8"
                     text-anchor="middle"
                 >
@@ -3691,12 +3670,10 @@ function renderIncidentGraph(
             }
 
 
-            let fill =
-                "#172033";
+            let fill="#111827";
 
 
-            let stroke =
-                "#64748b";
+            let stroke="#9ca3af";
 
 
             let nodeRadius =
@@ -3712,11 +3689,9 @@ function renderIncidentGraph(
 
             if (type === "INCIDENT") {
 
-                fill =
-                    "#35131c";
+                fill="#111827";
 
-                stroke =
-                    "#ff4d6d";
+                stroke="#9ca3af";
 
                 nodeRadius =
                     32;
@@ -3725,41 +3700,33 @@ function renderIncidentGraph(
 
             else if (type === "URL") {
 
-                fill =
-                    "#102a3a";
+                fill="#111827";
 
-                stroke =
-                    "#38bdf8";
+                stroke="#9ca3af";
 
             }
 
             else if (type === "DOMAIN") {
 
-                fill =
-                    "#172c20";
+                fill="#111827";
 
-                stroke =
-                    "#22c55e";
+                stroke="#9ca3af";
 
             }
 
             else if (type === "FILE") {
 
-                fill =
-                    "#30210e";
+                fill="#111827";
 
-                stroke =
-                    "#f59e0b";
+                stroke="#9ca3af";
 
             }
 
             else if (type === "EMAIL") {
 
-                fill =
-                    "#241832";
+                fill="#111827";
 
-                stroke =
-                    "#c084fc";
+                stroke="#9ca3af";
 
             }
 
@@ -3795,8 +3762,8 @@ function renderIncidentGraph(
                         cx="${position.x}"
                         cy="${position.y}"
                         r="${nodeRadius}"
-                        fill="${fill}"
-                        stroke="${stroke}"
+                        fill="#111827"
+                        stroke="#9ca3af"
                         stroke-width="2"
                     />
 
@@ -3804,7 +3771,7 @@ function renderIncidentGraph(
                     <text
                         x="${position.x}"
                         y="${position.y - 4}"
-                        fill="white"
+                        fill="#111827"
                         font-size="9"
                         font-weight="bold"
                         text-anchor="middle"
@@ -3816,7 +3783,7 @@ function renderIncidentGraph(
                     <text
                         x="${position.x}"
                         y="${position.y + 10}"
-                        fill="#94a3b8"
+                        fill="#111827"
                         font-size="7"
                         text-anchor="middle"
                     >
@@ -3892,7 +3859,7 @@ function renderIncidentGraph(
         details.innerHTML = `
 
             <strong style="
-                color:white;
+                color:#111827 !important;
             ">
                 LIVE ATTACK GRAPH
             </strong>
@@ -3968,7 +3935,7 @@ function showGraphNode(
     details.innerHTML = `
 
         <strong style="
-            color:white;
+            color:#111827 !important;
         ">
 
             ${safeGraphValue(
@@ -3983,7 +3950,7 @@ function showGraphNode(
 
 
         <span style="
-            color:#00d4aa;
+            color:#111827 !important;
             word-break:break-all;
         ">
 
@@ -3999,7 +3966,7 @@ function showGraphNode(
 
 
         <small style="
-            color:#64748b;
+            color:#111827 !important;
         ">
 
             Node ID:
@@ -4779,7 +4746,7 @@ async function openSOCIncidentInvestigation(item){
             incidentId + " • Investigation error";
 
         body.innerHTML = `
-            <div class="cnx-investigation-note" style="border-color:#7f1d1d;">
+            <div class="cnx-investigation-note" style="border-color:#d1d5db !important;">
                 <strong>❌ Investigation data could not be loaded.</strong><br><br>
                 ${safe(
                     error && error.name === "AbortError"
@@ -5626,64 +5593,6 @@ setInterval(
 
 </script>
 
-
-
-<script id="cnx-pdf-layout-script">
-(function(){
-  function setupPdfStyleLayout(){
-    const body=document.body;
-    if(!body || document.getElementById('cnxAnalysisStack')) return;
-
-    const sections=Array.from(body.children).filter(el=>el.tagName==='SECTION');
-    if(sections.length<3) return;
-
-    const emailSection=sections[0];
-    const fileSection=sections[1];
-    const urlSection=sections[2];
-
-    const stack=document.createElement('div');
-    stack.id='cnxAnalysisStack';
-    stack.className='cnx-analysis-stack';
-
-    const head=document.createElement('div');
-    head.className='cnx-analysis-head';
-    head.innerHTML=`
-      <div>
-        <div class="cnx-analysis-kicker">CYBERNEXUS Ω • THREAT ANALYSIS</div>
-        <h1 class="cnx-analysis-title">Cyber Threat Analysis Workspace</h1>
-        <p class="cnx-analysis-subtitle">Analyze suspicious URLs, files and emails with one unified security workflow.</p>
-      </div>
-      <div class="cnx-online-pill">● ORCHESTRATOR ONLINE</div>
-    `;
-    stack.appendChild(head);
-
-    // PDF-inspired vertical order: URL → File → Email/Correlation
-    stack.appendChild(urlSection);
-    stack.appendChild(fileSection);
-    stack.appendChild(emailSection);
-
-    const app=body.querySelector('.app');
-    if(app) body.insertBefore(stack,app);
-    else body.appendChild(stack);
-
-    // Rename the correlation card to make its purpose clear.
-    const emailHeading=emailSection.querySelector('h2');
-    if(emailHeading) emailHeading.textContent='✉️ Email Threat Analyzer';
-    const emailDescription=emailSection.querySelector('p');
-    if(emailDescription) emailDescription.textContent='Analyze suspicious email content and correlate it with URL and file signals.';
-
-    // Make the first button explicit about the combined workflow.
-    const correlateButton=emailSection.querySelector('button');
-    if(correlateButton) correlateButton.textContent='⚡ ANALYZE & CORRELATE';
-  }
-
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',setupPdfStyleLayout,{once:true});
-  }else{
-    setupPdfStyleLayout();
-  }
-})();
-</script>
 
 </body>
 
