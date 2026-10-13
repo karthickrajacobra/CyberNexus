@@ -10,13 +10,24 @@
 <style>
 /* CYBERNEXUS OMEGA — subtle professional polish */
 body{
-    background:#ffffff !important;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(56,189,248,.06),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(99,102,241,.05),
+            transparent 30%
+        ),
+        #050a12!important;
 }
 .metric-card,
 .panel{
     backdrop-filter:blur(10px);
     -webkit-backdrop-filter:blur(10px);
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    box-shadow:0 10px 35px rgba(0,0,0,.18);
     transition:
         transform .2s ease,
         border-color .2s ease,
@@ -25,15 +36,25 @@ body{
 .metric-card:hover,
 .panel:hover{
     transform:translateY(-2px);
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    box-shadow:0 14px 42px rgba(0,0,0,.28);
 }
 .metric-card{
-    border-color:#d1d5db !important;
-    background:#ffffff !important;
+    border-color:rgba(71,85,105,.55)!important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,23,42,.92),
+            rgba(8,16,29,.88)
+        )!important;
 }
 .panel{
-    border-color:#d1d5db !important;
-    background:#ffffff !important;
+    border-color:rgba(51,65,85,.65)!important;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(15,23,42,.94),
+            rgba(7,14,25,.92)
+        )!important;
 }
 
 .live{
@@ -41,7 +62,7 @@ body{
 }
 
 .status-dot{
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    box-shadow:0 0 10px rgba(34,197,94,.75);
 }
 
 @keyframes cnxPulse{
@@ -82,13 +103,15 @@ body{
 
 #urlInput:focus{
     outline:none!important;
-    border-color:#d1d5db !important;
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    border-color:#38bdf8!important;
+    box-shadow:
+        0 0 0 3px rgba(56,189,248,.12),
+        0 0 24px rgba(56,189,248,.08);
 }
 
 .url-scanner-hint{
     margin-top:9px;
-    color:#111827 !important;
+    color:#64748b;
     font-size:12px;
 }
 
@@ -102,7 +125,8 @@ body{
 .url-scan-button:hover{
     transform:translateY(-1px);
     filter:brightness(1.08);
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    box-shadow:
+        0 8px 24px rgba(0,212,170,.18);
 }
 
 @media(max-width:700px){
@@ -121,13 +145,13 @@ body{
     padding:15px;
     border:1px solid #26364b;
     border-radius:12px;
-    background:#ffffff !important;
+    background:rgba(8,16,29,.72);
 }
 
 .cnx-soc-mini span,
 .cnx-soc-secondary span{
     display:block;
-    color:#111827 !important;
+    color:#64748b;
     font-size:11px;
     letter-spacing:.7px;
     text-transform:uppercase;
@@ -137,7 +161,7 @@ body{
 .cnx-soc-secondary strong{
     display:block;
     margin-top:7px;
-    color:#111827 !important;
+    color:#111827;
     font-size:24px;
 }
 
@@ -149,7 +173,7 @@ body{
     padding:16px;
     border:1px dashed #334155;
     border-radius:10px;
-    color:#111827 !important;
+    color:#64748b;
     text-align:center;
 }
 
@@ -162,17 +186,17 @@ body{
     margin-top:8px;
     border:1px solid #26364b;
     border-radius:10px;
-    background:#ffffff !important;
+    background:rgba(15,23,42,.55);
 }
 
 .cnx-soc-incident strong{
-    color:#111827 !important;
+    color:#e2e8f0;
     font-size:12px;
     word-break:break-all;
 }
 
 .cnx-soc-incident span{
-    color:#111827 !important;
+    color:#4b5563;
     font-size:12px;
 }
 
@@ -210,8 +234,8 @@ body{
 
 .cnx-soc-incident:hover{
     transform:translateY(-1px);
-    border-color:#d1d5db !important;
-    background:#ffffff !important;
+    border-color:rgba(56,189,248,.55)!important;
+    background:rgba(15,23,42,.72);
 }
 
 #cnxInvestigationOverlay{
@@ -222,7 +246,7 @@ body{
     align-items:center;
     justify-content:center;
     padding:24px;
-    background:#ffffff !important;
+    background:rgba(2,6,23,.78);
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
 }
@@ -237,8 +261,8 @@ body{
     overflow:auto;
     border:1px solid rgba(51,65,85,.9);
     border-radius:16px;
-    background:#ffffff !important;
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    background:linear-gradient(145deg,#0b1424,#07101d);
+    box-shadow:0 30px 90px rgba(0,0,0,.55);
 }
 
 .cnx-investigation-header{
@@ -251,28 +275,28 @@ body{
     gap:16px;
     padding:18px 20px;
     border-bottom:1px solid rgba(51,65,85,.75);
-    background:#ffffff !important;
+    background:rgba(7,16,29,.96);
 }
 
 .cnx-investigation-title{
-    color:#111827 !important;
+    color:#111827;
     font-size:17px;
     font-weight:800;
 }
 
 .cnx-investigation-subtitle{
     margin-top:4px;
-    color:#111827 !important;
+    color:#64748b;
     font-size:11px;
 }
 
 .cnx-investigation-close{
     width:34px;
     height:34px;
-    border:1px solid #d1d5db;
+    border:1px solid #334155;
     border-radius:9px;
-    background:#ffffff !important;
-    color:#111827 !important;
+    background:#0f172a;
+    color:#374151;
     cursor:pointer;
     font-size:20px;
 }
@@ -291,12 +315,12 @@ body{
     padding:15px;
     border:1px solid #26364c;
     border-radius:12px;
-    background:#ffffff !important;
+    background:rgba(9,18,32,.72);
 }
 
 .cnx-investigation-card span{
     display:block;
-    color:#111827 !important;
+    color:#64748b;
     font-size:10px;
     text-transform:uppercase;
     letter-spacing:.08em;
@@ -305,7 +329,7 @@ body{
 .cnx-investigation-card strong{
     display:block;
     margin-top:7px;
-    color:#111827 !important;
+    color:#111827;
     font-size:20px;
 }
 
@@ -314,12 +338,12 @@ body{
     padding:16px;
     border:1px solid #26364c;
     border-radius:12px;
-    background:#ffffff !important;
+    background:rgba(9,18,32,.55);
 }
 
 .cnx-investigation-section h3{
     margin:0 0 10px;
-    color:#111827 !important;
+    color:#e2e8f0;
     font-size:13px;
 }
 
@@ -334,13 +358,13 @@ body{
     gap:15px;
     padding:10px 12px;
     border-radius:8px;
-    background:#ffffff !important;
-    color:#111827 !important;
+    background:rgba(15,23,42,.72);
+    color:#4b5563;
     font-size:12px;
 }
 
 .cnx-investigation-note{
-    color:#111827 !important;
+    color:#64748b;
     font-size:11px;
     line-height:1.6;
 }
@@ -381,23 +405,23 @@ body{
     padding:14px 16px;
     border:1px solid rgba(71,85,105,.75);
     border-radius:12px;
-    background:#ffffff !important;
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    background:linear-gradient(145deg,rgba(15,23,42,.98),rgba(7,14,25,.98));
+    box-shadow:0 16px 45px rgba(0,0,0,.42);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
     animation:cnxAlertIn .28s ease-out;
 }
 
 .cnx-live-alert.critical{
-    border-color:#d1d5db !important;
+    border-color:rgba(239,68,68,.75);
 }
 
 .cnx-live-alert.high{
-    border-color:#d1d5db !important;
+    border-color:rgba(249,115,22,.72);
 }
 
 .cnx-live-alert.medium{
-    border-color:#d1d5db !important;
+    border-color:rgba(234,179,8,.65);
 }
 
 .cnx-live-alert-header{
@@ -408,27 +432,27 @@ body{
 }
 
 .cnx-live-alert-title{
-    color:#111827 !important;
+    color:#111827;
     font-weight:800;
     font-size:13px;
 }
 
 .cnx-live-alert-close{
     border:0;
-    background:#ffffff !important;
-    color:#111827 !important;
+    background:transparent;
+    color:#64748b;
     cursor:pointer;
     font-size:17px;
     line-height:1;
 }
 
 .cnx-live-alert-close:hover{
-    color:#111827 !important;
+    color:#111827;
 }
 
 .cnx-live-alert-body{
     margin-top:8px;
-    color:#111827 !important;
+    color:#4b5563;
     font-size:12px;
     line-height:1.5;
 }
@@ -438,7 +462,7 @@ body{
     display:flex;
     justify-content:space-between;
     gap:10px;
-    color:#111827 !important;
+    color:#64748b;
     font-size:11px;
 }
 
@@ -448,15 +472,15 @@ body{
 }
 
 .cnx-live-alert.critical .cnx-alert-level{
-    color:#111827 !important;
+    color:#f87171;
 }
 
 .cnx-live-alert.high .cnx-alert-level{
-    color:#111827 !important;
+    color:#fb923c;
 }
 
 .cnx-live-alert.medium .cnx-alert-level{
-    color:#111827 !important;
+    color:#facc15;
 }
 
 @keyframes cnxAlertIn{
@@ -476,10 +500,10 @@ body{
 
 @keyframes cnxIncidentPulse{
     0%,100%{
-        box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+        box-shadow:0 0 0 rgba(56,189,248,0);
     }
     50%{
-        box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+        box-shadow:0 0 22px rgba(56,189,248,.22);
     }
 }
 
@@ -496,343 +520,91 @@ body{
 *{box-sizing:border-box}
 html{background:var(--bg)!important}
 body{
- margin:0!important;background:#ffffff !important;
- color:#111827 !important;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif!important;
+ margin:0!important;background:
+ radial-gradient(circle at 10% 0%,rgba(57,255,20,.10),transparent 26%),
+ radial-gradient(circle at 90% 15%,rgba(57,255,20,.06),transparent 24%),
+ linear-gradient(135deg,#020403,#06100a 55%,#020403)!important;
+ color:var(--text)!important;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif!important;
 }
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background-image:#ffffff !important;background-size:32px 32px}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.22;background-image:linear-gradient(rgba(57,255,20,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,.035) 1px,transparent 1px);background-size:32px 32px}
 .app{min-height:100vh!important;background:transparent!important}
 .sidebar{
- background:#ffffff !important;border-right:1px solid #1e4d2b!important;
- box-shadow:0 1px 3px rgba(0,0,0,.08) !important;position:relative!important;overflow:hidden!important
+ background:linear-gradient(180deg,#061009,#030805)!important;border-right:1px solid #1e4d2b!important;
+ box-shadow:8px 0 35px rgba(0,0,0,.35)!important;position:relative!important;overflow:hidden!important
 }
-.sidebar:after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:#ffffff !important;pointer-events:none}
+.sidebar:after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:radial-gradient(circle at 50% 100%,rgba(57,255,20,.12),transparent 70%);pointer-events:none}
 .brand{padding:24px 20px!important;border-bottom:1px solid #173a22!important}
-.logo{background:#ffffff !important;color:#111827 !important;box-shadow:0 1px 3px rgba(0,0,0,.08) !important;border:1px solid #7dff68!important}
-.brand h2{color:#111827 !important;letter-spacing:1.5px!important}.brand span{color:#62a974!important}
+.logo{background:linear-gradient(145deg,#39ff14,#19b800)!important;color:#041006!important;box-shadow:0 0 25px rgba(57,255,20,.35)!important;border:1px solid #7dff68!important}
+.brand h2{color:#111827!important;letter-spacing:1.5px!important}.brand span{color:#62a974!important}
 .sidebar nav{padding:18px 12px!important}
-.sidebar nav a{color:#111827 !important;border:1px solid transparent!important;border-radius:11px!important;margin:5px 0!important;padding:12px 14px!important;transition:.2s!important}
-.sidebar nav a:hover{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;box-shadow:inset 3px 0 #39ff14!important}
-.sidebar nav a.active{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;box-shadow:inset 3px 0 #39ff14,0 0 18px rgba(57,255,20,.06)!important}
-.system-status{margin:14px!important;background:#ffffff !important;border:1px solid #1d4729!important;border-radius:14px!important;padding:14px!important}
-.system-status small{color:#6f9478!important}.system-status strong{color:#72ff5a!important}.status-dot{background:#ffffff !important;box-shadow:0 0 8px #39ff14,0 0 22px rgba(57,255,20,.55)!important}
-.main{background:#ffffff !important;padding:24px 28px!important}
-.topbar{background:#ffffff !important;border:1px solid #183b23!important;border-radius:16px!important;padding:18px 20px!important;box-shadow:0 1px 3px rgba(0,0,0,.08) !important;backdrop-filter:blur(12px)!important}
-.eyebrow{color:#111827 !important;letter-spacing:2px!important;font-weight:800!important}.topbar h1{color:#111827 !important;margin-top:5px!important}.live{color:#111827 !important;font-weight:900!important;text-shadow:0 0 10px rgba(57,255,20,.35)!important}
+.sidebar nav a{color:#a8c1ae!important;border:1px solid transparent!important;border-radius:11px!important;margin:5px 0!important;padding:12px 14px!important;transition:.2s!important}
+.sidebar nav a:hover{background:#0d2515!important;color:#7dff68!important;border-color:#225c31!important;box-shadow:inset 3px 0 #39ff14!important}
+.sidebar nav a.active{background:linear-gradient(90deg,rgba(57,255,20,.14),rgba(57,255,20,.03))!important;color:#111827!important;border-color:#2a6937!important;box-shadow:inset 3px 0 #39ff14,0 0 18px rgba(57,255,20,.06)!important}
+.system-status{margin:14px!important;background:#07130b!important;border:1px solid #1d4729!important;border-radius:14px!important;padding:14px!important}
+.system-status small{color:#6f9478!important}.system-status strong{color:#72ff5a!important}.status-dot{background:#39ff14!important;box-shadow:0 0 8px #39ff14,0 0 22px rgba(57,255,20,.55)!important}
+.main{background:transparent!important;padding:24px 28px!important}
+.topbar{background:rgba(5,13,8,.82)!important;border:1px solid #183b23!important;border-radius:16px!important;padding:18px 20px!important;box-shadow:0 12px 35px rgba(0,0,0,.25)!important;backdrop-filter:blur(12px)!important}
+.eyebrow{color:#52d94c!important;letter-spacing:2px!important;font-weight:800!important}.topbar h1{color:#f6fff8!important;margin-top:5px!important}.live{color:#39ff14!important;font-weight:900!important;text-shadow:0 0 10px rgba(57,255,20,.35)!important}
 .metrics{gap:14px!important;margin:18px 0!important}
 .metric-card{
- background:#ffffff !important;border:1px solid #20512e!important;border-radius:16px!important;padding:18px!important;
- box-shadow:0 1px 3px rgba(0,0,0,.08) !important;position:relative!important;overflow:hidden!important
+ background:linear-gradient(145deg,#0a1810,#06100a)!important;border:1px solid #20512e!important;border-radius:16px!important;padding:18px!important;
+ box-shadow:0 10px 30px rgba(0,0,0,.22)!important;position:relative!important;overflow:hidden!important
 }
-.metric-card:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:#ffffff !important;opacity:.7}
-.metric-card:hover{transform:translateY(-3px)!important;border-color:#d1d5db !important;box-shadow:0 16px 35px rgba(57,255,20,.12)!important}
-.metric-card *{color:var(--text)!important}.metric-card .metric-label{color:#8fb19a!important}.metric-card .metric-value{color:#111827 !important;text-shadow:0 0 14px rgba(57,255,20,.28)!important}
+.metric-card:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,#39ff14,transparent);opacity:.7}
+.metric-card:hover{transform:translateY(-3px)!important;border-color:#39ff14!important;box-shadow:0 16px 35px rgba(57,255,20,.12)!important}
+.metric-card *{color:var(--text)!important}.metric-card .metric-label{color:#8fb19a!important}.metric-card .metric-value{color:#39ff14!important;text-shadow:0 0 14px rgba(57,255,20,.28)!important}
 .content-grid{gap:18px!important}
 .panel{
- background:#ffffff !important;border:1px solid #1e4829!important;border-radius:17px!important;
- box-shadow:0 1px 3px rgba(0,0,0,.08) !important;padding:20px!important
+ background:linear-gradient(145deg,rgba(10,23,14,.98),rgba(5,13,8,.98))!important;border:1px solid #1e4829!important;border-radius:17px!important;
+ box-shadow:0 12px 36px rgba(0,0,0,.25)!important;padding:20px!important
 }
-.panel:hover{border-color:#d1d5db !important;box-shadow:0 16px 42px rgba(0,0,0,.35),0 0 20px rgba(57,255,20,.05)!important}
-.panel-title,.panel h2,.panel h3,.panel h4{color:#effff3!important}.panel p,.panel span,.panel small,.description{color:#9fbaa7!important}
-button,.btn,.button{border-radius:10px!important;background:#ffffff !important;color:#111827 !important;font-weight:900!important;border:1px solid #7dff68!important;box-shadow:0 1px 3px rgba(0,0,0,.08) !important;transition:.18s!important}
+.panel:hover{border-color:#2f713e!important;box-shadow:0 16px 42px rgba(0,0,0,.35),0 0 20px rgba(57,255,20,.05)!important}
+.panel-title,.panel h2,.panel h3,.panel h4{color:#effff3!important}.panel p,.panel span,.panel small,.description{color:#4b5563!important}
+button,.btn,.button{border-radius:10px!important;background:linear-gradient(135deg,#39ff14,#1ed600)!important;color:#031006!important;font-weight:900!important;border:1px solid #7dff68!important;box-shadow:0 0 18px rgba(57,255,20,.15)!important;transition:.18s!important}
 button:hover,.btn:hover,.button:hover{transform:translateY(-1px)!important;filter:brightness(1.08)!important;box-shadow:0 0 28px rgba(57,255,20,.30)!important}
-input,textarea,select{background:#ffffff !important;color:#111827 !important;border:1px solid #285736!important;border-radius:10px!important}
-input:focus,textarea:focus,select:focus,#urlInput:focus{border-color:#d1d5db !important;box-shadow:0 0 0 3px rgba(57,255,20,.10),0 0 22px rgba(57,255,20,.12)!important}
+input,textarea,select{background:#fff!important;color:#f2fff5!important;border:1px solid #285736!important;border-radius:10px!important}
+input:focus,textarea:focus,select:focus,#urlInput:focus{border-color:#39ff14!important;box-shadow:0 0 0 3px rgba(57,255,20,.10),0 0 22px rgba(57,255,20,.12)!important}
 input::placeholder,textarea::placeholder{color:#62806c!important}
 .url-scanner-hint{color:#75917e!important}.url-scanner-hint strong{color:#b9ffc0!important}
-.cnx-soc-mini,.cnx-soc-secondary{background:#ffffff !important;border:1px solid #1e4829!important;box-shadow:none!important}
-.cnx-soc-mini span,.cnx-soc-secondary span{color:#73927d!important}.cnx-soc-mini strong,.cnx-soc-secondary strong{color:#f3fff5!important}.cnx-soc-incident{background:#ffffff !important;border-color:#1d4729!important}.cnx-soc-incident:hover{background:#ffffff !important;border-color:#39ff14!important}.cnx-soc-incident strong{color:#eaffed!important}.cnx-soc-incident span{color:#91ae99!important}
-.cnx-investigation-modal,.cnx-nav-modal{background:#ffffff !important;border:1px solid #2a6337!important;box-shadow:0 30px 100px rgba(0,0,0,.7)!important}.cnx-investigation-header,.cnx-nav-modal-head{background:#ffffff !important;border-color:#1d4729!important}.cnx-investigation-title,.cnx-nav-modal-head h2{color:#f4fff6!important}.cnx-investigation-subtitle{color:#76917e!important}.cnx-investigation-card,.cnx-investigation-section{background:#ffffff !important;border-color:#1d4729!important}.cnx-investigation-card span,.cnx-investigation-row,.cnx-investigation-note{color:#91ae99!important}.cnx-investigation-card strong,.cnx-investigation-section h3{color:#effff2!important}.cnx-investigation-row{background:#071109!important}
-.cnx-live-alert{background:#ffffff !important;border-color:#285936!important}.cnx-live-alert-title{color:#f4fff6!important}.cnx-live-alert-body{color:#9fbaa7!important}.cnx-live-alert-meta{color:#718c78!important}
-section[style*="margin:30px"]{background:#ffffff !important;border-color:#d1d5db !important;box-shadow:0 12px 35px rgba(0,0,0,.25)!important}
-section[style*="margin:30px"] h2{color:#f4fff6!important}section[style*="margin:30px"] p,label{color:#9fbaa7!important}
-section[style*="margin:30px"] input{background:#ffffff !important;color:#111827 !important;border-color:#285736!important}
-pre,code,.json,.api-response,.response,.output,.result,.result-box{background:#ffffff !important;color:#111827 !important;border-color:#1d4729!important}
-table{background:#ffffff !important;color:#111827 !important;border-color:#1d4729!important}th{background:#ffffff !important;color:#111827 !important;border-color:#245b31!important}td{color:#111827 !important;border-color:#173c23!important}tr:hover td{background:#0d2113!important}
-.risk-bar{background:#122217!important}.risk-bar>div{background:#ffffff !important;box-shadow:0 0 15px rgba(57,255,20,.45)!important}
+.cnx-soc-mini,.cnx-soc-secondary{background:linear-gradient(145deg,#0b1a10,#071009)!important;border:1px solid #1e4829!important;box-shadow:none!important}
+.cnx-soc-mini span,.cnx-soc-secondary span{color:#73927d!important}.cnx-soc-mini strong,.cnx-soc-secondary strong{color:#f3fff5!important}.cnx-soc-incident{background:#fff!important;border-color:#1d4729!important}.cnx-soc-incident:hover{background:#0b1d10!important;border-color:#39ff14!important}.cnx-soc-incident strong{color:#111827!important}.cnx-soc-incident span{color:#4b5563!important}
+.cnx-investigation-modal,.cnx-nav-modal{background:linear-gradient(145deg,#08130c,#030806)!important;border:1px solid #2a6337!important;box-shadow:0 30px 100px rgba(0,0,0,.7)!important}.cnx-investigation-header,.cnx-nav-modal-head{background:#fff!important;border-color:#1d4729!important}.cnx-investigation-title,.cnx-nav-modal-head h2{color:#111827!important}.cnx-investigation-subtitle{color:#76917e!important}.cnx-investigation-card,.cnx-investigation-section{background:#fff!important;border-color:#1d4729!important}.cnx-investigation-card span,.cnx-investigation-row,.cnx-investigation-note{color:#4b5563!important}.cnx-investigation-card strong,.cnx-investigation-section h3{color:#111827!important}.cnx-investigation-row{background:#fff!important}
+.cnx-live-alert{background:linear-gradient(145deg,#0a1710,#040a06)!important;border-color:#285936!important}.cnx-live-alert-title{color:#111827!important}.cnx-live-alert-body{color:#4b5563!important}.cnx-live-alert-meta{color:#718c78!important}
+section[style*="margin:30px"]{background:linear-gradient(145deg,#09160d,#040a06)!important;border-color:#235c31!important;box-shadow:0 12px 35px rgba(0,0,0,.25)!important}
+section[style*="margin:30px"] h2{color:#111827!important}section[style*="margin:30px"] p,label{color:#4b5563!important}
+section[style*="margin:30px"] input{background:#fff!important;color:#111827!important;border-color:#285736!important}
+pre,code,.json,.api-response,.response,.output,.result,.result-box{background:#f9fafb!important;color:#111827!important;border-color:#1d4729!important}
+table{background:#fff!important;color:#111827!important;border-color:#1d4729!important}th{background:#0e2415!important;color:#72ff5a!important;border-color:#245b31!important}td{color:#111827!important;border-color:#173c23!important}tr:hover td{background:#0d2113!important}
+.risk-bar{background:#122217!important}.risk-bar>div{background:linear-gradient(90deg,#1ed600,#7dff68)!important;box-shadow:0 0 15px rgba(57,255,20,.45)!important}
 #cnxAlertStack{right:24px!important}.cnx-live-alert.critical{border-color:#ff4d67!important}.cnx-live-alert.high{border-color:#ff8b38!important}.cnx-live-alert.medium{border-color:#ffd84d!important}
-*{scrollbar-width:thin;scrollbar-color:#2d7a3a #030605}*::-webkit-scrollbar{width:9px;height:9px}*::-webkit-scrollbar-track{background:#030605}*::-webkit-scrollbar-thumb{background:#ffffff !important;border-radius:20px}*::-webkit-scrollbar-thumb:hover{background:#39ff14}
+*{scrollbar-width:thin;scrollbar-color:#2d7a3a #030605}*::-webkit-scrollbar{width:9px;height:9px}*::-webkit-scrollbar-track{background:#030605}*::-webkit-scrollbar-thumb{background:#245f31;border-radius:20px}*::-webkit-scrollbar-thumb:hover{background:#39ff14}
 @media(max-width:900px){.main{padding:15px!important}.topbar{border-radius:12px!important}.panel{border-radius:13px!important}.sidebar{box-shadow:none!important}}
 @media(max-width:560px){.main{padding:10px!important}.topbar{padding:14px!important}.metric-card,.panel{padding:14px!important}.sidebar nav a{padding:10px!important}}
 </style>
 
-
-<style id="cnx-full-white-theme">
-/* =========================================================
-   CYBERNEXUS Ω — FULL WHITE / ZERO BLUE THEME
-   No blue/cyan UI. White surfaces, dark text, neutral borders.
-   Risk/status colors remain only where semantically useful.
-   ========================================================= */
-html,body{background:#ffffff !important;color:#111827 !important;}
-body{background-image:#ffffff !important;}
-
-/* Main layout and common surfaces */
-main,header,footer,section,article,aside,nav,
-.container,.app,.dashboard,.page,.content,.content-grid,
-.panel,.metric-card,.card,.module,.widget,.box,
-.cnx-panel,.cnx-card,.cnx-module,.cnx-soc-mini,
-.cnx-investigation-section,.cnx-investigation-card,
-.cnx-soc-secondary,.cnx-nav-modal,.cnx-nav-grid,
-.result,.results,.analysis-result,.scan-result,
-.attack-panel,.risk-panel,.events,.graph,
-[style*="background:#050a12"],[style*="background:#07101d"],
-[style*="background:#08101d"],[style*="background:#0b1220"],
-[style*="background:#0f172a"],[style*="background:#111827"],
-[style*="background:#020403"],[style*="background:#020503"],
-[style*="background:#030605"],[style*="background:#030805"],
-[style*="background:#040a06"],[style*="background:#061009"],
-[style*="background:#071009"],[style*="background:#071109"],
-[style*="background:#07130b"],[style*="background:#08130c"],
-[style*="background:#0a1710"],[style*="background:#0a1810"],
-[style*="background:#0b1a10"],[style*="background:#0d1728"],
-[style*="background:#0d1c12"],[style*="background:#0e2415"],
-[style*="background:#102a3a"],[style*="background:#111c2d"]{
-    background:#ffffff !important;
-    background-image:#ffffff !important;
-    color:#111827 !important;
-}
-
-.metric-card,.panel,.card,.module,.widget,.box,
-.cnx-panel,.cnx-card,.cnx-module,.cnx-soc-mini,
-.cnx-investigation-section,.cnx-investigation-card,
-.cnx-soc-secondary,.result,.results,.analysis-result,
-.scan-result,.attack-panel,.risk-panel,.events{
-    border-color:#d1d5db !important;
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
-    backdrop-filter:none!important;
-    -webkit-backdrop-filter:none!important;
-}
-
-/* All regular text */
-body,h1,h2,h3,h4,h5,h6,p,span,small,label,strong,li,td,th,
-.panel-header,.eyebrow,.metric-card span,.metric-card small,
-.cnx-module-list,.cnx-investigation-note,.cnx-soc-empty,
-.cnx-soc-secondary span,.cnx-soc-mini span{
-    color:#111827 !important;
-}
-
-/* Secondary text */
-small,.muted,.secondary,.description,.subtitle,
-.cnx-module-list,.cnx-investigation-note,.cnx-soc-empty,
-.cnx-soc-secondary span,.cnx-soc-mini span{
-    color:#111827 !important;
-}
-
-/* Remove blue/cyan accents */
-.eyebrow,.badge,.live,.brand,.logo,.accent,.link,
-a,a:visited,.cnx-nav-action,.cnx-module-list li::marker,
-.metric-card strong:not(.danger):not(.high):not(.medium):not(.low):not(.critical),
-.risk-score strong,#riskScoreDisplay,#socMetricsStatus{
-    color:#111827 !important;
-}
-
-a:hover,.link:hover{color:#111827 !important;}
-
-/* Known blue/cyan inline colors */
-[style*="#38bdf8"],[style*="#22d3ee"],[style*="#67e8f9"],
-[style*="#52f7ff"],[style*="#5eead4"],[style*="#00d4aa"],
-[style*="#8fa3bf"],[style*="#94a3b8"],[style*="#cbd5e1"]{
-    color:#111827 !important;
-}
-
-[style*="#155e75"],[style*="#082433"],[style*="#0b3144"],
-[style*="#243247"],[style*="#243b57"],[style*="#334155"]{
-    border-color:#d1d5db !important;
-    background:#ffffff !important;
-}
-
-/* Dark inline result cards -> white */
-[style*="background:#111827"],
-[style*="background:#0f172a"],
-[style*="background:#08101d"],
-[style*="background:#0b1220"]{
-    background:#ffffff !important;
-    color:#111827 !important;
-}
-
-/* Form controls */
-input,textarea,select,
-input[type="url"],input[type="text"],input[type="email"],
-input[type="file"]{
-    background:#ffffff !important;
-    color:#111827 !important;
-    border:1px solid #9ca3af!important;
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
-}
-input::placeholder,textarea::placeholder{color:#111827 !important;}
-
-/* Buttons: white, black text, no blue */
-button,.btn,.button,.cnx-nav-action,
-input[type="button"],input[type="submit"]{
-    background:#ffffff !important;
-    color:#111827 !important;
-    border:1px solid #111827!important;
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
-}
-button:hover,.btn:hover,.button:hover,.cnx-nav-action:hover,
-input[type="button"]:hover,input[type="submit"]:hover{
-    background:#ffffff !important;
-    color:#111827 !important;
-    border-color:#d1d5db !important;
-}
-
-/* Risk colors only: red / orange / green / yellow */
-.danger,.critical,[class*="critical"],.risk-critical{
-    color:#111827 !important;
-}
-.high,.risk-high{color:#111827 !important;}
-.medium,.risk-medium{color:#111827 !important;}
-.low,.risk-low{color:#111827 !important;}
-.success,.verified,.status-ok{color:#111827 !important;}
-
-/* Risk badges */
-.badge-danger,.badge-critical{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;}
-.badge-high{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;}
-.badge-medium{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;}
-.badge-low,.badge-success{background:#ffffff !important;color:#111827 !important;border-color:#d1d5db !important;}
-
-/* Progress/risk bars: neutral base; risk fill can keep semantic colors */
-.risk-bar{background:#ffffff !important;border:1px solid #d1d5db!important;}
-
-/* Graph: white canvas, neutral nodes/edges, no blue */
-.graph,svg{background:#ffffff !important;}
-.graph svg{background:#ffffff !important;}
-.graph line,.graph path{stroke:#9ca3af!important;}
-.graph circle{fill:#ffffff!important;stroke:#111827!important;}
-.graph text{fill:#111827!important;}
-.cnx-node circle{fill:#ffffff!important;stroke:#111827!important;}
-.cnx-node text{fill:#111827!important;}
-
-/* Separators */
-hr{border-color:#d1d5db !important;background:#ffffff !important;}
-
-/* Remove blue glow/shadows */
-*{text-shadow:0 1px 3px rgba(0,0,0,.08) !important;}
-
-/* Keep green status dot, but no blue glow */
-.status-dot{background:#ffffff !important;box-shadow:0 1px 3px rgba(0,0,0,.08) !important;}
-
-/* Incident result cards */
-#incidentResult,#scanResult,#fileResult,#emailResult,
-#incidentResult > div,#scanResult > div,#fileResult > div,#emailResult > div{
-    background:#ffffff !important;
-    color:#111827 !important;
-    border-color:#d1d5db !important;
-}
-
-/* Force common dark/blue utility surfaces to white */
-.cnx-soc-mini,.cnx-soc-secondary,.cnx-investigation-card,
-.cnx-investigation-section,.cnx-nav-modal,.cnx-nav-action{
-    background:#ffffff !important;
-}
-
-@media(max-width:900px){
-    .metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
-    .content-grid{grid-template-columns:1fr!important;}
-}
-@media(max-width:650px){
-    .metrics{grid-template-columns:1fr!important;}
-}
+<style id="cnx-white-risk-only-theme">
+html,body{background:#ffffff!important;color:#111827!important}
+body{background:#fff!important;color:#111827!important}
+header,.topbar,.sidebar,.panel,.metric-card,.card,.cnx-soc-mini,.cnx-soc-secondary,.cnx-soc-incident,.cnx-info-card,.cnx-investigation-card,.cnx-investigation-section,.cnx-nav-modal,.cnx-investigation-modal,section[style*="margin:30px"]{background:#fff!important;color:#111827!important;background-image:none!important;box-shadow:0 2px 12px rgba(0,0,0,.07)!important;border-color:#e5e7eb!important}
+*{text-shadow:none!important}
+h1,h2,h3,h4,h5,h6,strong,b,label,p,span,small,li,td,th,.panel-header,.eyebrow,.cnx-investigation-row,.cnx-investigation-note{color:#111827!important}
+input,textarea,select{background:#fff!important;color:#111827!important;border:1px solid #d1d5db!important}
+button,.cnx-nav-action{background:#fff!important;color:#111827!important;border:1px solid #d1d5db!important;box-shadow:none!important}
+button:hover,.cnx-nav-action:hover{background:#f9fafb!important;border-color:#9ca3af!important;color:#111827!important}
+pre,code,.json,.api-response,.response,.output,.result,.result-box{background:#f9fafb!important;color:#111827!important;border:1px solid #e5e7eb!important}
+table{background:#fff!important;color:#111827!important;border-color:#e5e7eb!important}th{background:#f9fafb!important;color:#111827!important;border-color:#e5e7eb!important}td{color:#111827!important;border-color:#e5e7eb!important}tr:hover td{background:#f9fafb!important}
+.graph{background:#fff!important;border-color:#e5e7eb!important}
+.cnx-soc-empty,.cnx-investigation-subtitle,.cnx-live-alert-body,.cnx-live-alert-meta{color:#4b5563!important}
+.cnx-module-status{background:#fff!important;border-color:#d1d5db!important;color:#111827!important}.cnx-module-status i{background:#16a34a!important;box-shadow:none!important}.cnx-module-list li::marker{color:#111827!important}
+.live{color:#111827!important}
+/* Risk colors only */
+.risk-low,.low,.LOW,.risk-level-low,[data-risk="LOW"]{color:#15803d!important;border-color:#86efac!important;background:#f0fdf4!important}
+.risk-medium,.medium,.MEDIUM,.risk-level-medium,[data-risk="MEDIUM"]{color:#a16207!important;border-color:#fde047!important;background:#fefce8!important}
+.risk-high,.high,.HIGH,.risk-level-high,[data-risk="HIGH"]{color:#c2410c!important;border-color:#fdba74!important;background:#fff7ed!important}
+.risk-critical,.critical,.CRITICAL,.risk-level-critical,[data-risk="CRITICAL"]{color:#b91c1c!important;border-color:#fca5a5!important;background:#fef2f2!important}
+.cnx-live-alert.low{border-color:#86efac!important;background:#f0fdf4!important}.cnx-live-alert.medium{border-color:#fde047!important;background:#fefce8!important}.cnx-live-alert.high{border-color:#fdba74!important;background:#fff7ed!important}.cnx-live-alert.critical{border-color:#fca5a5!important;background:#fef2f2!important}
+.risk-bar{background:#e5e7eb!important}.risk-bar>div{background:#16a34a!important;box-shadow:none!important}
 </style>
-
-
-<style id="cnx-attack-graph-full-white">
-/* CYBERNEXUS ATTACK GRAPH — FULL WHITE */
-#attackGraph,
-#attackGraph svg {
-    background:#ffffff !important;
-    background-color:#ffffff !important;
-    color:#111827 !important;
-}
-#attackGraph .cnx-node text {
-    fill: #111827 !important;
-}
-#graphNodeDetails {
-    background:#ffffff !important;
-    background-color:#ffffff !important;
-    color:#111827 !important;
-    border-color:#d1d5db !important;
-}
-#attackGraph line,
-#attackGraph path {
-    stroke: #9ca3af !important;
-}
-</style>
-
-
-<style id="cnx-true-full-white-final">
-/* CYBERNEXUS Ω — TRUE FULL WHITE THEME */
-html, body {
-    background: #ffffff !important;
-    background-image: none !important;
-    color: #111827 !important;
-}
-body * {
-    text-shadow: none !important;
-}
-.app, main, .main, .content, .container, .dashboard,
-.sidebar, .topbar, header, section, article,
-.panel, .card, .metric-card, .result, .result-card,
-.cnx-module, .cnx-soc-mini, .cnx-soc-secondary,
-.cnx-investigation-section, .cnx-investigation-card,
-.cnx-investigation-list, .cnx-nav-modal, .modal,
-#attackGraph, #attackGraph svg, #graphNodeDetails,
-#scanResult, #fileResult, #incidentResult {
-    background: #ffffff !important;
-    background-image: none !important;
-    color: #111827 !important;
-    border-color: #d1d5db !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,.08) !important;
-}
-button, .btn, .button, input, textarea, select {
-    background: #ffffff !important;
-    background-image: none !important;
-    color: #111827 !important;
-    border-color: #9ca3af !important;
-    box-shadow: none !important;
-}
-button:hover, .btn:hover, .button:hover {
-    background: #f3f4f6 !important;
-    color: #111827 !important;
-    border-color: #6b7280 !important;
-}
-h1,h2,h3,h4,h5,h6,p,span,small,strong,label,li,a {
-    color: #111827 !important;
-}
-a:hover {
-    color: #111827 !important;
-}
-hr {
-    border-color: #d1d5db !important;
-}
-#attackGraph,
-#attackGraph svg {
-    background: #ffffff !important;
-    background-image: none !important;
-}
-#attackGraph circle,
-#attackGraph rect,
-#attackGraph ellipse {
-    fill: #ffffff !important;
-    stroke: #9ca3af !important;
-}
-#attackGraph line,
-#attackGraph path,
-#attackGraph polyline {
-    stroke: #9ca3af !important;
-}
-#attackGraph text,
-#graphNodeDetails * {
-    fill: #111827 !important;
-    color: #111827 !important;
-}
-.badge, .live, .status-dot, .logo {
-    background: #ffffff !important;
-    color: #111827 !important;
-    border-color: #d1d5db !important;
-    box-shadow: none !important;
-}
-</style>
-
 </head>
 
 
@@ -846,7 +618,7 @@ hr {
 <section style="
     margin:30px;
     padding:25px;
-    background:#ffffff !important;
+    background:#07111f;
     border:1px solid #00d4aa;
     border-radius:15px;
 ">
@@ -862,7 +634,7 @@ hr {
         <div>
 
             <span style="
-                color:#111827 !important;
+                color:#00d4aa;
                 font-size:12px;
                 letter-spacing:2px;
                 font-weight:bold;
@@ -871,14 +643,14 @@ hr {
             </span>
 
             <h2 style="
-                color:#111827 !important;
+                color:white;
                 margin:8px 0;
             ">
                 ⚡ Incident Correlation Engine
             </h2>
 
             <p style="
-                color:#111827 !important;
+                color:#4b5563;
                 margin:0;
             ">
                 Correlate URL, file and email signals into one security incident.
@@ -888,7 +660,7 @@ hr {
 
 
         <div style="
-            color:#111827 !important;
+            color:#00d4aa;
             border:1px solid #00d4aa;
             border-radius:20px;
             padding:8px 14px;
@@ -913,7 +685,7 @@ hr {
         <div>
 
             <label style="
-                color:#111827 !important;
+                color:#4b5563;
                 font-size:13px;
             ">
                 Sender
@@ -929,9 +701,9 @@ hr {
                     margin-top:7px;
                     padding:13px;
                     border-radius:8px;
-                    border:1px solid #d1d5db;
-                    background:#ffffff !important;
-                    color:#111827 !important;
+                    border:1px solid #334155;
+                    background:#fff;
+                    color:white;
                 "
             >
 
@@ -941,7 +713,7 @@ hr {
         <div>
 
             <label style="
-                color:#111827 !important;
+                color:#4b5563;
                 font-size:13px;
             ">
                 Email Threat Content
@@ -957,9 +729,9 @@ hr {
                     margin-top:7px;
                     padding:13px;
                     border-radius:8px;
-                    border:1px solid #d1d5db;
-                    background:#ffffff !important;
-                    color:#111827 !important;
+                    border:1px solid #334155;
+                    background:#fff;
+                    color:white;
                 "
             >
 
@@ -975,8 +747,8 @@ hr {
             padding:14px 28px;
             border:none;
             border-radius:8px;
-            background:#ffffff !important;
-            color:#111827 !important;
+            background:#00d4aa;
+            color:#001b17;
             font-weight:bold;
             cursor:pointer;
         "
@@ -989,7 +761,7 @@ hr {
         id="incidentStatus"
         style="
             margin-top:18px;
-            color:#111827 !important;
+            color:#4b5563;
         "
     >
         Ready for incident correlation.
@@ -1015,16 +787,16 @@ hr {
 <section style="
     margin:30px;
     padding:25px;
-    background:#ffffff !important;
-    border:1px solid #d1d5db;
+    background:#0b1220;
+    border:1px solid #243247;
     border-radius:15px;
 ">
 
-    <h2 style="color:#111827 !important;">
+    <h2 style="color:white;">
         🛡️ File Threat Analyzer
     </h2>
 
-    <p style="color:#111827 !important;">
+    <p style="color:#4b5563;">
         Static file analysis using hash, entropy and suspicious-pattern detection.
     </p>
 
@@ -1035,7 +807,7 @@ hr {
         style="
             margin-top:10px;
             padding:12px;
-            color:#111827 !important;
+            color:white;
         "
     >
 
@@ -1049,8 +821,8 @@ hr {
             padding:13px 24px;
             border:none;
             border-radius:8px;
-            background:#ffffff !important;
-            color:#111827 !important;
+            background:#00d4aa;
+            color:#001b17;
             font-weight:bold;
             cursor:pointer;
         "
@@ -1063,7 +835,7 @@ hr {
         id="fileStatus"
         style="
             margin-top:20px;
-            color:#111827 !important;
+            color:#4b5563;
         "
     >
     </div>
@@ -1086,17 +858,17 @@ hr {
 <section style="
     margin:30px;
     padding:25px;
-    background:#ffffff !important;
-    border:1px solid #d1d5db;
+    background:#0b1220;
+    border:1px solid #243247;
     border-radius:15px;
 ">
 
-    <h2 style="color:#111827 !important;">
+    <h2 style="color:#ffffff;">
         🔎 URL Threat Scanner
     </h2>
 
 
-    <p style="color:#111827 !important;">
+    <p style="color:#4b5563;">
         Analyze a URL using CYBERNEXUS Ω threat intelligence engine.
     </p>
 
@@ -1119,9 +891,9 @@ hr {
                 min-width:300px;
                 padding:14px;
                 border-radius:8px;
-                border:1px solid #d1d5db;
-                background:#ffffff !important;
-                color:#111827 !important;
+                border:1px solid #334155;
+                background:#fff;
+                color:white;
             "
         >
 
@@ -1134,8 +906,8 @@ hr {
                 padding:14px 24px;
                 border:none;
                 border-radius:8px;
-                background:#ffffff !important;
-                color:#111827 !important;
+                background:#00d4aa;
+                color:#001b17;
                 font-weight:bold;
                 cursor:pointer;
             "
@@ -1147,7 +919,7 @@ hr {
 
 
     <div class="url-scanner-hint">
-        Press <strong style="color:#111827 !important;">Enter</strong> to analyze instantly, or click ANALYZE URL.
+        Press <strong style="color:#4b5563;">Enter</strong> to analyze instantly, or click ANALYZE URL.
     </div>
 
 
@@ -1155,7 +927,7 @@ hr {
         id="scanStatus"
         style="
             margin-top:20px;
-            color:#111827 !important;
+            color:#4b5563;
         "
     >
     </div>
@@ -1504,10 +1276,10 @@ hr {
                     gap:10px;
                     margin-bottom:10px;
                 ">
-                    <strong style="color:#111827 !important;">
+                    <strong style="color:#111827;">
                         Recent Incidents
                     </strong>
-                    <small style="color:#111827 !important;">
+                    <small style="color:#64748b;">
                         Live from /api/soc-metrics
                     </small>
                 </div>
@@ -1572,7 +1344,7 @@ hr {
                         align-items:center;
                         justify-content:center;
                         height:430px;
-                        color:#111827 !important;
+                        color:#4b5563;
                         font-size:14px;
                     ">
 
@@ -1590,10 +1362,10 @@ hr {
                         margin-top:15px;
                         padding:12px;
                         min-height:25px;
-                        border:1px solid #d1d5db;
+                        border:1px solid #243247;
                         border-radius:8px;
-                        background:#ffffff !important;
-                        color:#111827 !important;
+                        background:#fff;
+                        color:#4b5563;
                         font-size:13px;
                     "
                 >
@@ -1844,7 +1616,7 @@ hr {
 .cnx-nav-overlay{
     position:fixed;
     inset:0;
-    background:#ffffff !important;
+    background:rgba(2,6,23,.72);
     backdrop-filter:blur(7px);
     -webkit-backdrop-filter:blur(7px);
     display:none;
@@ -1863,10 +1635,17 @@ hr {
     width:min(820px,94vw);
     max-height:82vh;
     overflow:auto;
-    background:#ffffff !important;
+    background:
+        linear-gradient(
+            145deg,
+            #0d1728,
+            #07101d
+        );
     border:1px solid #243b57;
     border-radius:18px;
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.55),
+        0 0 35px rgba(56,189,248,.08);
     padding:24px;
 }
 
@@ -1881,7 +1660,7 @@ hr {
 }
 
 .cnx-nav-modal-head h2{
-    color:#111827 !important;
+    color:#111827;
     margin:6px 0 0;
     font-size:25px;
 }
@@ -1890,18 +1669,18 @@ hr {
     width:38px;
     height:38px;
     border-radius:10px;
-    border:1px solid #d1d5db;
-    background:#ffffff !important;
-    color:#111827 !important;
+    border:1px solid #334155;
+    background:#111c2d;
+    color:#374151;
     font-size:26px;
     line-height:1;
     cursor:pointer;
 }
 
 .cnx-nav-close:hover{
-    border-color:#d1d5db !important;
-    color:#111827 !important;
-    background:#ffffff !important;
+    border-color:#38bdf8;
+    color:#fff;
+    background:#142238;
 }
 
 .cnx-nav-grid{
@@ -1915,18 +1694,18 @@ hr {
     padding:16px;
     border:1px solid #26364b;
     border-radius:12px;
-    background:#ffffff !important;
+    background:rgba(15,23,42,.72);
 }
 
 .cnx-info-card strong{
     display:block;
-    color:#111827 !important;
+    color:#111827;
     font-size:14px;
     margin-bottom:7px;
 }
 
 .cnx-info-card span{
-    color:#111827 !important;
+    color:#4b5563;
     font-size:13px;
     line-height:1.55;
 }
@@ -1937,9 +1716,9 @@ hr {
     gap:7px;
     padding:7px 10px;
     border:1px solid #1d4d42;
-    background:#ffffff !important;
+    background:rgba(0,212,170,.07);
     border-radius:999px;
-    color:#111827 !important;
+    color:#5eead4;
     font-size:11px;
     font-weight:700;
     margin-bottom:16px;
@@ -1949,21 +1728,21 @@ hr {
     width:7px;
     height:7px;
     border-radius:50%;
-    background:#ffffff !important;
-    box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+    background:#34d399;
+    box-shadow:0 0 10px #34d399;
     display:inline-block;
 }
 
 .cnx-module-list{
     margin:14px 0 0;
     padding-left:18px;
-    color:#111827 !important;
+    color:#4b5563;
     line-height:1.8;
     font-size:13px;
 }
 
 .cnx-module-list li::marker{
-    color:#111827 !important;
+    color:#38bdf8;
 }
 
 .cnx-nav-action{
@@ -1971,15 +1750,15 @@ hr {
     padding:11px 15px;
     border-radius:9px;
     border:1px solid #155e75;
-    background:#ffffff !important;
-    color:#111827 !important;
+    background:#082433;
+    color:#67e8f9;
     font-weight:700;
     cursor:pointer;
 }
 
 .cnx-nav-action:hover{
-    background:#ffffff !important;
-    border-color:#d1d5db !important;
+    background:#0b3144;
+    border-color:#22d3ee;
 }
 
 @keyframes cnxOverlayIn{
@@ -2145,13 +1924,13 @@ async function scanURL() {
 
             <div style="
                 padding:20px;
-                border:1px solid #d1d5db;
+                border:1px solid #334155;
                 border-radius:12px;
-                background:#ffffff !important;
+                background:#fff;
             ">
 
                 <h3 style="
-                    color:#111827 !important;
+                    color:white;
                     margin-top:0;
                 ">
 
@@ -2164,7 +1943,7 @@ async function scanURL() {
                 </h3>
 
                 <p style="
-                    color:#111827 !important;
+                    color:#374151;
                     word-break:break-all;
                 ">
 
@@ -2179,7 +1958,7 @@ async function scanURL() {
                 </p>
 
                 <p style="
-                    color:#111827 !important;
+                    color:#374151;
                 ">
 
                     <strong>
@@ -2193,7 +1972,7 @@ async function scanURL() {
                 </p>
 
                 <p style="
-                    color:#111827 !important;
+                    color:#374151;
                 ">
 
                     <strong>
@@ -2370,12 +2149,12 @@ async function scanFile() {
 
             <div style="
                 padding:20px;
-                background:#ffffff !important;
-                border:1px solid #d1d5db;
+                background:#fff;
+                border:1px solid #334155;
                 border-radius:12px;
             ">
 
-                <h3 style="color:#111827 !important;">
+                <h3 style="color:white;">
 
                     ${icon}
 
@@ -2383,7 +2162,7 @@ async function scanFile() {
 
                 </h3>
 
-                <p style="color:#111827 !important;">
+                <p style="color:#374151;">
 
                     <strong>
                         File:
@@ -2395,7 +2174,7 @@ async function scanFile() {
 
                 </p>
 
-                <p style="color:#111827 !important;">
+                <p style="color:#374151;">
 
                     <strong>
                         Risk Score:
@@ -2407,7 +2186,7 @@ async function scanFile() {
 
                 </p>
 
-                <p style="color:#111827 !important;">
+                <p style="color:#374151;">
 
                     <strong>
                         Entropy:
@@ -2420,7 +2199,7 @@ async function scanFile() {
                 </p>
 
                 <p style="
-                    color:#111827 !important;
+                    color:#374151;
                     word-break:break-all;
                 ">
 
@@ -2434,7 +2213,7 @@ async function scanFile() {
 
                 </p>
 
-                <p style="color:#111827 !important;">
+                <p style="color:#374151;">
 
                     <strong>
                         Extension:
@@ -2446,7 +2225,7 @@ async function scanFile() {
 
                 </p>
 
-                <p style="color:#111827 !important;">
+                <p style="color:#374151;">
 
                     <strong>
                         Findings:
@@ -2928,10 +2707,16 @@ async function correlateIncident() {
 
             <div style="
                 padding:22px;
-                background:#ffffff !important;
-                border:1px solid #d1d5db;
+                background:
+                    linear-gradient(
+                        145deg,
+                        #0f172a,
+                        #07111f
+                    );
+                border:1px solid #334155;
                 border-radius:14px;
-                box-shadow:0 1px 3px rgba(0,0,0,.08) !important;
+                box-shadow:
+                    0 12px 35px rgba(0,0,0,.25);
             ">
 
 
@@ -2947,7 +2732,7 @@ async function correlateIncident() {
                 ">
 
                     <h3 style="
-                        color:#111827 !important;
+                        color:white;
                         margin:0;
                         font-size:20px;
                     ">
@@ -2958,9 +2743,10 @@ async function correlateIncident() {
                     <span style="
                         padding:7px 12px;
                         border-radius:20px;
-                        background:#ffffff !important;
+                        background:
+                            rgba(255,77,109,.12);
                         border:1px solid #ff4d6d;
-                        color:#111827 !important;
+                        color:#ff6b86;
                         font-size:12px;
                         font-weight:bold;
                     ">
@@ -2975,13 +2761,13 @@ async function correlateIncident() {
                 <div style="
                     padding:14px;
                     margin-bottom:12px;
-                    background:#ffffff !important;
-                    border:1px solid #d1d5db;
+                    background:#fff;
+                    border:1px solid #243247;
                     border-radius:10px;
                 ">
 
                     <div style="
-                        color:#111827 !important;
+                        color:#64748b;
                         font-size:11px;
                         letter-spacing:1px;
                         margin-bottom:5px;
@@ -2991,7 +2777,7 @@ async function correlateIncident() {
 
 
                     <div style="
-                        color:#111827 !important;
+                        color:#38bdf8;
                         font-weight:bold;
                         word-break:break-all;
                     ">
@@ -3019,13 +2805,13 @@ async function correlateIncident() {
 
                     <div style="
                         padding:14px;
-                        background:#ffffff !important;
-                        border:1px solid #d1d5db;
+                        background:#fff;
+                        border:1px solid #334155;
                         border-radius:10px;
                     ">
 
                         <div style="
-                            color:#111827 !important;
+                            color:#64748b;
                             font-size:11px;
                             margin-bottom:5px;
                         ">
@@ -3034,7 +2820,7 @@ async function correlateIncident() {
 
 
                         <strong style="
-                            color:#111827 !important;
+                            color:#f59e0b;
                             font-size:24px;
                         ">
                             ${originalScore}
@@ -3042,7 +2828,7 @@ async function correlateIncident() {
 
 
                         <span style="
-                            color:#111827 !important;
+                            color:#4b5563;
                             font-size:12px;
                         ">
                             /100
@@ -3050,7 +2836,7 @@ async function correlateIncident() {
 
 
                         <div style="
-                            color:#111827 !important;
+                            color:#f59e0b;
                             font-size:12px;
                             margin-top:4px;
                             font-weight:bold;
@@ -3065,13 +2851,13 @@ async function correlateIncident() {
 
                     <div style="
                         padding:14px;
-                        background:#ffffff !important;
-                        border:1px solid #d1d5db;
+                        background:#fff;
+                        border:1px solid #334155;
                         border-radius:10px;
                     ">
 
                         <div style="
-                            color:#111827 !important;
+                            color:#64748b;
                             font-size:11px;
                             margin-bottom:5px;
                         ">
@@ -3080,7 +2866,7 @@ async function correlateIncident() {
 
 
                         <strong style="
-                            color:#111827 !important;
+                            color:#f97316;
                             font-size:24px;
                         ">
                             +${iocBonus}
@@ -3088,7 +2874,7 @@ async function correlateIncident() {
 
 
                         <div style="
-                            color:#111827 !important;
+                            color:#4b5563;
                             font-size:12px;
                             margin-top:4px;
                         ">
@@ -3102,13 +2888,13 @@ async function correlateIncident() {
 
                     <div style="
                         padding:14px;
-                        background:#ffffff !important;
+                        background:#fff;
                         border:1px solid #ff4d6d;
                         border-radius:10px;
                     ">
 
                         <div style="
-                            color:#111827 !important;
+                            color:#64748b;
                             font-size:11px;
                             margin-bottom:5px;
                         ">
@@ -3117,7 +2903,7 @@ async function correlateIncident() {
 
 
                         <strong style="
-                            color:#111827 !important;
+                            color:#ff4d6d;
                             font-size:24px;
                         ">
                             ${riskScore}
@@ -3125,7 +2911,7 @@ async function correlateIncident() {
 
 
                         <span style="
-                            color:#111827 !important;
+                            color:#4b5563;
                             font-size:12px;
                         ">
                             /100
@@ -3133,7 +2919,7 @@ async function correlateIncident() {
 
 
                         <div style="
-                            color:#111827 !important;
+                            color:#ff6b86;
                             font-size:12px;
                             margin-top:4px;
                             font-weight:bold;
@@ -3151,13 +2937,14 @@ async function correlateIncident() {
                 <div style="
                     padding:16px;
                     margin-bottom:15px;
-                    background:#ffffff !important;
+                    background:
+                        rgba(56,189,248,.04);
                     border:1px solid #1e3a5f;
                     border-radius:10px;
                 ">
 
                     <div style="
-                        color:#111827 !important;
+                        color:#38bdf8;
                         font-size:12px;
                         font-weight:bold;
                         letter-spacing:1px;
@@ -3181,7 +2968,7 @@ async function correlateIncident() {
                         <div>
 
                             <div style="
-                                color:#111827 !important;
+                                color:#64748b;
                                 font-size:11px;
                             ">
                                 MATCHED IOCs
@@ -3189,7 +2976,7 @@ async function correlateIncident() {
 
 
                             <strong style="
-                                color:#111827 !important;
+                                color:white;
                                 font-size:18px;
                             ">
                                 ${iocMatched}
@@ -3201,7 +2988,7 @@ async function correlateIncident() {
                         <div>
 
                             <div style="
-                                color:#111827 !important;
+                                color:#64748b;
                                 font-size:11px;
                             ">
                                 CONFIDENCE
@@ -3209,7 +2996,7 @@ async function correlateIncident() {
 
 
                             <strong style="
-                                color:#111827 !important;
+                                color:#22c55e;
                                 font-size:18px;
                             ">
                                 ${confidence}
@@ -3221,7 +3008,7 @@ async function correlateIncident() {
                         <div>
 
                             <div style="
-                                color:#111827 !important;
+                                color:#64748b;
                                 font-size:11px;
                             ">
                                 THREAT INTEL SCORE
@@ -3229,7 +3016,7 @@ async function correlateIncident() {
 
 
                             <strong style="
-                                color:#111827 !important;
+                                color:#c084fc;
                                 font-size:18px;
                             ">
                                 ${threatIntelScore}
@@ -3241,7 +3028,7 @@ async function correlateIncident() {
                         <div>
 
                             <div style="
-                                color:#111827 !important;
+                                color:#64748b;
                                 font-size:11px;
                             ">
                                 IOC BONUS
@@ -3249,7 +3036,7 @@ async function correlateIncident() {
 
 
                             <strong style="
-                                color:#111827 !important;
+                                color:#f97316;
                                 font-size:18px;
                             ">
                                 +${iocBonus}
@@ -3278,20 +3065,20 @@ async function correlateIncident() {
 
                     <div style="
                         padding:12px;
-                        background:#ffffff !important;
+                        background:#fff;
                         border-radius:9px;
-                        border:1px solid #d1d5db;
+                        border:1px solid #243247;
                     ">
 
                         <small style="
-                            color:#111827 !important;
+                            color:#64748b;
                         ">
                             CORRELATION SCORE
                         </small>
 
 
                         <div style="
-                            color:#111827 !important;
+                            color:#38bdf8;
                             font-size:18px;
                             font-weight:bold;
                             margin-top:4px;
@@ -3304,20 +3091,20 @@ async function correlateIncident() {
 
                     <div style="
                         padding:12px;
-                        background:#ffffff !important;
+                        background:#fff;
                         border-radius:9px;
-                        border:1px solid #d1d5db;
+                        border:1px solid #243247;
                     ">
 
                         <small style="
-                            color:#111827 !important;
+                            color:#64748b;
                         ">
                             SECURITY SIGNALS
                         </small>
 
 
                         <div style="
-                            color:#111827 !important;
+                            color:white;
                             font-size:18px;
                             font-weight:bold;
                             margin-top:4px;
@@ -3330,20 +3117,20 @@ async function correlateIncident() {
 
                     <div style="
                         padding:12px;
-                        background:#ffffff !important;
+                        background:#fff;
                         border-radius:9px;
-                        border:1px solid #d1d5db;
+                        border:1px solid #243247;
                     ">
 
                         <small style="
-                            color:#111827 !important;
+                            color:#64748b;
                         ">
                             HIGH-RISK SIGNALS
                         </small>
 
 
                         <div style="
-                            color:#111827 !important;
+                            color:#ff4d6d;
                             font-size:18px;
                             font-weight:bold;
                             margin-top:4px;
@@ -3356,20 +3143,20 @@ async function correlateIncident() {
 
                     <div style="
                         padding:12px;
-                        background:#ffffff !important;
+                        background:#fff;
                         border-radius:9px;
-                        border:1px solid #d1d5db;
+                        border:1px solid #243247;
                     ">
 
                         <small style="
-                            color:#111827 !important;
+                            color:#64748b;
                         ">
                             IOC RECORDS
                         </small>
 
 
                         <div style="
-                            color:#111827 !important;
+                            color:#22c55e;
                             font-size:18px;
                             font-weight:bold;
                             margin-top:4px;
@@ -3387,7 +3174,7 @@ async function correlateIncident() {
                 <div style="
                     padding-top:15px;
                     border-top:1px solid #1e293b;
-                    color:#111827 !important;
+                    color:#00d4aa;
                     line-height:1.8;
                     font-size:13px;
                 ">
@@ -3489,7 +3276,7 @@ function renderIncidentGraph(
                 align-items:center;
                 justify-content:center;
                 height:430px;
-                color:#111827 !important;
+                color:#4b5563;
             ">
 
                 No graph data available.
@@ -3632,7 +3419,7 @@ function renderIncidentGraph(
                     y1="${source.y}"
                     x2="${target.x}"
                     y2="${target.y}"
-                    stroke="#9ca3af"
+                    stroke="#334155"
                     stroke-width="1.5"
                 />
 
@@ -3640,7 +3427,7 @@ function renderIncidentGraph(
                 <text
                     x="${midX}"
                     y="${midY - 6}"
-                    fill="#111827"
+                    fill="#64748b"
                     font-size="8"
                     text-anchor="middle"
                 >
@@ -3670,10 +3457,12 @@ function renderIncidentGraph(
             }
 
 
-            let fill="#111827";
+            let fill =
+                "#172033";
 
 
-            let stroke="#9ca3af";
+            let stroke =
+                "#64748b";
 
 
             let nodeRadius =
@@ -3689,9 +3478,11 @@ function renderIncidentGraph(
 
             if (type === "INCIDENT") {
 
-                fill="#111827";
+                fill =
+                    "#35131c";
 
-                stroke="#9ca3af";
+                stroke =
+                    "#ff4d6d";
 
                 nodeRadius =
                     32;
@@ -3700,33 +3491,41 @@ function renderIncidentGraph(
 
             else if (type === "URL") {
 
-                fill="#111827";
+                fill =
+                    "#102a3a";
 
-                stroke="#9ca3af";
+                stroke =
+                    "#38bdf8";
 
             }
 
             else if (type === "DOMAIN") {
 
-                fill="#111827";
+                fill =
+                    "#172c20";
 
-                stroke="#9ca3af";
+                stroke =
+                    "#22c55e";
 
             }
 
             else if (type === "FILE") {
 
-                fill="#111827";
+                fill =
+                    "#30210e";
 
-                stroke="#9ca3af";
+                stroke =
+                    "#f59e0b";
 
             }
 
             else if (type === "EMAIL") {
 
-                fill="#111827";
+                fill =
+                    "#241832";
 
-                stroke="#9ca3af";
+                stroke =
+                    "#c084fc";
 
             }
 
@@ -3762,8 +3561,8 @@ function renderIncidentGraph(
                         cx="${position.x}"
                         cy="${position.y}"
                         r="${nodeRadius}"
-                        fill="#111827"
-                        stroke="#9ca3af"
+                        fill="${fill}"
+                        stroke="${stroke}"
                         stroke-width="2"
                     />
 
@@ -3771,7 +3570,7 @@ function renderIncidentGraph(
                     <text
                         x="${position.x}"
                         y="${position.y - 4}"
-                        fill="#111827"
+                        fill="white"
                         font-size="9"
                         font-weight="bold"
                         text-anchor="middle"
@@ -3783,7 +3582,7 @@ function renderIncidentGraph(
                     <text
                         x="${position.x}"
                         y="${position.y + 10}"
-                        fill="#111827"
+                        fill="#94a3b8"
                         font-size="7"
                         text-anchor="middle"
                     >
@@ -3859,7 +3658,7 @@ function renderIncidentGraph(
         details.innerHTML = `
 
             <strong style="
-                color:#111827 !important;
+                color:white;
             ">
                 LIVE ATTACK GRAPH
             </strong>
@@ -3935,7 +3734,7 @@ function showGraphNode(
     details.innerHTML = `
 
         <strong style="
-            color:#111827 !important;
+            color:white;
         ">
 
             ${safeGraphValue(
@@ -3950,7 +3749,7 @@ function showGraphNode(
 
 
         <span style="
-            color:#111827 !important;
+            color:#00d4aa;
             word-break:break-all;
         ">
 
@@ -3966,7 +3765,7 @@ function showGraphNode(
 
 
         <small style="
-            color:#111827 !important;
+            color:#64748b;
         ">
 
             Node ID:
@@ -4746,7 +4545,7 @@ async function openSOCIncidentInvestigation(item){
             incidentId + " • Investigation error";
 
         body.innerHTML = `
-            <div class="cnx-investigation-note" style="border-color:#d1d5db !important;">
+            <div class="cnx-investigation-note" style="border-color:#7f1d1d;">
                 <strong>❌ Investigation data could not be loaded.</strong><br><br>
                 ${safe(
                     error && error.name === "AbortError"
