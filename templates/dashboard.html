@@ -5597,6 +5597,396 @@ setInterval(
 </script>
 
 
+
+
+<style id="cnx-final-readability-v2">
+/* =========================================================
+   CYBERNEXUS OMEGA — FINAL READABILITY OVERRIDE V2
+   This block is intentionally LAST so it overrides all older
+   dark/neon/low-contrast theme rules without changing JS/API.
+   ========================================================= */
+html body {
+    background:#ffffff !important;
+    color:#111827 !important;
+    font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif !important;
+    -webkit-font-smoothing:antialiased !important;
+    text-rendering:optimizeLegibility !important;
+}
+html body * {
+    font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif !important;
+    text-shadow:none !important;
+    opacity:1 !important;
+}
+
+/* WHITE SURFACES */
+html body .app,
+html body .main,
+html body .content,
+html body .container,
+html body .dashboard,
+html body .sidebar,
+html body .topbar,
+html body header,
+html body main,
+html body section,
+html body article,
+html body .panel,
+html body .card,
+html body .metric-card,
+html body .module,
+html body .widget,
+html body .box,
+html body .cnx-panel,
+html body .cnx-card,
+html body .cnx-module,
+html body .cnx-soc-mini,
+html body .cnx-soc-secondary,
+html body .cnx-investigation-section,
+html body .cnx-investigation-card,
+html body .cnx-nav-modal,
+html body .modal,
+html body .result,
+html body .results,
+html body .analysis-result,
+html body .scan-result,
+html body #scanResult,
+html body #fileResult,
+html body #incidentResult {
+    background:#ffffff !important;
+    background-image:none !important;
+    color:#111827 !important;
+    border-color:#d1d5db !important;
+    box-shadow:0 2px 10px rgba(17,24,39,.07) !important;
+}
+
+/* TOP HEADER — dark green background from previous theme is removed */
+html body .topbar {
+    background:#ffffff !important;
+    color:#111827 !important;
+    border:1px solid #d1d5db !important;
+}
+html body .topbar .eyebrow,
+html body .topbar h1,
+html body .topbar p,
+html body .topbar span,
+html body .topbar strong {
+    color:#111827 !important;
+    opacity:1 !important;
+}
+html body .topbar .live,
+html body .topbar .status-live {
+    color:#15803d !important;
+    font-weight:800 !important;
+}
+html body .topbar .profile {
+    background:#111827 !important;
+    color:#ffffff !important;
+    border-color:#111827 !important;
+}
+
+/* SIDEBAR */
+html body .brand h2,
+html body .brand span,
+html body .sidebar nav a,
+html body .sidebar nav a.active,
+html body .sidebar nav a:hover,
+html body .system-status small {
+    color:#111827 !important;
+    opacity:1 !important;
+}
+html body .system-status strong {
+    color:#15803d !important;
+    font-weight:800 !important;
+}
+
+/* HEADINGS / NORMAL TEXT */
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6,
+html body p,
+html body span,
+html body label,
+html body li,
+html body td,
+html body th,
+html body strong,
+html body a {
+    opacity:1 !important;
+}
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6 {
+    color:#111827 !important;
+    font-weight:700 !important;
+}
+html body p,
+html body span,
+html body label,
+html body li,
+html body td,
+html body th,
+html body strong,
+html body a {
+    color:#111827 !important;
+}
+html body small,
+html body .muted,
+html body .secondary,
+html body .description,
+html body .subtitle {
+    color:#4b5563 !important;
+}
+
+/* PANEL HEADERS — fixes pale green 'Security Operations Metrics' */
+html body .panel .panel-title,
+html body .panel .panel-header,
+html body .panel h2,
+html body .panel h3,
+html body .panel h4 {
+    color:#111827 !important;
+    opacity:1 !important;
+    font-weight:700 !important;
+}
+html body .panel .eyebrow {
+    color:#374151 !important;
+    opacity:1 !important;
+    font-weight:800 !important;
+}
+html body .panel p,
+html body .panel span,
+html body .panel small,
+html body .panel label {
+    color:#374151 !important;
+    opacity:1 !important;
+}
+
+/* METRIC CARDS — fixes pale THREAT LEVEL / HIGH / 14 / 76 / 17 */
+html body .metric-card {
+    background:#ffffff !important;
+    color:#111827 !important;
+    border-color:#d1d5db !important;
+}
+html body .metric-card * {
+    opacity:1 !important;
+}
+html body .metric-card > span,
+html body .metric-card > small,
+html body .metric-card label {
+    color:#4b5563 !important;
+    font-weight:600 !important;
+}
+html body .metric-card > strong,
+html body .metric-card strong,
+html body .metric-card .metric-value,
+html body .metric-card .value,
+html body .metric-card .number {
+    color:#111827 !important;
+    font-size:28px !important;
+    font-weight:800 !important;
+    opacity:1 !important;
+}
+/* HIGH threat value gets semantic orange */
+html body .metric-card > strong.danger,
+html body .metric-card strong.danger {
+    color:#c2410c !important;
+    font-weight:900 !important;
+}
+html body .metric-card > strong.high,
+html body .metric-card strong.high {
+    color:#c2410c !important;
+}
+html body .metric-card > strong.medium,
+html body .metric-card strong.medium {
+    color:#a16207 !important;
+}
+html body .metric-card > strong.low,
+html body .metric-card strong.low {
+    color:#15803d !important;
+}
+html body .metric-card > strong.critical,
+html body .metric-card strong.critical {
+    color:#b91c1c !important;
+}
+
+/* SOC TELEMETRY — dark cards from old theme become readable white cards */
+html body .cnx-soc-mini,
+html body .cnx-soc-secondary {
+    background:#ffffff !important;
+    color:#111827 !important;
+    border:1px solid #d1d5db !important;
+    box-shadow:0 2px 8px rgba(17,24,39,.06) !important;
+}
+html body .cnx-soc-mini span,
+html body .cnx-soc-secondary span {
+    color:#4b5563 !important;
+    font-weight:600 !important;
+}
+html body .cnx-soc-mini strong,
+html body .cnx-soc-secondary strong {
+    color:#111827 !important;
+    font-size:24px !important;
+    font-weight:800 !important;
+}
+
+/* FORM CONTROLS */
+html body input,
+html body textarea,
+html body select {
+    background:#ffffff !important;
+    color:#111827 !important;
+    border:1px solid #9ca3af !important;
+    font-size:14px !important;
+    font-weight:500 !important;
+}
+html body input::placeholder,
+html body textarea::placeholder {
+    color:#6b7280 !important;
+    opacity:1 !important;
+}
+
+/* BUTTONS */
+html body button,
+html body .btn,
+html body .button,
+html body input[type="button"],
+html body input[type="submit"] {
+    background:#ffffff !important;
+    color:#111827 !important;
+    border:1px solid #374151 !important;
+    font-size:14px !important;
+    font-weight:700 !important;
+    text-shadow:none !important;
+}
+html body button:hover,
+html body .btn:hover,
+html body .button:hover {
+    background:#f3f4f6 !important;
+    color:#111827 !important;
+}
+
+/* URL INPUT */
+html body #urlInput {
+    background:#ffffff !important;
+    color:#111827 !important;
+    border:1px solid #9ca3af !important;
+}
+html body #urlInput::placeholder {
+    color:#6b7280 !important;
+}
+
+/* RISK COLORS ONLY */
+html body .low,
+html body .risk-low,
+html body .status-low,
+html body .badge-low,
+html body .success,
+html body .verified,
+html body .status-ok {
+    color:#15803d !important;
+    font-weight:800 !important;
+}
+html body .medium,
+html body .risk-medium,
+html body .status-medium,
+html body .badge-medium {
+    color:#a16207 !important;
+    font-weight:800 !important;
+}
+html body .high,
+html body .risk-high,
+html body .status-high,
+html body .badge-high {
+    color:#c2410c !important;
+    font-weight:800 !important;
+}
+html body .critical,
+html body .risk-critical,
+html body .status-critical,
+html body .badge-critical {
+    color:#b91c1c !important;
+    font-weight:800 !important;
+}
+html body .badge-low { background:#f0fdf4 !important; border-color:#bbf7d0 !important; }
+html body .badge-medium { background:#fefce8 !important; border-color:#fde68a !important; }
+html body .badge-high { background:#fff7ed !important; border-color:#fed7aa !important; }
+html body .badge-critical { background:#fef2f2 !important; border-color:#fecaca !important; }
+
+/* RESULT / CODE AREAS */
+html body pre,
+html body code,
+html body .json,
+html body .api-response,
+html body .response,
+html body .output,
+html body .result-box {
+    background:#f9fafb !important;
+    color:#111827 !important;
+    border-color:#d1d5db !important;
+}
+
+/* ATTACK GRAPH */
+html body #attackGraph,
+html body #attackGraph svg,
+html body #graphNodeDetails {
+    background:#ffffff !important;
+    color:#111827 !important;
+}
+html body #attackGraph text {
+    fill:#111827 !important;
+    color:#111827 !important;
+}
+html body #attackGraph line,
+html body #attackGraph path {
+    stroke:#9ca3af !important;
+}
+html body #attackGraph circle,
+html body #attackGraph rect,
+html body #attackGraph ellipse {
+    fill:#ffffff !important;
+    stroke:#6b7280 !important;
+}
+
+/* TABLES */
+html body table { background:#ffffff !important; color:#111827 !important; }
+html body th { background:#f3f4f6 !important; color:#111827 !important; font-weight:700 !important; }
+html body td { background:#ffffff !important; color:#111827 !important; border-color:#e5e7eb !important; }
+
+/* Remove pale green text from common legacy selectors */
+html body .brand span,
+html body .system-status small,
+html body .url-scanner-hint,
+html body .cnx-soc-incident span,
+html body .cnx-investigation-subtitle,
+html body .cnx-investigation-note,
+html body .cnx-live-alert-body,
+html body .cnx-live-alert-meta {
+    color:#4b5563 !important;
+}
+
+/* LIVE status */
+html body .live,
+html body .status-live {
+    color:#15803d !important;
+    font-weight:900 !important;
+}
+
+/* Focus */
+html body button:focus-visible,
+html body input:focus-visible,
+html body textarea:focus-visible,
+html body select:focus-visible,
+html body a:focus-visible {
+    outline:3px solid rgba(17,24,39,.18) !important;
+    outline-offset:2px !important;
+}
+</style>
+
 </body>
 
 </html>
